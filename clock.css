@@ -1,0 +1,94 @@
+.sc, .mn {
+    transition: all 1.5s ease;
+}
+
+.clock{
+    cursor: pointer;
+    margin-top: 2.5%;
+    margin-left: calc(48% - 125px);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img/часы.png);
+    background-size: cover;
+    border-radius: 50%;
+    transition: box-shadow 0.5s ease ;
+    transition: all 0.75s ease ;
+    box-shadow: 2px 2px  10px 5px white;
+    z-index: 1000;
+    position: absolute;
+}
+.clock:hover{
+    box-shadow: 2px 2px  10px 10px white;
+
+}
+
+.clock_circle{
+    z-index: 13;
+}
+
+.min, .sec{
+    position: absolute;
+    z-index: 1200000;
+}
+
+.mn, .sc{
+    position: relative;
+    height: 200px;
+    z-index: 1000000;
+}
+
+.mn{
+    height: 250px;
+}
+
+.clock_cyber{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 130px;
+    margin-left: -50%;
+    top:10%;
+    z-index: 999;
+    background-color: green;
+}
+
+.clock_steam{
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 130px;
+    margin-left: 50%;
+    top:10%;
+    z-index: 999;
+    background-color: blue;
+}
+.clock_present{
+    content: '';
+    position: absolute;
+    background-color: brown;
+    width: 160px;
+    height: 130px;
+    margin-top: 50%;
+
+    z-index: 9999;
+}
+.clock_center{
+    content: '';
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: 999;
+}
+.clock_circle{
+    border: 1px solid blue;
+    z-index: 10000;
+}
+.map{
+    border: 1px solid red;
+}

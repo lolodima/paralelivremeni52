@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Ysabeau+SC:wght@1..1000&display=swap");
+
+footer {
+  user-select: all;
+  z-index: 1000;
+  /* background-image: url('./img/ggmk_footer.jpg'); */
+  min-height: 10%;
+  max-height: 10%;
+  font-family: "Ysabeau SC", sans-serif;
+  /* background-repeat: no-repeat; */
+  background-size: 100%;
+  background-color: #13131d;
+  color: #45454d;
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  font-weight: 900;
+  top: 90%;
+  left: 0;
+  padding: 1% 1% 0% 1%;
+  min-width: 100%;
+}
+
+footer > ul {
+  display: grid;
+  user-select: all;
+}
+
+footer > ul > li {
+  padding-bottom: 0.1%;
+  position: relative;
+  font-size: 70%;
+  top: -150%;
+  user-select: all;
+}
+
+footer > h2 {
+  text-align: center;
+  font-size: 85%;
+  font-style: italic;
+  position: relative;
+  top: -20%;
+}
+
+footer > a > img {
+  max-width: 35px;
+  max-height: 35px;
+  position: relative;
+  float: right;
+  opacity: 35%;
+  top: -80px;
+  margin: 3px;
+}
+.yt {
+  margin-top: 5px;
+}

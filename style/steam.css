@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ysabeau+SC:wght@1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+* {
+    transition: all 1s ease;
+}
+
+.steem_title {
+    left: 14%;
+    top: 75%;
+    position: absolute;
+    font-family: "Tektur", sans-serif;
+    font-size: 180%;
+    color: white;
+    -webkit-text-stroke: 1px black;
+}
+
+.steam_a {
+    position: absolute;
+    background: url('./img/задник_карты.png');
+    background-size: cover;
+    top: 20%;
+    left: 33%;
+    visibility: hidden;
+    padding: 8px;
+    width: 20%;
+    height: auto;
+    z-index: 100;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+    min-height: 40%;
+    font-family: "Ysabeau SC", sans-serif;
+}
+
+.sImage {
+    /* min-width: 90%; */
+    max-width: 100%;
+    min-height: 90%;
+    height: 100%;
+    border-radius: 30px 30px 0 0;
+    padding-bottom: 15px;
+
+}
+
+
+
+.steam_a_p {
+    margin-top: 5%;
+    padding-bottom: 10px;
+}
+
+.sButton {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.obvodka {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+.sButton_attachment{
+    font-family: "Tektur", sans-serif;
+    background-image: url('./oblask_back.png');
+    border: 1px solid #966d59;
+    color: #ab958a;
+    font-size: 19px;
+    cursor: pointer;
+    min-height: 53px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.sButton>button:hover {
+    background-image: url('./oblast_back_select.png');
+    color: #260e02;
+
+}
+.sButton_attachment_active{
+    font-family: "Tektur", sans-serif;
+    background-image: url('./oblast_back_select.png');
+    color: #260e02;
+    border: 1px solid #966d59;
+    font-size: 19px;
+    cursor: pointer;
+    min-height: 53px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.panel {
+    width: 40%;
+    height: auto;
+    background-color: rgba(65, 65, 65, 0.872);
+    border: 2px solid rgb(88, 88, 88);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    /* margin-top: 2.5%; */
+    visibility: hidden;
+    left: 55%;
+    display: flex;
+    padding: 0px;
+    z-index: 100000;
+
+}
+
+.panel>.sButton {
+    flex-direction: row;
+    gap: 0px;
+}
+
+.panel>.sButton>button {
+    flex: 1;
+}
+
+.oblast {
+    position: absolute;
+    width: 40%;
+    height: 45%;
+    left: 55%;
+    top: 36%;
+    background-image: url(./минская.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: 2px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    display: flex;
+}
+
+.oblast:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.826);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.pamyatnik {
+    height: auto;
+    width: 70px;
+    position: relative;
+    text-decoration: none;
+    font-size: 120%;
+    height: 100px;
+    text-align: center;
+    font-family: "Tektur", sans-serif;
+}
+
+.pamyatnik>span {
+    color: rgb(0, 0, 0);
+    font-size: 85%;
+    font-weight: bold;
+    width: auto;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100px;
+}
+
+.pamyatnik>img:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.826);
+    transition: all 0.2s ease-in-out;
+}
+
+.pamyatnik>img {
+    border-radius: 20px;
+    display: block;
+    width: 70px;
+    margin-top: 10px;
+
+}
+
+.pamyatnik1 {
+    margin-top: 5%;
+    margin-left: 23%;
+    display: inline-block;
+}
+
+.pamyatnik1img {
+    max-width: 100px;
+}
+
+.pamyatnik2 {
+    margin-top: 10%;
+    margin-left: 5%;
+    display: inline-block;
+}
+
+.pamyatnik2img {
+    max-width: 100px;
+}
+
+.pamyatnik3 {
+    margin-top: 11%;
+    margin-left: 15%;
+    display: inline-block;
+}
+
+.pamyatnik3img {
+    max-width: 100px;
+}
+
+.pamyatnik4 {
+    margin-top: 30%;
+    margin-left: 35%;
+    position: absolute;
+    display: inline-block;
+}
+
+.pamyatnik4img {
+    max-width: 100px;
+}
+
+.pamyatnik5 {
+    margin-top: 25%;
+    margin-left: 15%;
+    display: inline-block;
+}
+
+.pamyatnik5img {
+    max-width: 100px;
+}
+
+.pamyatnik6 {
+    margin-top: 13%;
+    margin-left: 10%;
+    display: inline-block;
+}
+
+.pamyatnik6img {
+    max-width: 100px;
+}
+
+.pamyatnik7 {
+    margin-top: 8%;
+    margin-left: 14%;
+    display: inline-block;
+}
+
+.pamyatnik7img {
+    max-width: 100px;
+}
+
+.pamyatnik8 {
+    margin-top: 30%;
+    margin-left: 45%;
+    position: absolute;
+    display: inline-block;
+}
+
+.pamyatnik8img {
+    max-width: 100px;
+}
+
+.pamyatnik9 {
+    margin-top: 23%;
+    margin-left: 13%;
+    display: inline-block;
+}
+
+.pamyatnik9img {
+    max-width: 100px;
+}
+
+.pamyatnik10 {
+    margin-top: 10%;
+    margin-left: 29%;
+    display: inline-block;
+}
+
+.pamyatnik10img {
+    max-width: 100px;
+}
+
+.pamyatnik11 {
+    margin-top: 29%;
+    margin-left: 5%;
+    display: inline-block;
+}
+
+.pamyatnik11img {
+    max-width: 100px;
+}
+
+.pamyatnik12 {
+    margin-top: 25%;
+    margin-left: 35%;
+    position: absolute;
+    display: inline-block;
+}
+
+.pamyatnik12img {
+    max-width: 100px;
+}
+
+.pamyatnik13 {
+    margin-top: 30%;
+    margin-left: 12%;
+    display: inline-block;
+}
+
+.pamyatnik13img {
+    max-width: 100px;
+}
+
+.pamyatnik14 {
+    margin-top: 10%;
+    margin-left: 10%;
+    display: inline-block;
+}
+
+.pamyatnik14img {
+    max-width: 100px;
+}
+
+.pamyatnik15 {
+    margin-top: 5%;
+    margin-left: 5%;
+    display: inline-block;
+}
+
+.pamyatnik15img {
+    max-width: 100px;
+}
+
+.pamyatnik16 {
+    margin-top: 23%;
+    margin-left: 65%;
+    position: absolute;
+    display: inline-block;
+}
+
+.pamyatnik16img {
+    max-width: 100px;
+}
+
+.pamyatnik17 {
+    margin-top: 15%;
+    margin-left: 15%;
+    display: inline-block;
+}
+
+.pamyatnik17img {
+    max-width: 100px;
+}
+
+.pamyatnik18 {
+    margin-top: 10%;
+    margin-left: 15%;
+    display: inline-block;
+}
+
+.pamyatnik18img {
+    max-width: 100px;
+}
+
+.pamyatnik19 {
+    margin-top: 21%;
+    margin-left: 15%;
+    display: inline-block;
+}
+
+.pamyatnik19img {
+    max-width: 100px;
+}
+
+.pamyatnik20 {
+    margin-top: 25%;
+    margin-left: 40%;
+    position: absolute;
+    display: inline-block;
+}
+
+.pamyatnik20img {
+    max-width: 100px;
+}
+
+.pamyatnik21 {
+    margin-top: 29%;
+    margin-left: 10%;
+    display: inline-block;
+}
+
+.pamyatnik21img {
+    max-width: 100px;
+}
+
+.pamyatnik22 {
+    margin-top: 5%;
+    margin-left: 50%;
+    display: inline-block;
+}
+
+.pamyatnik22img {
+    max-width: 100px;
+}
+
+.pamyatnik23 {
+    margin-top: 25%;
+    margin-left: -20%;
+    display: inline-block;
+}
+
+.pamyatnik23img {
+    max-width: 100px;
+}
+
+.pamyatnik24 {
+    margin-top: 30%;
+    margin-left: 35%;
+    position: absolute;
+    display: inline-block;
+}
+.pamyatnik25 {
+    margin-top: 20%;
+    margin-left: 10%;
+    position: absolute;
+    display: inline-block;
+}
+.pamyatnik26 {
+    margin-top: 30%;
+    margin-left: 40%;
+    position: absolute;
+    display: inline-block;
+}
+.pamyatnik27 {
+    margin-top: 30%;
+    margin-left: 60%;
+    position: absolute;
+    display: inline-block;
+}
+
+.pamyatnik24img {
+    max-width: 100px;
+}
+
+.pamyatnik5,
+.pamyatnik6,
+.pamyatnik7,
+.pamyatnik8,
+.pamyatnik9,
+.pamyatnik10,
+.pamyatnik11,
+.pamyatnik12,
+.pamyatnik13,
+.pamyatnik14,
+.pamyatnik15,
+.pamyatnik16,
+.pamyatnik17,
+.pamyatnik18,
+.pamyatnik19,
+.pamyatnik20,
+.pamyatnik21,
+.pamyatnik22,
+.pamyatnik23,
+.pamyatnik24,
+.pamyatnik25,
+.pamyatnik26,
+.pamyatnik27,
+.pamyatnik28
+{
+    display: none;
+}
+
+
+.changeCentry{
+    color: #ab958a;
+    display: flex;
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    visibility: hidden;
+    float: right;
+    margin-right: 18%;
+    margin-top: 29%;
+    font-family: "Tektur", sans-serif;
+}
+
+.centry{
+    background-size: contain;
+    min-width: 150px;
+    min-height: 25px;
+    max-width: 20%;
+    background-image: url('./oblask_back.png');
+    padding-top: 3px;
+}
+
+.changeCentryBtn{
+    cursor: pointer;
+    min-height: 20px;
+    background-image: url('./oblask_back.png');
+    background-size: contain;
+    min-width: 20px;
+    max-width: 20%;
+    color: #ab958a;
+    border-left: 1px solid #966d59;
+    border-right: 1px solid #966d59;
+}
+
+.changeCentryBtn:hover{
+    color: black;
+    transition: all 0.2s ease-in-out;
+    background-image: url('./oblast_back_select.png');
+}
+
+.changeCentryBtn:active{
+    color: #ab958a;
+    transition: all 0.1s ease-in-out;
+}

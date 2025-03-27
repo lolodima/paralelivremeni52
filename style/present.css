@@ -1,0 +1,31 @@
+.present_oblast{
+    position: absolute;
+    width: 43%;
+    height: 43%;
+    left: 57%;
+    top: 12%;
+    z-index: 1000000;
+    padding: 10px;
+    background-image: url("./img/present_oblast.png");
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.presentbutton{
+    top: 70%;
+    left: 50%;
+    z-index: 10000;
+    position: absolute;
+}
+.present{
+    visibility: hidden;
+}
+.kard{
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    left: 2%;
+    top: 20%;
+    z-index: 1000000;
+ 
+}

@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Tektur:wght@400..900&display=swap");
+
+* {
+    transition: all 0.75s ease;
+}
+
+
+.micro{
+    cursor: pointer;
+}
+
+.cyber > img:hover {
+    box-shadow: 0 0 1px black;
+    border: 1px solid black;
+}
+
+.cImage {
+    /* min-width: 90%; */
+    max-width: 80%;
+    /* min-height: 90%; */
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.wrapper {
+    display: none;
+}
+
+.oblast_cyber {
+    position: absolute;
+    width: 53%;
+    height: 68%;
+    left: 20%;
+    top: 20%;
+    padding: 10px;
+    background-image: url("./img/cyber.png");
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+@media (max-width:1200px){
+.oblast_cyber{
+    transform: scale(0.75);
+
+} 
+}
+.cyber_title {
+    left: 81%;
+    -webkit-text-stroke: 1px black;
+    top: 75%;
+    font-family: "Tektur", sans-serif;
+    position: absolute;
+    font-size: 180%;
+    color: white;
+}
+
+.gallery_pamyatnik {
+    height: auto;
+    width: 100px;
+    position: relative;
+    font-size: 120%;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 2px;
+    margin-top: 2px;
+    display: inline-block;
+}
+
+.gallery_pamyatnik > span {
+    color: grey;
+    -webkit-text-stroke: #000000 0.1px;
+    font-size: 85%;
+    font-weight: bold;
+    width: auto;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100px;
+}
+
+.gallery_pamyatnik > img:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.826);
+    border: 3px dashed white;
+    transition: all 0.2s ease-in-out;
+}
+
+.gallery_pamyatnik > img {
+    /* border-radius: 20px; */
+    display: block;
+    height: 68px;
+    width: 68px;
+    border-radius: 30px;
+    border: 3px solid grey;
+}
+.grid_hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-items: center;
+}
+.grid_hero > div > img {
+    min-width: 150%;
+    max-width: 100%;
+}
+.marina {
+    position: relative;
+    top: 10%;
+    left: 30%;
+    border-radius: 10px;
+}
+.talash {
+    position: relative;
+    top: 30%;
+    left: 32%;
+    border-radius: 10px;
+}
+.nichi {
+    position: relative;
+    top: 50%;
+    left: 17%;
+}
+
+.selhos {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    border-radius: 10px;
+}
+.gurski {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    border-radius: 10px;
+}
+.industry {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    border-radius: 10px;
+}
+.kisli {
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    border-radius: 10px;
+}
+
+.nauka {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    border-radius: 10px;
+}
+.economy {
+    position: absolute;
+    top: 70%;
+    left: 21%;
+    border-radius: 10px;
+}
+
+
+.mrochek {
+    position: absolute;
+    top: 70%;
+    left: 51%;
+    border-radius: 10px;
+}
+
+.domracheva {
+    position: absolute;
+    top: 6%;
+    left: 51%;
+    border-radius: 10px;
+}
+
+.cyper {
+    position: absolute;
+    top: 55%;
+    left: 45%;
+    border-radius: 10px;
+}
+
+.kushnir {
+    position: absolute;
+    top: 35%;
+    left: 64%;
+    border-radius: 10px;
+}
+
+.goncharov {
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    border-radius: 10px;
+}
+
+.litvin {
+    position: absolute;
+    top: 70%;
+    left: 31%;
+    border-radius: 10px;
+}
+
+.guskova {
+    position: absolute;
+    top: 19%;
+    left: 35%;
+    border-radius: 10px;
+}
+
+.filter {
+    font-family: Arial, sans-serif;
+    width: 250px;
+    height: 64%;
+    background: linear-gradient(180deg, #0a3853, #000000);
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    color: white;
+    visibility: hidden;
+    position: absolute;
+    overflow-y: auto;
+    top:33%;
+    left:5%;
+    align-items: center;
+    box-shadow: 0 0 6px #00ffff, 0 0 2px #00ffff, 0 0 2px #00ffff;
+}
+.filter::-webkit-scrollbar-thumb {
+    background: #00ffff; /* Цвет ползунка */
+    border-radius: 20px; /* Закругление */
+    border: 1px solid gray; /* Граница */
+  }
+  .filter::-webkit-scrollbar-track {
+    background: #3c4949;
+    border-radius: 20px;
+  }
+.filter_btn:hover{
+   box-shadow: 0px 0px 10px black;
+   transition: all 0.4s ease-out;
+   background: linear-gradient(to bottom, #1976b5, #145a86);
+   box-shadow: 0 0 10px #00ffff, 0 0 4px #00ffff, 0 0 6px #00ffff;
+}
+
+.filter_btn{
+    background: linear-gradient(180deg, #0a3853, #0e5179);
+    box-shadow: 0 0 6px #00ffff, 0 0 2px #00ffff, 0 0 2px #00ffff;
+  border: 1px solid #0a3d5e;
+  border-radius: 20px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  width: 80%;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.filter_btn_active {
+    box-shadow: 0px 0px 10px black;
+    transition: all 0.4s ease-out;
+    background: linear-gradient(to bottom, #1976b5, #145a86);
+    box-shadow: 0 0 10px #00ffff, 0 0 4px #00ffff, 0 0 6px #00ffff;
+  border-radius: 20px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  width: 80%;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  }

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Наследие</title>
+        
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./style/steam.css" />
+        <link rel="stylesheet" href="./style/cyber.css" />
+        <link rel="stylesheet" href="./style/footer.css" />
+        <link rel="stylesheet" href="./style/header.css" />
+        <link rel="stylesheet" href="./clock.css" />
+        <link rel="stylesheet" href="./style//modal.css" />
+        <link rel="stylesheet" href="./style/slider.css" />
+        <link rel="stylesheet" href="./style/present.css" />
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=d3da1042-b412-47da-9c4e-4961ac409e67&lang=ru_RU" type="text/javascript">
+</script>
+    </head>
+    <body>
+        <header class="zagolovok">
+            <!-- <img src="img/gerb.png" alt="герб" class="gerb">-->
+            <span class="lang">RU<img class="" src="./img/globus.png" /></span>
+            <img src="img/ggmk.png" alt="" class="ggmk" />
+            <span class="title1">Интерактивные часы</span>
+            <br />
+            <span class="title2"> Параллели времени</span>
+            
+        </header>
+        <!-- Модальный -->
+        <div id="myModal" class="modal">
+            <div class="slider">
+                <img src="./img/cyber_prompt.jpg" />
+                <img src="./img/center_prompt.jpg" />
+                <img src="./img/past_promp.jpg" />
+                <span class="close">&times;</span>
+                <button class="prev"><</button>
+                <button class="next">></button>
+            </div>
+            <div class="modal-content">
+                <div class="modal_back">
+                    <img src="" alt="" class="hero" />
+                    <img src="img/modal_arrows.png" onclick="changeHeroImage()" alt="" class="modal_arrows"/>
+                    <img src="./img/micro.png" class="micro" id="micro" />
+                   <a class ="reference" target="_blank">
+                    <img src="./img/yt.png" class="youtubemodal" /> 
+                   </a>
+                
+                </div>
+                <span class="cClose">&times;</span>
+                <h2 class="nameHero"></h2>
+                <h2 class="lifeTime">dfsfshd</h2>
+                <div class="modal_text">
+                    <p id="modal_text_p"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModalPast" class="modalPast">
+            <div class="modal-content-past">
+                <img src="img/modal_arrows.png" onclick="changeMonumnentImage()" alt="" class="modal_arrows_past"/>
+                <div class="modal_back-past">
+                    <iframe class="monument-modal-vidio"  src="https://www.youtube.com/embed/FiynOYlSfrk?si=VETAaqLZjQbsw2Gz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      
+                    <img src="" alt="" class="monument-modal" />
+
+                    <img
+                        src=""
+                        class="micro"/>
+                </div>
+
+                <span class="pClose">&times;</span>
+                <h2 class="nameMonument"></h2>
+                <div class="modal_text_past">
+                    <p id="modal_text_p"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cyber_title cyber vern">Нажмите чтобы вернуться</div>
+        <div class="cyber oblast_cyber">
+            <div
+                target="_blank"
+                title="Памятник промышленности"
+                class="gallery_pamyatnik industry other"
+                onclick="promModal()"
+            >
+                <img src="img/промышленность1.jpg" />
+        </div>
+            <div
+                target="_blank"
+                title="Памятник Науке"
+                class="gallery_pamyatnik nauka science"
+                onclick="scienceModal()"
+            >
+                <img src="img/наука.jpg" />
+        </div>
+        </div>
+        <div target="_blank" class="steam_a steem">
+            <img class="sImage" src="./img/allBelarusMinsk.png" />
+            <br />
+            <p class="steam_a_p">Минская область</p>
+        </div>
+        <div class="steem_title steem vern">Нажмите чтобы вернуться</div>
+
+        <div class="panel steem">
+            <div class="sButton">
+                <button id="bt15" class="sButton_attachment_active">
+                    Минская область
+                </button>
+                <button id="bt16" class="sButton_attachment">
+                    Гомельская область
+                </button>
+                <button id="bt19" class="sButton_attachment">
+                    Бресткая область
+                </button>
+                <button id="bt20" class="sButton_attachment">
+                    Могилевская область
+                </button>
+                <button id="bt21" class="sButton_attachment">
+                    Витебская область
+                </button>
+                <button id="bt22" class="sButton_attachment">
+                    Гродненнская область
+                </button>
+            </div>
+        </div>
+   
+        <div class="steem oblast">
+            <img src="img/obvodks.png" alt="" class="obvodka" />
+            <div
+                class="pamyatnik1 pamyatnik century20 area1"
+            >
+                <img src="img/komplex.png" class="pamyatnik1img" />
+                <span class="pamyatnik1-span"
+                    >Мемориальный <br />
+                    комплекс<br />"Хатынь"</span
+                >
+        </div>
+
+            <div
+                class="pamyatnik2 pamyatnik century20 area1">
+                <img src="img/komplex.png" class="pamyatnik2img" />
+                <span class="pamyatnik2-span">курган славы</span>
+    </div>
+            <div
+                class="pamyatnik3 pamyatnik century20 area1"
+                target="_blank"
+                href="https://savehistory.by/karta/memorialnyy-kompleks-shtalag-342-molodechno/"
+            >
+                <img src="img/komplex.png" class="pamyatnik3img" />
+                <span class="pamyatnik3-span"
+                    >Мемориальный <br />комплекс<br />
+                    Шталаг 342</span
+                >
+</div>
+            <div
+                class="pamyatnik4 pamyatnik century20 area1"
+                target="_blank"
+                href="https://pda.ekskursii.by/?Dostoprimechatelnosti_Belarusi=17882_Memorialnyy_kompleks_Yama#:~:text=%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%20%C2%AB%D0%AF%D0%BC%D0%B0%C2%BB%20%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%20%D0%BD%D0%B0%20%D1%83%D0%BB%D0%B8%D1%86%D0%B5,%D0%BF%D1%83%D1%82%D1%8C%C2%BB%20%E2%80%94%20%D0%B2%202000%20%D0%B3%D0%BE%D0%B4%D1%83."
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik3img" />
+                <span class="pamyatnik3-span"
+                    >Мемориал<br />
+                    "Яма"</span
+                >
+</div>
+            <div
+                class="pamyatnik5 pamyatnik century20 area2"
+                target="_blank"
+                href="https://kamengrad.by/pamjatniki-v-gomele-vechnyj-ogon.html"
+            >
+                <img src="img/komplex.png" class="pamyatnik5img" />
+                <span class="pamyatnik1-span">
+                    Мемориал <br />вечный огонь</span
+                >
+                </div>
+
+            <div
+                class="pamyatnik6 pamyatnik century20 area2"
+                target="_blank"
+                href="https://www.savehistory.by/karta/pamyatnik-antifashistam-podpolshchikam-na-bratskoy-mogile-gomel/"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik6img" />
+                <span class="pamyatnik2-span">
+                    Памятник <br />ополченцам-подпольщикам</span
+                >
+                </div>
+            <div
+            class="pamyatnik25 pamyatnik century20 area2"
+            target="_blank"
+            href="https://ru.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9"
+        >
+            <img src="img/komplex.png" class="pamyatnik25img" />
+            <span class="pamyatnik25-span">дулаг 121</span>
+        </div>
+            <div
+                class="pamyatnik7 pamyatnik century20 area2"
+                target="_blank"
+                href="https://www.savehistory.by/karta/pamyatnyy-znak-uznikam-kontslagerya-gomel/"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik7img" />
+                <span class="pamyatnik3-span"
+                    >Памятник узникам <br />концлагеря</span
+                >
+    </div>
+            <div
+                class="pamyatnik8 pamyatnik century20 area2"
+                target="_blank"
+                href="http://www.ggl.by/vov-75/mem/v_osv.htm"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik8img" />
+                <span class="pamyatnik3-span"
+                    >Памятник войнам<br />освободителям</span
+                >
+</div>
+            <div
+                class="pamyatnik9 pamyatnik century20 area3"
+                target="_blank"
+                href="https://vb.by/gazeta/eto-bylo-bylo/brest-pochtil-pamyat-uznikov-getto-otkrytie-obnovlennogo-pamyatnika.html"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik9img" />
+                <span class="pamyatnik3-span"
+                    >Памятник<br />
+                    жертвам <br />холокоста</span
+                >
+</div>
+            <div
+                class="pamyatnik10 pamyatnik century20 area3"
+                target="_blank"
+                href="https://savehistory.by/karta/memorialnyy-kompleks-voinam-osvoboditelyam-pinsk/"
+            >
+                <img src="img/komplex.png" class="pamyatnik10img" />
+                <span class="pamyatnik3-span"
+                    >Мемориальный комплекс <br />
+                    осводбодителям пинска</span
+                >
+</div>
+            <a
+                class="pamyatnik11 pamyatnik century20 area3"
+                target="_blank"
+                href="https://3pulse.com/ru/sights/975635"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik11img" />
+                <span class="pamyatnik1-span"
+                    >Монумент<br />
+                    с танком</span
+                >
+</a>
+
+            <a
+                class="pamyatnik12 pamyatnik century20 area3"
+                target="_blank"
+                href="https://www.tripadvisor.ru/Attraction_Review-g6280959-d7393476-Reviews-Urbanovich_Monument-Ruzhany_Brest_Region.html"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik12img" />
+                <span class="pamyatnik2-span">Памятник <br />урбановичу</span>
+</a>
+            <a
+                class="pamyatnik13 pamyatnik century20 area4"
+                target="_blank"
+                href="http://bobruisk.by/gorod/perpetuation/burial/4443.html"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik13img" />
+                <span class="pamyatnik3-span"
+                    >Памятник-танк<br />
+                    на могиле генерала <br />Б.С.Бахарова</span
+                >
+</a>
+            <div
+                class="pamyatnik14 pamyatnik century20 area4"
+                target="_blank"
+                href="https://mogilev.in/showplace/warriors_pamyatnik/"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik14img" />
+                <span class="pamyatnik3-span"
+                    >Памятник воинам<br />-интернационалистам</span
+                >
+</div>
+            <div
+                class="pamyatnik15 pamyatnik century20 area4"
+                target="_blank"
+                href="https://planetabelarus.by/sights/pamyatnik-k-200-letiyu-bitvy-pri-lesnoy/"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik15img" />
+                <span class="pamyatnik3-span">Памятник битве при лесной</span>
+</div>
+            <div
+                class="pamyatnik17 pamyatnik century20 area5"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BA%D0%BE%D1%80%D0%B8%D0%BD%D0%B0"
+            >
+                <img src="img/komplex.png" class="pamyatnik17img" />
+                <span class="pamyatnik2-span">Курган <br />славы</span>
+</div>
+
+            <div
+                class="pamyatnik18 pamyatnik century20 area5"
+                target="_blank"
+                href="https://geocaching.su/?pn=101&cid=29350#:~:text=%D0%92%202018%20%D0%B3%D0%BE%D0%B4%D1%83%20%D0%B2%20%D0%9F%D0%B0%D1%80%D0%BA%D0%B5,%D0%93%D0%B5%D1%80%D0%BE%D1%8F%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%A1%D0%BE%D1%8E%D0%B7%D0%B0%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B8%D1%8F%20%D0%9C%D0%B0%D1%80%D0%B3%D0%B5%D0%BB%D0%BE%D0%B2%D0%B0."
+            >
+            
+                <img src="img/pamyatnik.png" class="pamyatnik18img" />
+                <span class="pamyatnik3-span">Памятник десантникам</span>
+</div>
+
+            <div
+                class="pamyatnik19 pamyatnik century20 area5"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9"
+            >
+                <img src="img/komplex.png" class="pamyatnik19img" />
+                <span class="pamyatnik3-span">Мемориальный комплекс в честь советских воинов-освободителей, партизан и подпольщиков Витебщины</span>
+</div>
+
+            <div
+                class="pamyatnik20 pamyatnik century20 area5"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%C2%AB%D0%9F%D1%80%D0%BE%D1%80%D1%8B%D0%B2%C2%BB"
+            >
+                <img src="img/komplex.png" class="pamyatnik20img" />
+                <span class="pamyatnik3-span"
+                    >Мемориальный комплекс <br />"Прорыв"</span
+                >
+           
+           
+</div>
+
+            <div
+                class="pamyatnik21 pamyatnik century20 area6"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D1%86%D0%B5%D0%B2%D0%B5%D1%86"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik21img" />
+                <span class="pamyatnik1-span"
+                    >Памятник Памяти <br />Узников Гетто</span
+                >
+</div>
+
+            <div
+                class="pamyatnik22 pamyatnik century20 area6"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BA%D0%BE%D1%80%D0%B8%D0%BD%D0%B0"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik22img" />
+                <span class="pamyatnik2-span">Памятник Учителям и Ученикам - Погибшим В Годы Великой Отечественной Войны</span>
+</div>
+            <div
+                class="pamyatnik23 pamyatnik century20 area6"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9"
+            >
+                <img src="img/pamyatnik.png" class="pamyatnik23img" />
+                <span class="pamyatnik3-span">Вечный огонь</span>
+</div>
+            <a
+                class="pamyatnik24 pamyatnik century20 area6"
+                target="_blank"
+                href="https://ru.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9"
+            >
+                <img src="img/komplex.png" class="pamyatnik24img" />
+                <span class="pamyatnik3-span">комплекс <br />холокоста</span>
+
+</a>
+        <div
+        class="pamyatnik27 pamyatnik century20 area2"
+        target="_blank"
+        href="https://ru.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9"
+    >
+    
+
+        <img src="img/komplex.png" class="pamyatnik27img" />
+        <span class="pamyatnik3-span">Буйническое поле</span>     
+</div>
+<div
+class="pamyatnik28 pamyatnik century20 area4"
+target="_blank" 
+>
+
+<img src="img/komplex.png" class="pamyatnik28img" />
+
+<span class="pamyatnik4-span">Бресткая крепость</span>     
+</div>
+        </div>
+
+        <div class="clock" id="cl" >
+            <div class="clock_cyber"></div>
+            <div class="clock_steam"></div>
+            <div class="clock_center"></div>
+            <div class="clock_present"></div>
+     
+    
+            <div class="min">
+                <img src="img/minute.png" alt="" class="mn" id="mn"  />
+            </div>
+            <div class="sec">
+                <img src="img/second.png" alt="" class="sc" id="sc" />
+            </div>
+        </div>
+        
+        <div class="present present_oblast">
+            <img class="present_oblast_img" src="img/present_oblast.png" class=" present present_oblast" />
+        </div>
+        <div id="map" class="present kard" style="width:32%; height: 400px"></div>
+    
+        <!-- <button class="presentbutton " onclick="setPresent()">Настоящее </button> -->
+        <div class="text">Нажмите чтобы начать</div>
+
+        <div class="container">
+            <div class="cyber_back_container">
+                <div class="filter cyber">
+                    <h2>Фильтр</h2>
+                    <button type="button" class="scienceb filter_btn">
+                        наука
+                    </button>
+                    <button type="button" class="warb filter_btn">армия</button>
+                    <button type="button" class="economb filter_btn">
+                        экономика
+                    </button>
+                    <button type="button" class="sportb filter_btn">
+                        спорт
+                    </button>
+                    <button type="button" class="medb filter_btn">
+                        медицина
+                    </button>
+                    <button type="button" class="otherb filter_btn">
+                        другое
+                    </button>
+                    <button type="button" class="showAll filter_btn_active">
+                        Показать всё
+                    </button>
+                </div>
+                <img
+                    src="img/centralbackground.png"
+                    class="cyber_back"
+                    id="cyber_back"
+                    alt=""
+                />
+            </div>
+            <div class="steam_back_container">
+                <img
+                    src="img/centralbackground.png"
+                    class="steam_back"
+                    id="steam_back"
+                    alt=""
+                />
+            </div>
+        </div>
+        <img src="./img/щавель.png" class="prompt" onclick="promptModal()" />
+        <footer class="o_nas">
+            <h2 class="h_footer">Как связаться с нами?</h2>
+            <ul>
+                <li class="li1">Email: gmt@mail.gomel.by</li>
+                <li class="li2">Адрес: г.Гомель, ул.Объездная, 2</li>
+                <li class="li3">Номер телефона: 8 (0232) 50-12-73</li>
+            </ul>
+            <a href="https://vk.com/ggmk_club" target="_blank"
+                ><img src="img/wk.png" alt=""
+            /></a>
+            <a href="https://www.instagram.com/ggmk.gomel/" target="_blank"
+                ><img src="img/inst.png" alt=""
+            /></a>
+            <a                  href="https://www.youtube.com/channel/UCtlbFZ3FVvNSj4sIp7cmywA"
+                target="_blank"
+                ><img class="yt" src="img/yt.png" alt=""
+            /></a>
+        </footer>
+    </body>
+    <script type="text/javascript">
+        // Функция ymaps.ready() будет вызвана, когда
+        // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+        ymaps.ready(init);
+        function init(){
+            // Создание карты.
+            var myMap = new ymaps.Map("map", {
+                // Координаты центра карты.
+                // Порядок по умолчанию: «широта, долгота».
+                // Чтобы не определять координаты центра карты вручную,
+                // воспользуйтесь инструментом Определение координат.
+                center: [55.76, 37.64],
+                // Уровень масштабирования. Допустимые значения:
+                // от 0 (весь мир) до 19.
+                zoom: 7
+            });
+        }
+    </script>
+    <script src="index.js"></script>
+</html>
