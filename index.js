@@ -90,6 +90,7 @@ const pamyatnik27 = document.querySelector(".pamyatnik27");
 const pamyatnik28 = document.querySelector(".pamyatnik28");
 const clCyber = document.querySelector(".clock_cyber");
 const clSteam = document.querySelector(".clock_steam");
+const clPresent = document.querySelector(".clock_present");
 const clCenter = document.querySelector(".clock_center");
 const t1 = document.querySelector(".title1");
 const t2 = document.querySelector(".title2");
@@ -311,13 +312,15 @@ document.addEventListener("keydown", (e) => {
   }
   if (e.key == 4) {
     StateNumber = 4;
-    clCenter.style.display = "block";
+    clCenter.style.display = "none";
     clCyber.style.display = "none";
     clSteam.style.display = "none";
-    cl.click();
+    clPresent.style.display = "block";
+  
     setPresent();
   }
 });
+
 showImage(currentIndex);
 
 function setModal(text, label, img1, img2, heroSound) {
@@ -587,6 +590,7 @@ clSteam.addEventListener("click", () => {
   clCenter.style.display = "block";
   clCyber.style.display = "none";
   clSteam.style.display = "none";
+  clPresent.style.display = "none";
   cl.click();
 });
 
@@ -595,14 +599,26 @@ clCyber.addEventListener("click", () => {
   clCenter.style.display = "block";
   clCyber.style.display = "none";
   clSteam.style.display = "none";
+  clPresent.style.display = "none";
   cl.click();
 });
-
+clPresent.addEventListener("click",()=>{
+  
+            
+            StateNumber = 4;
+    clCenter.style.display = "block";
+    clCyber.style.display = "none";
+    clSteam.style.display = "none";
+    clPresent.style.display = "none";
+            setPresent()
+            cl.click();
+})
 clCenter.addEventListener("click", () => {
   StateNumber = 3;
   clCenter.style.display = "none";
   clCyber.style.display = "block";
   clSteam.style.display = "block";
+  clPresent.style.display = "block";
   cl.click();
 });
 function setSteem(){
@@ -683,7 +699,7 @@ function setCenter(){
 
   toggleVisibility(cyber, false);
   toggleVisibility(steem, false);
-
+  toggleVisibility(present, false);
   document.querySelector(".clock").style.marginLeft = "calc(48% - 125px)";
   setTimeout(() => {
     text.style.display = "block";
@@ -705,8 +721,11 @@ cl.addEventListener("click", (e) => {
     case 3:
 setCenter()
       break;
-  }
-
+  
+    case 4:
+    setPresent()
+          break;
+      }
   // Анимация стрелок
   sc.style.transform = `rotate(${s}deg)`;
   mn.style.transform = `rotate(${m}deg)`;

@@ -8,7 +8,7 @@
     margin-left: calc(48% - 125px);
     width: 300px;
     height: 300px;
-    display: flex;
+
     cursor: pointer;
     justify-content: center;
     align-items: center;
@@ -32,13 +32,13 @@
 
 .min, .sec{
     position: absolute;
-    z-index: 1200000;
+    z-index: 12033;
 }
 
 .mn, .sc{
     position: relative;
     height: 200px;
-    z-index: 1000000;
+    z-index: 12033;
 }
 
 .mn{
@@ -50,9 +50,9 @@
     position: absolute;
     width: 150px;
     height: 130px;
-    margin-left: -50%;
+    margin-left: 0%;
     top:10%;
-    z-index: 999;
+    z-index: 99977;
     background-color: green;
 }
 
@@ -63,7 +63,7 @@
     height: 130px;
     margin-left: 50%;
     top:10%;
-    z-index: 999;
+    z-index: 99955;
     background-color: blue;
 }
 .clock_present{
@@ -72,9 +72,9 @@
     background-color: brown;
     width: 160px;
     height: 130px;
-    margin-top: 50%;
-
-    z-index: 9999;
+    margin-top: 55%;
+left: 25%;
+    z-index: 999955;
 }
 .clock_center{
     content: '';
