@@ -233,13 +233,6 @@ function setActiveMicro(switch1) {
 }
 
 isVidio=false
-function changeMonumnentImageNext() {
-  contentIndex+=1
-  if(contentIndex>= content.length){
-    contentIndex=0
-  }
-  checkSlideType()
-}
 function checkSlideType(){
   if(content[contentIndex].type=="vidio"){
     monument.style.display='none'
@@ -252,6 +245,14 @@ function checkSlideType(){
     monument.src=content[contentIndex].reference
   }
 }
+function changeMonumnentImageNext() {
+  contentIndex+=1
+  if(contentIndex>= content.length){
+    contentIndex=0
+  }
+  checkSlideType()
+}
+
 function changeMonumnentImageBack() {
   contentIndex-=1
   if(contentIndex<0){
