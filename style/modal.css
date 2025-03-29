@@ -224,11 +224,23 @@ font-weight: normal;
   position: relative;
   left: 80%;
 }
-.modal_arrows_past{
+.modal_arrows_past_next{
   margin-top: 35vh;
   left: 36%;
   margin-left: 10vw;
   max-width: 4vw;
+  max-height: 15vh;
+  z-index: 100;
+  cursor: pointer;
+  position: absolute;
+}
+.modal_arrows_past_back{
+  margin-top: 35vh;
+  left: 0%;
+  transform: rotate(180deg);
+  margin-left: 10vw;
+  max-width: 4vw;
+  cursor: pointer;
   max-height: 15vh;
   z-index: 100;
   position: absolute;

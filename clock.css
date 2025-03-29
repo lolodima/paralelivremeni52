@@ -9,7 +9,6 @@
     width: 300px;
     height: 300px;
 
-    cursor: pointer;
     justify-content: center;
     align-items: center;
     background-image: url(img/часы.png);
@@ -33,11 +32,13 @@
 .min, .sec{
     position: absolute;
     z-index: 12033;
+    
 }
 
 .mn, .sc{
     position: relative;
     height: 200px;
+    
     z-index: 12033;
 }
 
@@ -53,7 +54,7 @@
     margin-left: 0%;
     top:10%;
     z-index: 99977;
-    background-color: green;
+
 }
 
 .clock_steam{
@@ -64,12 +65,12 @@
     margin-left: 50%;
     top:10%;
     z-index: 99955;
-    background-color: blue;
+
 }
 .clock_present{
     content: '';
     position: absolute;
-    background-color: brown;
+
     width: 160px;
     height: 130px;
     margin-top: 55%;

@@ -112,7 +112,8 @@ const monument_modal= document.querySelector(".monument_modal");
 let isPrompt = false;
 const images = document.querySelectorAll(".slider img");
 let modal_arrows = document.querySelector(".modal_arrows");
-let modal_arrows_past = document.querySelector(".modal_arrows_past");3
+let modal_arrows_past_next = document.querySelector(".modal_arrows_past_next");
+let modal_arrows_past_back = document.querySelector(".modal_arrows_past_back");
 let currentIndex = 0;
 let isRealHero = false;
 let realHeroPath = "";
@@ -131,6 +132,8 @@ let categories = {
   sport: document.querySelectorAll(".sport"),
   other: document.querySelectorAll(".other"),
 };
+let content;
+let contentIndex=0;
 
 function showCategory(categoryToShow, e) {
   categories = {
@@ -230,21 +233,41 @@ function setActiveMicro(switch1) {
 }
 
 isVidio=false
-function changeMonumnentImage() {
-  if (isVidio) {
-    modal_arrows_past.style.transform = "rotate(180deg)";
-    modal_arrows_past.style.transform = "rotate(0deg)";
-    monument.style.display="block";
-    monumentVidio.style.display="none"
-
-  } else {
-    modal_arrows_past.style.transform = "rotate(0deg)";
-    modal_arrows_past.style.transform = "rotate(180deg)";
-    monument.style.display="none";
-    monumentVidio.style.display="block"
-
+function changeMonumnentImageNext() {
+  contentIndex+=1
+  if(contentIndex>= content.length){
+    contentIndex=0
   }
-  isVidio = !isVidio;
+  checkSlideType()
+}
+function checkSlideType(){
+  if(content[contentIndex].type=="vidio"){
+    monument.style.display='none'
+    monumentVidio.style.display='block'
+    monumentVidio.src=content[contentIndex].reference
+  }
+  if(content[contentIndex].type=="image"){
+    monument.style.display='block'
+    monumentVidio.style.display='none'
+    monument.src=content[contentIndex].reference
+  }
+}
+function changeMonumnentImageBack() {
+  contentIndex-=1
+  if(contentIndex<0){
+    contentIndex=content.length-1
+  }
+  if(content[contentIndex].type=="vidio"){
+    monument.style.display='none'
+    monumentVidio.style.display='block'
+    monumentVidio.src=content[contentIndex].reference
+  }
+  if(content[contentIndex].type=="image"){
+    monument.style.display='block'
+    monumentVidio.style.display='none'
+    monument.src=content[contentIndex].reference
+  }
+  checkSlideType()
 }
 function changeHeroImage() {
   if (isRealHero) {
@@ -986,14 +1009,54 @@ let modal_content_past = document.querySelector(".modal-content-past");
 const pam = document.querySelectorAll(".pamyatnik");
 
 //модалка для прошлого
-function setPastModal(text, label, img1, img2) {
+function setPastModal(text, label,data,p) {
+
   if (isPrompt == false) {
+    content=data.content
+console.log(content)
+
+    if (!content){
+      console.error("данные об памятнике "+p+" отсутствуют");
+      return
+    }
+    if(content.length>1){
+      
+      if(data.content[0].type=="vidio"){
+        monument.style.display='none'
+        monumentVidio.style.display='block'
+        monumentVidio.src=data.content[0].reference
+      }
+      if(data.content[0].type=="image"){
+        monument.style.display='block'
+        monumentVidio.style.display='none'
+        monument.src=data.content[0].reference
+      }
+      modal_arrows_past_back.style.display="block"
+      modal_arrows_past_next.style.display="block"
+
+    }
+    if (content.length==1){
+      if(data.content[0].type=="vidio"){
+        monument.style.display='none'
+        monumentVidio.style.display='block'
+        monumentVidio.src=data.content[0].reference
+      }
+      if(data.content[0].type=="image"){
+        monument.style.display='block'
+        monumentVidio.style.display='none'
+        monument.src=data.content[0].reference
+      }
+      modal_arrows_past_back.style.display="none"
+      modal_arrows_past_next.style.display="none"
+    
+    }
+    if(content.length==0){
+      console.log("контент памятника " +p+" пуст")
+    }
     modalPast.style.display = "block";
-    slider.style.display = "none";
-    isVidio=false
+    slider.style.display = "none"
     modal_text_past.innerHTML = text;
     nameMonument.innerHTML = label;
-    monument.src = img1;
   }
 }
 
@@ -1009,14 +1072,17 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           const text = !langChange ? data[p].textRu : data[p].textBy;
           const name = !langChange ? data[p].nameRu : data[p].nameBy;
+
           if(data[p].haveVidio){
-            modal_arrows_past.style.display="block"
+            modal_arrows_past_next.style.display="block"
             monumentVidio.src=data[p].haveVidio
           }
           else{
-            modal_arrows_past.style.display="none"
+            modal_arrows_past_next.style.display="none"
           }
-          setPastModal(text, name, data[p].imgNow, data[p].imgPast);
+
+          setPastModal(text, name, data[p],p);
+      
         });
       });
     })
