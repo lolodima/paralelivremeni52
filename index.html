@@ -484,16 +484,16 @@ target="_blank"
                 // Порядок по умолчанию: «широта, долгота».
                 // Чтобы не определять координаты центра карты вручную,
                 // воспользуйтесь инструментом Определение координат.
-                center: [53.54,27.33],
+                center: [53.54,27.23],
                 // Уровень масштабирования. Допустимые значения:
                 // от 0 (весь мир) до 19.
-                zoom: 7
+                zoom: 15 ,type: "yandex#map"
             });
-            var placemark =  new ymaps.Placemark([53.54,27.23], {
-        hintContent: "биба",
-        balloonContent:  "боба"
+    //         var placemark =  new ymaps.Placemark([53.54,27.23], {
+    //     hintContent: "биба",
+    //     balloonContent:  "боба"
 
-    })
+    // })
     ;
     console.log(placemark)
          myMap.geoObjects.add(placemark);
@@ -501,7 +501,7 @@ target="_blank"
   fetch("marks.json")
     .then((response) => response.json())
     .then((data)=>{
-        
+        alert()
       for(let  i in  data){
         var placemark =  new ymaps.Placemark([data[i].coord.x,data[i].coord.y], {
         hintContent: data[i].description,
