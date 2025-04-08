@@ -471,6 +471,7 @@ target="_blank"
             /></a>
         </footer>
     </body>
+
     <script type="text/javascript">
         // Функция ymaps.ready() будет вызвана, когда
         // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
@@ -488,7 +489,29 @@ target="_blank"
                 zoom: 7
             });
         
+
         }
+ document.addEventListener("DOMContentLoaded",()=>{
+  fetch("marks.json")
+    .then((response) => response.json())
+    .then((data)=>{
+      for(let  i in  data){
+   
+        console.log(i)
+        console.log(data[i])
+        var placemark =  new ymaps.Placemark([data[i].coord.x,data[i].coord.y], {
+        hintContent: data[i].description,
+        balloonContent:  data[i].description
+    });
+         myMap.geoObjects.add(placemark);
+  
+      // Открываем балун с описанием
+
+      }
+   
+
+    })
+})
     </script>
     <script src="index.js"></script>
 </html>

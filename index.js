@@ -1061,7 +1061,7 @@ console.log(content)
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+
   fetch("monuments.json")
     .then((response) => response.json())
     .then((data) => {
@@ -1088,4 +1088,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch((error) => console.error("Ошибка загрузки JSON:", error));
-});
+;
