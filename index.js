@@ -61,6 +61,7 @@ const pamyatnik22s = document.querySelector(".pamyatnik22>span");
 const pamyatnik23s = document.querySelector(".pamyatnik23>span");
 const pamyatnik24s = document.querySelector(".pamyatnik24>span");
 const pamyatnik1 = document.querySelector(".pamyatnik1");
+const youtubemodal = document.querySelector(".youtubemodal");
 const pamyatnik2 = document.querySelector(".pamyatnik2");
 const pamyatnik3 = document.querySelector(".pamyatnik3");
 const pamyatnik4 = document.querySelector(".pamyatnik4");
@@ -389,6 +390,7 @@ function promModal() {
 
 function scienceModal() {
   modal_arrows.style.display = "none";
+  reference.style.display="none"
   if (!langChange) {
     setModal(
       "В ряду крупных новейших достижений - искусственное выращивание органов и тканей, разработка нанолекарств с заданными свойствами, создание искусственного интеллекта, по ряду параметров превосходящего человеческий. По всем названным мировым достижениям наша наука находится на передовых позициях, а в некоторых разработках - даже лидирует. Машиностроители разрабатывают новейшие электротранспортные средства и компоненты; физики и электронщики создают высококонкурентные лазеры и схемы, востребованные в США, Японии. Созданы комплекс автоматизированного составления цифровых карт, суперкомпьютер для геологических исследований и офисный суперкомпьютер с супервысокой для этого класса машин производительностью - 100 терафлопс (1 триллион операций в секунду).",
@@ -515,7 +517,7 @@ lang.addEventListener("click", () => {
     pamyatnik15s.innerHTML = "Памятник битве при лесной";
     pamyatnik17s.innerHTML = "Курган славы";
     pamyatnik18s.innerHTML = "Памятник десантникам";
-    pamyatnik19s.innerHTML = "Комплекс<br/> холокоста";
+    pamyatnik19s.innerHTML = "Мемориальный комплекс<br/> в честь советских ...";
     pamyatnik20s.innerHTML = 'Мемориальный комплекс <br />"Прорыв"';
     pamyatnik21s.innerHTML = "Памятник Памяти <br />Узников Гетто";
     pamyatnik22s.innerHTML = "Мемориал <br/>Курган <br />Славы";
@@ -573,7 +575,7 @@ lang.addEventListener("click", () => {
     pamyatnik15s.innerHTML = "Помнік бітве пры лясной";
     pamyatnik17s.innerHTML = "Курган <br/>славы";
     pamyatnik18s.innerHTML = "Помнік дэсантнікам";
-    pamyatnik19s.innerHTML = "Комплекс<br/>халакоста";
+    pamyatnik19s.innerHTML = "Мемарыяльны комплекс<br/> у гонар савецкіх ...";
     pamyatnik20s.innerHTML = 'Мемарыяльны комплекс <br />"Прарыў"';
     pamyatnik21s.innerHTML = "Помнік Памяці <br />Вязняў Гета";
     pamyatnik22s.innerHTML = "Мемарыял<br/> Курган <br />Славы";
@@ -916,15 +918,15 @@ function setHero(id) {
       realHeroPath = heroData.imgReal;
       modal.style.display = "block";
       slider.style.display = "none";
+      lifeTime.innerHTML = heroData.lifeTimeRu;
 
       if (!langChange) {
         modal_text.innerHTML = heroData.textRu;
         nameHero.innerHTML = heroData.nameRu;
-        lifeTime.innerHTML = heroData.lifeTimeRu;
+
       } else {
         modal_text.innerHTML = heroData.textBY;
         nameHero.innerHTML = heroData.nameBy;
-        lifeTime.innerHTML = heroData.lifeTimeBy;
       }
       if(heroData.haveVidio){
         reference.style.display="block"
