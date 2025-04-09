@@ -522,7 +522,7 @@ lang.addEventListener("click", () => {
     pamyatnik21s.innerHTML = "Памятник Памяти <br />Узников Гетто";
     pamyatnik22s.innerHTML = "Мемориал <br/>Курган <br />Славы";
     pamyatnik23s.innerHTML = "Вечный огонь";
-    pamyatnik24s.innerHTML = "комплекс <br />холокоста";
+    // pamyatnik24s.innerHTML = "комплекс <br />холокоста";
     if (StateNumber == 1) {
       t2.innerHTML = "Память о прошлом";
     } else if (StateNumber == 0 || StateNumber == 3) {
@@ -580,7 +580,7 @@ lang.addEventListener("click", () => {
     pamyatnik21s.innerHTML = "Помнік Памяці <br />Вязняў Гета";
     pamyatnik22s.innerHTML = "Мемарыял<br/> Курган <br />Славы";
     pamyatnik23s.innerHTML = "Вечны агонь";
-    pamyatnik24s.innerHTML = "Комплекс <br />халакоста";
+    // pamyatnik24s.innerHTML = "Комплекс <br />халакоста";
     if (StateNumber == 1) {
       t2.innerHTML = "Памяць аб мінулым";
     } else if (StateNumber == 0 || StateNumber == 3) {
@@ -887,7 +887,7 @@ bt22.addEventListener("click", () => {
     pamyatnik21.style.display = "inline-block";
     pamyatnik22.style.display = "inline-block";
     pamyatnik23.style.display = "inline-block";
-    pamyatnik24.style.display = "inline-block";
+    // pamyatnik24.style.display = "inline-block";
   }
   lastSteamButton = bt22;
   currentArea = "area6";
