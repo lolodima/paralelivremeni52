@@ -797,6 +797,7 @@ bt16.addEventListener("click", () => {
     clearMonuments();
     pamyatnik5.style.display = "inline-block";
     pamyatnik6.style.display = "inline-block";
+    pamyatnik11.style.display = "inline-block";
     pamyatnik7.style.display = "inline-block";
     pamyatnik8.style.display = "inline-block";
     pamyatnik25.style.display = "inline-block";
@@ -819,7 +820,7 @@ bt19.addEventListener("click", () => {
     clearMonuments();
     pamyatnik9.style.display = "inline-block";
     pamyatnik10.style.display = "inline-block";
-    pamyatnik11.style.display = "inline-block";
+
     pamyatnik12.style.display = "inline-block";
     pamyatnik28.style.display = "inline-block";
   }
