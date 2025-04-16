@@ -78,6 +78,7 @@
     height: 130px;
     margin-left: 50%;
     top:10%;
+
     z-index: 99955;
 
 }
@@ -88,7 +89,8 @@
     height: 130px;
     margin-top: 55%;
     left: 25%;
-    z-index: 99;
+ 
+    z-index: 99999;
 }
 .clock_center{
     content: '';
@@ -96,6 +98,7 @@
     position: absolute;
     width: 300px;
     height: 300px;
+
     border-radius: 50%;
     z-index: 999;
 }

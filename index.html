@@ -478,7 +478,7 @@ target="_blank"
                 center: [53.54,27.23],
                 // Уровень масштабирования. Допустимые значения:
                 // от 0 (весь мир) до 19.
-                zoom: 15 ,type: "yandex#map"
+                zoom: 5 ,type: "yandex#map"
             });
     //         var placemark =  new ymaps.Placemark([53.54,27.23], {
     //     hintContent: "биба",
@@ -486,28 +486,33 @@ target="_blank"
 
     // })
     ;
-    console.log(placemark)
-         myMap.geoObjects.add(placemark);
-         document.addEventListener("DOMContentLoaded",()=>{
-  fetch("marks.json")
-    .then((response) => response.json())
-    .then((data)=>{
-        alert()
-      for(let  i in  data){
-        var placemark =  new ymaps.Placemark([data[i].coord.x,data[i].coord.y], {
-        hintContent: data[i].description,
-        balloonContent:  data[i].descriptionB
-    });
-         myMap.geoObjects.add(placemark);
-  
-      // Открываем балун с описанием
-
-      }
+    function makeplacemark(x,y,hint,balloon){
+        console.log(myMap)
+    var placemark =  new ymaps.Placemark([x,y], {
+        hintContent: hint,
+        balloonContent: balloon
    
+    });
+    myMap.geoObjects.add(placemark);
+    
+}
+    makeplacemark(55.184902, 30.200523,"Три штыка","Три штыка")
 
-    })
-})
-        }
+makeplacemark(53.913525, 27.558791,"Памятник максиму Богдановичу","Памятник максиму Богдановичу")
+makeplacemark(53.918243, 27.559952,"Мемориал Сынам Отечества, которые погибли за его пределами","Мемориал Сынам Отечества, которые погибли за его пределами")
+makeplacemark(53.933512, 27.567726,"Памятник жертвам чернобыля","Памятник жертвам чернобыля")
+makeplacemark(52.436035, 31.002480,"Памятник Павлу Сухому","Памятник Павлу Сухому")
+makeplacemark(53.90747859536506, 27.555972581903227,"Памятник Язэпу Дроздовичу","Памятник Язэпу Дроздовичу")
+makeplacemark(52.431444397845056, 30.97597858650644,"Памятник Богдану Хмельницкому","Памятник Богдану Хмельницкому")
+makeplacemark(53.90568408213155, 27.553791657670594,"Памятник жертвам трагедии на Немиге","Памятник жертвам трагедии на Немиге")
+makeplacemark(53.916500, 27.582439,"Памятник Якубу Коласу","Памятник Якубу Коласу")
+
+makeplacemark(52.431016, 30.993592,"Памятник посвященный Франциску Скарыне","Памятник посвященный 100 летию белорусской милиции")
+     
+
+
+
+   }
      
     </script>
     <script src="index.js"></script>
