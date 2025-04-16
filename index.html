@@ -396,9 +396,25 @@ target="_blank"
         </div>
         
         <div class="present present_oblast">
+            <img src="./img/настоящее/100 лет милици.jfif" alt="" class="prezent_pamyatnik pp1">
+            <img src="./img/настоящее/шагал.jpg" alt="" class="prezent_pamyatnik pp2">
+            <img src="./img/настоящее/сынам.jfif" class="prezent_pamyatnik pp3">
+            <img src="./img/настоящее/лодочник.jfif" class="prezent_pamyatnik pp4">
+            <img src="./img/настоящее/дружба.jfif" class="prezent_pamyatnik pp5">
+            <img src="./img/настоящее/нимига.jfif" class="prezent_pamyatnik pp6">
+            <img src="./img/настоящее/чернобль.jfif" class="prezent_pamyatnik pp7">
+            <img src="./img/богданович.jfif" class="prezent_pamyatnik pp8">
+            <img src="./img/настоящее/коласу.jfif" class="prezent_pamyatnik pp9">
+            <img src="./img/настоящее/язэпя.jfif" class="prezent_pamyatnik pp10">
+            <img src="./img/настоящее/сухому.jfif" class="prezent_pamyatnik pp11">
+            <img src="./img/настоящее/скарына.jfif" class="prezent_pamyatnik pp12">
             <img class="present_oblast_img" src="img/present_oblast.png" class=" present present_oblast" />
+
         </div>
-        <div id="map" class="present kard" style="width:32%; height: 400px"></div>
+        <div id="map" class="present kard" style="width:32%; height: 400px">
+        
+           
+        </div>
     
         <!-- <button class="presentbutton " onclick="setPresent()">Настоящее </button> -->
         <div class="text">Нажмите чтобы начать</div>
@@ -488,11 +504,17 @@ target="_blank"
     ;
     function makeplacemark(x,y,hint,balloon){
         console.log(myMap)
-    var placemark =  new ymaps.Placemark([x,y], {
-        hintContent: hint,
-        balloonContent: balloon
-   
-    });
+        var placemark = new ymaps.Placemark([x, y], {
+    hintContent: hint,
+    balloonContent: balloon
+}, {
+    balloonMaxWidth: 300, // Устанавливаем максимальную ширину балуна
+    balloonMaxHeight: 200, // Устанавливаем максимальную высоту балуна
+    hasBalloon: true, // Убеждаемся, что балун включен
+    openBalloonOnClick: true // Балун открывается при клике
+});
+
+
     myMap.geoObjects.add(placemark);
     
 }
