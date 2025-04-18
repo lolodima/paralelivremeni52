@@ -397,17 +397,18 @@ target="_blank"
         
         <div class="present present_oblast">
             <img src="./img/настоящее/100 лет милици.jfif" alt="" class="prezent_pamyatnik pp1">
-            <img src="./img/настоящее/шагал.jpg" alt="" class="prezent_pamyatnik pp2">
+            <img src="./img/настоящее/шагал.jpg" alt="" class="prezent_pamyatnik pp2" >
             <img src="./img/настоящее/сынам.jfif" class="prezent_pamyatnik pp3">
             <img src="./img/настоящее/лодочник.jfif" class="prezent_pamyatnik pp4">
-            <img src="./img/настоящее/дружба.jfif" class="prezent_pamyatnik pp5">
+            <img src="./img/настоящее/три штыка.jfif" class="prezent_pamyatnik pp5">
             <img src="./img/настоящее/нимига.jfif" class="prezent_pamyatnik pp6">
-            <img src="./img/настоящее/чернобль.jfif" class="prezent_pamyatnik pp7">
-            <img src="./img/богданович.jfif" class="prezent_pamyatnik pp8">
+            <img src="./img/настоящее/чернобль.jfif" class="prezent_pamyatnik pp7" >
+            <img src="./img/богданович.jfif" class="prezent_pamyatnik pp8" >
             <img src="./img/настоящее/коласу.jfif" class="prezent_pamyatnik pp9">
             <img src="./img/настоящее/язэпя.jfif" class="prezent_pamyatnik pp10">
             <img src="./img/настоящее/сухому.jfif" class="prezent_pamyatnik pp11">
             <img src="./img/настоящее/скарына.jfif" class="prezent_pamyatnik pp12">
+            <img src="./img/настоящее/хмель.jfif" class="prezent_pamyatnik pp13">
             <img class="present_oblast_img" src="img/present_oblast.png" class=" present present_oblast" />
 
         </div>
@@ -481,6 +482,20 @@ target="_blank"
     </body>
 
     <script type="text/javascript">
+        let pp1=document.querySelector(".pp1");
+        let pp2=document.querySelector(".pp2");
+         let pp3=document.querySelector(".pp3");
+         let pp4=document.querySelector(".pp4");
+         let pp5=document.querySelector(".pp5");
+         let pp6=document.querySelector(".pp6");
+         let pp7=document.querySelector(".pp7");
+         let pp8=document.querySelector(".pp8");
+         let pp9=document.querySelector(".pp9");
+         let pp10=document.querySelector(".pp10");
+         let pp11=document.querySelector(".pp11");
+          let pp12=document.querySelector(".pp12");
+          let pp13=document.querySelector(".pp13");
+
         // Функция ymaps.ready() будет вызвана, когда
         // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
         ymaps.ready(init);
@@ -506,7 +521,7 @@ target="_blank"
         console.log(myMap)
         var placemark = new ymaps.Placemark([x, y], {
     hintContent: hint,
-    balloonContent: balloon
+
 }, {
     balloonMaxWidth: 300, // Устанавливаем максимальную ширину балуна
     balloonMaxHeight: 200, // Устанавливаем максимальную высоту балуна
@@ -518,6 +533,78 @@ target="_blank"
     myMap.geoObjects.add(placemark);
     
 }
+function setLocation(x,y,zoom){
+    myMap.setCenter([x, y]);
+    myMap.setZoom(zoom)
+
+}
+pp1.addEventListener("click",()=>{
+
+setLocation(52.430845, 30.993678,15)
+
+})
+pp2.addEventListener("click",()=>{
+
+setLocation(55.197455, 30.191167,15)
+
+})
+pp3.addEventListener("click",()=>{
+
+setLocation(53.918243, 27.559952,15)
+
+})
+
+pp4.addEventListener("click",()=>{
+
+setLocation(52.424695, 31.019291,15)
+
+})
+pp5.addEventListener("click",()=>{
+
+setLocation(55.184583, 30.200625,15)
+
+})
+pp6.addEventListener("click",()=>{
+
+setLocation(53.918243, 27.559952,15)
+        
+})
+pp7.addEventListener("click",()=>{
+
+setLocation(53.933512, 27.567726,15)
+        
+})
+
+pp8.addEventListener("click",()=>{
+
+setLocation(52.431444397845056, 30.97597858650644,15)
+
+})
+pp9.addEventListener("click",()=>{
+
+setLocation(53.916500, 27.582439,15)
+
+})
+pp10.addEventListener("click",()=>{
+
+setLocation(53.90747859536506, 27.555972581903227,15)
+
+})
+pp11.addEventListener("click",()=>{
+
+setLocation(52.436035, 31.002480,15)
+
+})
+pp12.addEventListener("click",()=>{
+
+setLocation(52.431016, 30.993592,15)
+
+})
+pp13.addEventListener("click",()=>{
+
+setLocation(52.431444397845056, 30.975978586506442,15)
+
+})
     makeplacemark(55.184902, 30.200523,"Три штыка","Три штыка")
 
 makeplacemark(53.913525, 27.558791,"Памятник максиму Богдановичу","Памятник максиму Богдановичу")
@@ -529,8 +616,17 @@ makeplacemark(52.431444397845056, 30.97597858650644,"Памятник Богда
 makeplacemark(53.90568408213155, 27.553791657670594,"Памятник жертвам трагедии на Немиге","Памятник жертвам трагедии на Немиге")
 makeplacemark(53.916500, 27.582439,"Памятник Якубу Коласу","Памятник Якубу Коласу")
 
-makeplacemark(52.431016, 30.993592,"Памятник посвященный Франциску Скарыне","Памятник посвященный 100 летию белорусской милиции")
+makeplacemark(52.431016, 30.993592,"Памятник посвященный Франциску Скарыне")
+makeplacemark(55.197455, 30.191167,"Памятник посвященный Марку Шагалу",)
+makeplacemark(52.430845, 30.993678,"Памятник посвященный 100 летию милиции",)
      
+makeplacemark(52.424695, 31.019291,"\"Лодочник\" - Памятник первопоселенцу-охотнику и его ручной рыси",)
+     
+
+
+
+
+
 
 
 
