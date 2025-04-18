@@ -799,7 +799,7 @@ bt16.addEventListener("click", () => {
     clearMonuments();
     pamyatnik5.style.display = "inline-block";
     pamyatnik6.style.display = "inline-block";
-    pamyatnik11.style.display = "inline-block";
+    // pamyatnik11.style.display = "inline-block";
     pamyatnik7.style.display = "inline-block";
     pamyatnik8.style.display = "inline-block";
     pamyatnik25.style.display = "inline-block";
