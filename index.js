@@ -902,7 +902,7 @@ const pamyatniks = document.querySelectorAll(".pamyatnik");
 
 
 //памятники для будущего
-function setHero(id) {
+function setHero(id, arrows) {
   reference.style.display="none"
   fetch("heroes.json")
     .then((response) => response.json())
@@ -919,6 +919,13 @@ function setHero(id) {
       modal.style.display = "block";
       slider.style.display = "none";
       lifeTime.innerHTML = heroData.lifeTimeRu;
+
+      if (arrows == false){
+        modal_arrows.style.display = "none"
+      }
+      else {
+        modal_arrows.style.display = "block"
+      }
 
       if (!langChange) {
         modal_text.innerHTML = heroData.textRu;
@@ -942,7 +949,7 @@ function setHero(id) {
 }
 
 class HeroMark {
-  constructor(id, name, imag, filter,x,y) {
+  constructor(id, name, imag, filter,x,y, arrows) {
     this.id = id;
     this.name = name;
     this.x=x;
@@ -953,6 +960,7 @@ class HeroMark {
     this.minTop = 10;
     this.maxLeft = 70;
     this.maxTop = 80;
+    this.arrows = arrows;
     this.spawn = this.spawn.bind(this);
   }
 
@@ -966,9 +974,12 @@ class HeroMark {
     div.classList.add("gallery_pamyatnik");
     div.classList.add(`${this.filter}`);
     div.title = this.name;
-    div.onclick = () => setHero(this.id);
     div.innerHTML = `<img src="${this.imag}" alt="${this.name}"/>`;
     oC.appendChild(div);
+    if (this.arrows == false){
+      console.log(this.arrows);
+    }
+    div.onclick = () => setHero(this.id, this.arrows);
   }
 }
 
@@ -984,6 +995,7 @@ document.addEventListener("DOMContentLoaded", () => {
           data[i].filter,
           data[i].x,
           data[i].y,
+          data[i].arrows
         );
         mark.spawn();
       }
