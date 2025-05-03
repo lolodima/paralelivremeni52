@@ -81,24 +81,7 @@
 
 
         <div class="cyber_title cyber vern">Нажмите чтобы вернуться</div>
-        <div class="cyber oblast_cyber">
-            <div
-                target="_blank"
-                title="Памятник промышленности"
-                class="gallery_pamyatnik industry other"
-                onclick="promModal()"
-            >
-                <img src="img/промышленность1.jpg" />
-        </div>
-            <div
-                target="_blank"
-                title="Памятник Науке"
-                class="gallery_pamyatnik nauka science"
-                onclick="scienceModal()"
-            >
-                <img src="img/наука.jpg" />
-        </div>
-        </div>
+        <div class="cyber oblast_cyber"></div>
         <div target="_blank" class="steam_a steem">
             <img class="sImage" src="./img/allBelarusMinsk.png" />
             <br />
@@ -518,7 +501,7 @@ target="_blank"
     // })
     ;
     function makeplacemark(x,y,hint,balloon){
-        console.log(myMap)
+        // console.log(myMap)s
         var placemark = new ymaps.Placemark([x, y], {
     hintContent: hint,
 
