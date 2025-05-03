@@ -33,11 +33,12 @@ body {
   font-family: "Tektur", sans-serif;
   -webkit-text-stroke: #000000 0.5px;
   top: 80%;
-  left: 40%;
+  display: flex;
+  width: 100vw;
   z-index: 10000;
   font-size: 180%;
-  text-align: center;
   -webkit-text-stroke: 1px black;
+  justify-content: center;
 }
 
 li{
