@@ -474,6 +474,29 @@ function showImages() {
   pamyatnik3.style.transition = "all 0.75s ease-in";
 }
 
+function restartAnimation() {
+  const el = document.querySelector('.title1');
+  const el2 = document.querySelector('.title2');
+  const el3 = document.querySelector('.text');
+  el.classList.remove('animated'); 
+  el2.classList.remove('animated'); 
+  el3.classList.remove('animated1'); 
+  void el.offsetWidth;            
+  void el2.offsetWidth;            
+  void el3.offsetWidth;            
+  el.classList.add('animated');    
+  el2.classList.add('animated');    
+  el3.classList.add('animated1'); 
+  if (langChange){
+    setTimeout(() => {
+      el3.style.left = "51%"
+    }, 50)
+  }   
+  else{
+    el3.style.left = "50%";
+  }
+}
+
 lang.addEventListener("click", () => {
   if (!langChange) {
     lang.innerHTML = 'BY <img class="" src="./img/globus.png"/>';
@@ -599,6 +622,7 @@ lang.addEventListener("click", () => {
     document.querySelector('.showAll').innerHTML = 'ПАКАЗАЦЬ УСЕ'
   }
   lastSteamButton.click();
+  restartAnimation();
 });
 
 // Функция для управления отображением элементов
@@ -648,8 +672,8 @@ clCenter.addEventListener("click", () => {
   cl.click();
 });
 function setSteem(){
-  let m = Math.random() * 170;
-  let s = Math.random() * 170;
+  let m = 0 + Math.random() * 110;;
+  let s = 0 + Math.random() * 110;;
   sBackCont.style.flex = 1;
   cBackCont.style.flex = 0;
   sc.style.transform = `rotate(${s}deg)`;
@@ -666,7 +690,7 @@ function setSteem(){
   document.querySelector(".clock").style.marginLeft = "10%";
 
 }
-function setPast(){
+function setCyber(){
   t1.style.display="inline"
   sBackCont.style.flex = 0;
   cBackCont.style.flex = 1;
@@ -675,8 +699,8 @@ function setPast(){
   toggleVisibility( present,false);
 
   cBack.src = "img/future_phone.png";
-let m = 360 + 190 + Math.random() * 170;
-let s = 360 + 190 + Math.random() * 170;
+  let m = 250 + Math.random() * 110;
+  let s = 250 + Math.random() * 110
  sc.style.transform = `rotate(${s}deg)`;
  mn.style.transform = `rotate(${m}deg)`;
   zagolovok.style.backgroundImage = "url(./img/cyber_header.png)";
@@ -695,8 +719,8 @@ function setPresent(){
   toggleVisibility(steem, false);
   toggleVisibility( present,true);
   cBack.src = "img/present_phone.png";
-let  m = 360 + 190 + Math.random() * 170;
- let  s = 360 + 190 + Math.random() * 170;
+let  m = 120 + Math.random() * 110;
+ let  s = 120 + Math.random() * 110;
    sc.style.transform = `rotate(${s}deg)`;
    mn.style.transform = `rotate(${m}deg)`;
   zagolovok.style.backgroundImage = "url(./img/present_header.png)";
@@ -741,7 +765,7 @@ cl.addEventListener("click", (e) => {
       break;
 
     case 2:
-    setPast()
+    setCyber()
       break;
 
     case 3:
