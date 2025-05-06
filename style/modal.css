@@ -26,7 +26,7 @@
     width: 80%; /* Может быть больше или меньше, в зависимости от размера экрана */
     /* background: linear-gradient(#212e3d,black); */
     color: black;
-    margin-top: 2%;
+    margin-top: -20%;
     margin-left: auto ;
     margin-right: auto ;
     /* background-image: url('./img/modal2.png'); */
