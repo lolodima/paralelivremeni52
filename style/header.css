@@ -44,23 +44,50 @@
   color: white;
 }
 .title1 {
-  position: absolute;
-  top: 8px;
   font-size: 220%;
   -webkit-text-stroke: 1px black;
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-}
-.title2 {
   position: absolute;
-  -webkit-text-stroke: 1px black;
-  top: 6vh;
-  width: 100vw;
-  font-size: 320%;
-  display: flex;
-  justify-content: center;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  letter-spacing: 0.05em;
+  z-index: 999;
+  width: 30ch; /* или 20vw / 300px — зависит от твоей длины строки */
+  text-align: center;
 }
+
+.title2 {
+  font-size: 320%;
+  -webkit-text-stroke: 1px black;
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  letter-spacing: 0.05em;
+  z-index: 999;
+  width: 35ch;
+  text-align: center;
+}
+
+
+.animated {
+  animation: typing1 3s steps(30, end) forwards;
+}
+
+@keyframes typing1 {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 30ch;
+  }
+}
+
+
 .globus {
   display: inline;
 }
