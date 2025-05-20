@@ -35,6 +35,8 @@
     left: 20%;
     top: 20%;
     padding: 10px;
+z-index: 100;
+
     background-image: url("./img/cyber.png");
     border-radius: 10px;
     background-size: cover;
@@ -61,6 +63,7 @@
     width: 100px;
     position: relative;
     font-size: 120%;
+    z-index: 2000;
     text-align: center;
     cursor: pointer;
     margin-left: 2px;
