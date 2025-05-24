@@ -35,6 +35,7 @@
     left: 20%;
     top: 20%;
     padding: 10px;
+    visibility: hidden;
 z-index: 100;
 
     background-image: url("./img/cyber.png");
