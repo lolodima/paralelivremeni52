@@ -43,12 +43,7 @@ z-index: 100;
     background-size: cover;
     background-repeat: no-repeat;
 }
-@media (max-width:1200px){
-.oblast_cyber{
-    transform: scale(0.75);
 
-} 
-}
 .cyber_title {
     left: 77%;
     -webkit-text-stroke: 1px black;
@@ -58,7 +53,16 @@ z-index: 100;
     font-size: 180%;
     color: white;
 }
-
+@media (max-width:1200px){
+    .oblast_cyber{
+        transform: scale(0.75);
+    
+    } 
+    .cyber_title {
+    
+        left: 70%;
+    }
+    }
 .gallery_pamyatnik {
     height: auto;
     width: 100px;
@@ -281,3 +285,13 @@ z-index: 100;
   font-weight: bold;
   color: white;
   }
+@media (max-width:1024px) {
+    .cyber_back_container{
+       background-position: center;
+       background-attachment: fixed;
+        overflow-y: scroll;
+    }
+    .steam_back_container{
+        overflow-y: scroll;
+    }
+}

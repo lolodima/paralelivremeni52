@@ -17,6 +17,7 @@
     z-index: 1000;
     position: relative;
 }
+
 .clock:hover{
     box-shadow: 2px 2px  10px 10px white;
 

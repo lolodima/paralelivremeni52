@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="./style//modal.css" />
         <link rel="stylesheet" href="./style/slider.css" />
         <link rel="stylesheet" href="./style/present.css" />
-
+        <link rel="stylesheet" href="./style/tooltip.css" />
 <script src="https://api-maps.yandex.ru/2.1/?apikey=d3da1042-b412-47da-9c4e-4961ac409e67&lang=ru_RU" type="text/javascript">
 </script>
     </head>
@@ -109,7 +109,7 @@
         </div>
         </div>
 
-        <div class="cyber_title cyber vern">Нажмите чтобы вернуться</div>
+        <div class="cyber_title cyber vern">Нажмите, чтобы вернуться</div>
    
         <div target="_blank" class="steam_a steem">
             <img class="sImage" src="./img/allBelarusMinsk.png" />
@@ -138,6 +138,7 @@
                 <button id="bt22" class="sButton_attachment">
                     Гродненнская область
                 </button>
+
             </div>
         </div>
    
@@ -408,20 +409,91 @@ target="_blank"
         </div>
         
         <div class="present present_oblast">
-            <img src="./img/настоящее/100 лет милици.jfif" alt="" class="prezent_pamyatnik pp1" title="Памятник посвященный 100 летию милиции">
-            <img src="./img/настоящее/шагал.jpg" alt="" class="prezent_pamyatnik pp2" title="Памятник посвященный Марку Шагалу" >
-            <img src="./img/настоящее/сынам.jfif" class="prezent_pamyatnik pp3" title="Мемориал Сынам Отечества, которые погибли за его пределами">
-            <img src="./img/настоящее/лодочник.jfif" class="prezent_pamyatnik pp4" title=" Лодочник  - Памятник первопоселенцу-охотнику и его ручной рыси">
-            <img src="./img/настоящее/три штыка.jfif" class="prezent_pamyatnik pp5" title="три штыка">
-            <img src="./img/настоящее/нимига.jfif" class="prezent_pamyatnik pp6" title="Памятник жертвам трагедии на Немиге">
-            <img src="./img/настоящее/чернобль.jfif" class="prezent_pamyatnik pp7"  title="Памятник жертвам чернобыля">
-            <img src="./img/богданович.jfif" class="prezent_pamyatnik pp8" title="Памятник Максиму Богдановичу" >
-            <img src="./img/настоящее/коласу.jfif" class="prezent_pamyatnik pp9" title="Памятник Якубу Коласу">
-            <img src="./img/настоящее/язэпя.jfif" class="prezent_pamyatnik pp10" title="Памятник Язэпу Дроздовичу">
-            <img src="./img/настоящее/сухому.jfif" class="prezent_pamyatnik pp11" title="Памятник Павлу Сухому">
-            <img src="./img/настоящее/скарына.jfif" class="prezent_pamyatnik pp12" title="Памятник посвященный Франциску Скарыне">
-            <img src="./img/настоящее/хмель.jfif" class="prezent_pamyatnik pp13" title="Памятник Богдану Хмельницкому">
-            <img class="present_oblast_img" src="img/present_oblast.png" class=" present present_oblast" />
+            
+            <div class="prezent_pamyatnik pp1  tooltip-container " >
+                <img src="./img/настоящее/100 лет милици.jfif" alt="" class="demo-box" >
+                <span class="tooltip-text">Памятник посвященный 100 летию милиции </span>
+            </div>
+ <div class="prezent_pamyatnik pp2  tooltip-container " >
+                <img src="./img/настоящее/шагал.jpg" alt="" class="demo-box" title="Памятник посвященный Марку Шагалу" >
+                <span class="tooltip-text">Памятник посвященный Марку Шагалу </span>
+            </div>
+            <div class="prezent_pamyatnik pp3  tooltip-container " >
+                <img src="./img/настоящее/сынам.jfif" class="demo-box">
+                <span class="tooltip-text">Мемориал Сынам Отечества, которые погибли за его пределами </span>
+            </div>
+            <div class="prezent_pamyatnik pp4  tooltip-container " >
+                <img src="./img/настоящее/лодочник.jfif" class="demo-box" >
+                <span class="tooltip-text">Мемориал Сынам Отечества, которые погибли за его пределами </span>
+            </div>
+            <div class="prezent_pamyatnik pp5  tooltip-container " >
+                <img src="./img/настоящее/три штыка.jfif" class="demo-box" >
+      
+                <span class="tooltip-text">Монумент «Три штыка» </span>
+            </div>
+            <div class="prezent_pamyatnik pp6  tooltip-container " >
+                <img src="./img/настоящее/нимига.jfif" class="demo-box" >
+   
+                <span class="tooltip-text">Памятник жертвам трагедии на Немиге </span>
+            </div>
+            <div class="prezent_pamyatnik pp7  tooltip-container " >
+                <img src="./img/настоящее/чернобль.jfif" class="demo-box">
+        
+                <span class="tooltip-text">Памятник жертвам чернобыля </span>
+            </div>
+            <div class="prezent_pamyatnik pp8  tooltip-container tooltip-top  " >
+    
+                <img src="./img/богданович.jfif" class="demo-box"  >
+      
+                <span class="tooltip-text">Памятник Максиму Богдановичу</span>
+            </div>
+            <div class="prezent_pamyatnik pp9  tooltip-container " >
+                <img src="./img/настоящее/коласу.jfif" class=" demo-box" >
+         
+                <span class="tooltip-text">Памятник Якубу Коласу</span>
+            </div>
+            <div class="prezent_pamyatnik pp10  tooltip-container " >
+                <img src="./img/настоящее/язэпя.jfif" class="demo-box">
+                <span class="tooltip-text">Памятник Язэпу Дроздовичу</span>
+            </div>
+            <div class="prezent_pamyatnik pp11  tooltip-container " >
+                <img src="./img/настоящее/сухому.jfif" class="demo-box" title="">
+          
+
+                <span class="tooltip-text">Памятник Павлу Сухому</span>
+            </div>
+            <div class="prezent_pamyatnik pp12  tooltip-container " >
+                <img src="./img/настоящее/скарына.jfif" class="demo-box" >
+                <span class="tooltip-text">Памятник посвященный Франциску Скарыне"</span>
+            </div>
+            <div class="prezent_pamyatnik pp13  tooltip-container " >
+                <img src="./img/настоящее/хмель.jfif" class="demo-box" >
+           
+                <span class="tooltip-text">Памятник Богдану Хмельницкомуе"</span>
+            </div>
+            <div class="prezent_pamyatnik pp14  tooltip-container " >
+                <img src="./img/настоящее/курган бессмертия.jfif" class="demo-box" >
+           
+                <span class="tooltip-text">курган бессмертия</span>
+            </div>
+            <div class="prezent_pamyatnik pp15  tooltip-container " >
+                <img src="./img/настоящее/жилибер.jpg" class="demo-box" >
+           
+                <span class="tooltip-text">Вечный огонь в гродненском парке жилибера</span>
+            </div>
+            <!-- <div class="prezent_pamyatnik pp16  tooltip-container " >
+                <img src="./img/настоящее/т34.png.crdownload" class="demo-box" >
+           
+                <span class="tooltip-text">Памятник воинам-освободителям — танк Т-34-85</span>
+            </div> -->
+            <div class="prezent_pamyatnik pp16  tooltip-container " >
+                <img src="./img/настоящее/полиция.jpg" class="demo-box" >
+           
+                <span class="tooltip-text">Памятник Милицонерам Погибшим При Исполнении Служебных Обязанностей</span>
+            </div>
+           
+           
+    <img class="present_oblast_img" src="img/present_oblast.png" class=" present present_oblast" />
 
         </div>
         <div id="map" class="present kard" style="width:32%; height: 400px">
@@ -431,7 +503,7 @@ target="_blank"
     
         <!-- <button class="presentbutton " onclick="setPresent()">Настоящее </button> -->
 
-        <div class="text animated1">Нажмите чтобы начать</div>
+        <div class="text animated1">Нажмите, чтобы начать</div>
 
         <div class="container">
             <div class="cyber_back_container">
