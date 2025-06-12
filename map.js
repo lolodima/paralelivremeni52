@@ -56,6 +56,7 @@ locations.forEach((coords, i) => {
 for (let i = 0; i < locations.length; i++) {
     document.querySelector('.pp' + (i + 1)).addEventListener('click', () => {
         buildRoute(locations[i]);
+        document.querySelector(".present_title").innerHTML= document.querySelector('.pp' + (i + 1)+">.tooltip-text").innerHTML
     });
 }
 

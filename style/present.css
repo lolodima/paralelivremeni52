@@ -128,3 +128,10 @@
     left: 30%;
     top: 40%;
 }
+.present_title{
+    position: absolute; 
+    z-index:100000000000;
+     bottom:20%;
+     color: white;
+     left:15%
+}
