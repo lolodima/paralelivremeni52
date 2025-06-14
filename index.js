@@ -25,6 +25,7 @@ const cAP = document.querySelector(".cyber_a_p");
 const cP = document.querySelector(".c_paragraph");
 const sImg = document.querySelector(".sImage");
 const sA = document.querySelector(".steam_a");
+const ggmk = document.querySelector(".ggmk");
 const sAP = document.querySelector(".steam_a_p");
 const sP = document.querySelector(".s_paragraph");
 const lang = document.querySelector(".lang");
@@ -111,6 +112,8 @@ const huian = document.querySelector(".close");
 const cHuian = document.querySelector(".cClose");
 const monument_modal= document.querySelector(".monument_modal");
 let isPrompt = false;
+let cyber_title = document.querySelectorAll(".cyber_title");
+let steam_title = document.querySelectorAll(".steem_title");
 const images = document.querySelectorAll(".slider img");
 let modal_arrows = document.querySelector(".modal_arrows");
 let modal_arrows_past_next = document.querySelector(".modal_arrows_past_next");
@@ -165,6 +168,7 @@ function showCategory(categoryToShow, e) {
       }
     });
 }
+
 let isVidio=false
 function showAllCategories(e) {
   const categories = {
@@ -190,6 +194,20 @@ function showAllCategories(e) {
     });
   }
 }
+document.querySelector(".steem_title").addEventListener("click",()=>{
+  StateNumber = 3;
+  clCenter.style.display = "none";
+  clCyber.style.display = "block";
+  clSteam.style.display = "block";
+  cl.click();
+})
+document.querySelector(".cyber_title").addEventListener("click",()=>{
+  StateNumber = 3;
+  clCenter.style.display = "none";
+  clCyber.style.display = "block";
+  clSteam.style.display = "block";
+  cl.click();
+})
 document.querySelector(".pClose").addEventListener("click",()=>{
   modalPast.style.display = "none";
   monumentVidio.style.display="none"
@@ -503,14 +521,14 @@ lang.addEventListener("click", () => {
   } else {
     lang.innerHTML = 'RU <img class="" src="./img/globus.png"/>';
   }
-
+  ggmk.src="./img/ggmk.png"
   langChange = !langChange;
 
   if (!langChange) {
     for (let i of vern) {
-      i.innerHTML = "Нажмите чтобы вернуться<";
+      i.innerHTML = "Нажмите, чтобы вернуться<";
     }
-    text.innerHTML = "Нажмите чтобы начать";
+    text.innerHTML = "Нажмите, чтобы начать";
     bt16.innerHTML = "Гомельская область";
     bt15.innerHTML = "Минская область";
     bt19.innerHTML = "Бресткая область";
@@ -525,14 +543,14 @@ lang.addEventListener("click", () => {
     pamyatnik3s.innerHTML = "Мемориальный <br/>косплекс<br />Шталаг 342";
     pamyatnik4s.innerHTML = 'Мемориал<br/>"Яма"';
     pamyatnik5s.innerHTML = "Мемориал <br/>вечный огонь";
-    pamyatnik6s.innerHTML = "Памятник <br />ополченцам-подпольщикам<";
+    pamyatnik6s.innerHTML = "Памятник <br />ополченцам-подпольщикам";
     pamyatnik7s.innerHTML = "Памятник узникам <br />концлагеря";
     pamyatnik8s.innerHTML = "Памятник войнам<br />освободителям";
     pamyatnik9s.innerHTML = "Памятник<br />жертвам <br />холокоста";
     pamyatnik10s.innerHTML =
       "Мемориальный комплекс <br />осводбодителям пинска";
     pamyatnik11s.innerHTML = "Монумент<br />с танком";
-    pamyatnik12s.innerHTML = "Памятник <br />урбановичу";
+    pamyatnik12s.innerHTML = "Памятный знак в память об ...";
     pamyatnik13s.innerHTML =
       "Памятник-танк<br />на могиле генерала <br />Б.С.Бахарова";
     pamyatnik14s.innerHTML =
@@ -543,8 +561,8 @@ lang.addEventListener("click", () => {
     pamyatnik19s.innerHTML = "Мемориальный комплекс<br/> в честь советских ...";
     pamyatnik20s.innerHTML = 'Мемориальный комплекс <br />"Прорыв"';
     pamyatnik21s.innerHTML = "Памятник Памяти <br />Узников Гетто";
-    pamyatnik22s.innerHTML = "Мемориал <br/>Курган <br />Славы";
-    pamyatnik23s.innerHTML = "Вечный огонь";
+    pamyatnik22s.innerHTML = "Памятник Учителям и Ученикам - <br />Погибшим В Годы Великой Отечественной Войны";
+    pamyatnik23s.innerHTML = "Братская могила советских ...";
     // pamyatnik24s.innerHTML = "комплекс <br />холокоста";
     if (StateNumber == 1) {
       t2.innerHTML = "Память о прошлом";
@@ -568,7 +586,7 @@ lang.addEventListener("click", () => {
     for (let i of vern) {
       i.innerHTML = "Націсніце, каб вярнуцца<";
     }
-    text.innerHTML = "Націсніце каб пачаць";
+    text.innerHTML = "Націсніце, каб пачаць";
     bt16.innerHTML = "Гомельская вобласць";
     bt15.innerHTML = "Мінская вобласць";
     bt19.innerHTML = "Брэсцкая вобласць";
@@ -590,19 +608,20 @@ lang.addEventListener("click", () => {
     pamyatnik10s.innerHTML =
       "Мемарыяльны комплекс <br />азвадбадзіцелям Пінска";
     pamyatnik11s.innerHTML = "Манумент<br />з танкам";
-    pamyatnik12s.innerHTML = "Помнік <br/>урбановічу";
+    pamyatnik12s.innerHTML = "Памятны знак у памяць аб ...";
     pamyatnik13s.innerHTML =
       "Помнік-танк<br />на магіле генерала <br />Б.С.Бахарава";
     pamyatnik14s.innerHTML =
       "Помнік<br />воінам<br />-інтэрнацыяналіст-<br />ам";
     pamyatnik15s.innerHTML = "Помнік бітве пры лясной";
+    ggmk.src="./img/ggmk_bel.png"
     pamyatnik17s.innerHTML = "Курган <br/>славы";
     pamyatnik18s.innerHTML = "Помнік дэсантнікам";
     pamyatnik19s.innerHTML = "Мемарыяльны комплекс<br/> у гонар савецкіх ...";
     pamyatnik20s.innerHTML = 'Мемарыяльны комплекс <br />"Прарыў"';
-    pamyatnik21s.innerHTML = "Помнік Памяці <br />Вязняў Гета";
-    pamyatnik22s.innerHTML = "Мемарыял<br/> Курган <br />Славы";
-    pamyatnik23s.innerHTML = "Вечны агонь";
+    pamyatnik21s.innerHTML = "Помнік Памяці <br/>Вязняў Гета";
+    pamyatnik22s.innerHTML = "Помнік настаўнікам і вучням -<br/>загінуўшым у гады Вялікай Айчыннай вайны";
+    pamyatnik23s.innerHTML = "Брацкая магіла савецкіх ...";
     // pamyatnik24s.innerHTML = "Комплекс <br />халакоста";
     if (StateNumber == 1) {
       t2.innerHTML = "Памяць аб мінулым";
@@ -718,6 +737,7 @@ function setPresent(){
   toggleVisibility(cyber, false);
   toggleVisibility(steem, false);
   toggleVisibility( present,true);
+  document.querySelector(".clock").style.marginLeft = "calc(48% - 125px)";
   cBack.src = "img/present_phone.png";
 let  m = 120 + Math.random() * 110;
  let  s = 120 + Math.random() * 110;
@@ -797,7 +817,13 @@ bt15.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Минская область";
   }
-  sImg.src = "./img/allBelarusMinsk.png";
+  if (!langChange){
+    sImg.src = "./img/allBelarusMinsk.png";
+  }
+  else{
+    sImg.src = "./img/allBelarusMinsk_bel.png";
+  }
+
   if (lastSteamButton != bt15) {
     clearMonuments();
     pamyatnik1.style.display = "inline-block";
@@ -818,7 +844,13 @@ bt16.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Гомельская область";
   }
-  sImg.src = "img/allBelarusHomel.png";
+  if (!langChange){
+    sImg.src = "img/allBelarusHomel.png";
+  }
+  else{
+    sImg.src = "img/allBelarusHomel_bel.png";
+  }
+
   if (lastSteamButton != bt16) {
     clearMonuments();
     pamyatnik5.style.display = "inline-block";
@@ -839,7 +871,14 @@ bt19.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Брестская область";
   }
-  sImg.src = "./img/allBelarusBrest.png";
+
+  if (!langChange){
+    sImg.src = "./img/allBelarusBrest.png";
+
+  }
+  else{
+    sImg.src = "./img/allBelarusBrest_bel.png";
+  }
   oblast.style.backgroundImage = "url(./style/брестская.png)";
 
   if (lastSteamButton != bt19) {
@@ -863,7 +902,14 @@ bt20.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Могилёвская область";
   }
-  sImg.src = "./img/allBelarusMogilev.png";
+  if (!langChange){
+    sImg.src = "./img/allBelarusMogilev.png";
+
+  }
+  else{
+    sImg.src = "./img/allBelarusMogilev_bel.png";
+  }
+
   if (lastSteamButton != bt20) {
     clearMonuments();
     pamyatnik13.style.display = "inline-block";
@@ -884,7 +930,14 @@ bt21.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Витебская область";
   }
-  sImg.src = "./img/allBelarusVitebsk.png";
+  if (!langChange){
+    sImg.src = "./img/allBelarusVitebsk.png";
+
+  }
+  else{
+    sImg.src = "./img/allBelarusVitebsk_bel.png";
+  }
+
   if (lastSteamButton != bt21) {
     clearMonuments();
     pamyatnik17.style.display = "inline-block";
@@ -905,7 +958,15 @@ bt22.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Гродненская область";
   }
-  sImg.src = "./img/allBelarusGrodno.png";
+  if (!langChange){
+ 
+    sImg.src = "./img/allBelarusGrodno.png";
+
+  }
+  else{
+    sImg.src = "./img/allBelarusGrodno_bel.png";
+  }
+
   if (lastSteamButton != bt22) {
     clearMonuments();
     pamyatnik21.style.display = "inline-block";

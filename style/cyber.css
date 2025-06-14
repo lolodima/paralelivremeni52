@@ -35,19 +35,17 @@
     left: 20%;
     top: 20%;
     padding: 10px;
+    visibility: hidden;
+z-index: 100;
+
     background-image: url("./img/cyber.png");
     border-radius: 10px;
     background-size: cover;
     background-repeat: no-repeat;
 }
-@media (max-width:1200px){
-.oblast_cyber{
-    transform: scale(0.75);
 
-} 
-}
 .cyber_title {
-    left: 81%;
+    left: 77%;
     -webkit-text-stroke: 1px black;
     top: 75%;
     font-family: "Tektur", sans-serif;
@@ -55,12 +53,22 @@
     font-size: 180%;
     color: white;
 }
-
+@media (max-width:1200px){
+    .oblast_cyber{
+        transform: scale(0.75);
+    
+    } 
+    .cyber_title {
+    
+        left: 70%;
+    }
+    }
 .gallery_pamyatnik {
     height: auto;
     width: 100px;
     position: relative;
     font-size: 120%;
+    z-index: 2000;
     text-align: center;
     cursor: pointer;
     margin-left: 2px;
@@ -277,3 +285,13 @@
   font-weight: bold;
   color: white;
   }
+@media (max-width:1024px) {
+    .cyber_back_container{
+       background-position: center;
+       background-attachment: fixed;
+        overflow-y: scroll;
+    }
+    .steam_back_container{
+        overflow-y: scroll;
+    }
+}

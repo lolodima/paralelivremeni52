@@ -18,7 +18,8 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-y: hidden;
+  height: 100vh;
 }
 
 .text {
@@ -49,7 +50,7 @@ body {
     border-right: 2px solid white;
   }
   to {
-    width: 20ch;
+    width: 21ch;
     border-right: 0px solid white;
   }
 }
@@ -139,5 +140,3 @@ marquee {
 .modal_arrows:hover {
   cursor: pointer;
 }
-
-

@@ -8,7 +8,7 @@
 }
 
 .steem_title {
-    left: 14%;
+    left: 7%;
     top: 75%;
     position: absolute;
     font-family: "Tektur", sans-serif;
@@ -137,6 +137,7 @@
     border: 2px solid rgb(88, 88, 88);
     border-radius: 10px;
     display: flex;
+  
 }
 
 .oblast:hover {
@@ -155,6 +156,8 @@
     height: 100px;
     text-align: center;
     font-family: "Tektur", sans-serif;
+    font-size: 15px;
+    
 }
 
 .pamyatnik>span {
@@ -517,4 +520,18 @@
 .changeCentryBtn:active{
     color: #ab958a;
     transition: all 0.1s ease-in-out;
+}
+@media (max-width:1330px){
+    .steam_a{
+        display: none;
+
+    }
+    .panel{
+        top: 20%;
+    }
+}
+@media (max-width:1024px){
+    .steam_a{
+        display: block;
+    }
 }
