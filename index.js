@@ -526,9 +526,9 @@ lang.addEventListener("click", () => {
 
   if (!langChange) {
     for (let i of vern) {
-      i.innerHTML = "Нажмите чтобы вернуться<";
+      i.innerHTML = "Нажмите, чтобы вернуться<";
     }
-    text.innerHTML = "Нажмите чтобы начать";
+    text.innerHTML = "Нажмите, чтобы начать";
     bt16.innerHTML = "Гомельская область";
     bt15.innerHTML = "Минская область";
     bt19.innerHTML = "Бресткая область";
@@ -543,14 +543,14 @@ lang.addEventListener("click", () => {
     pamyatnik3s.innerHTML = "Мемориальный <br/>косплекс<br />Шталаг 342";
     pamyatnik4s.innerHTML = 'Мемориал<br/>"Яма"';
     pamyatnik5s.innerHTML = "Мемориал <br/>вечный огонь";
-    pamyatnik6s.innerHTML = "Памятник <br />ополченцам-подпольщикам<";
+    pamyatnik6s.innerHTML = "Памятник <br />ополченцам-подпольщикам";
     pamyatnik7s.innerHTML = "Памятник узникам <br />концлагеря";
     pamyatnik8s.innerHTML = "Памятник войнам<br />освободителям";
     pamyatnik9s.innerHTML = "Памятник<br />жертвам <br />холокоста";
     pamyatnik10s.innerHTML =
       "Мемориальный комплекс <br />осводбодителям пинска";
     pamyatnik11s.innerHTML = "Монумент<br />с танком";
-    pamyatnik12s.innerHTML = "Памятник <br />урбановичу";
+    pamyatnik12s.innerHTML = "Памятный знак в память об ...";
     pamyatnik13s.innerHTML =
       "Памятник-танк<br />на могиле генерала <br />Б.С.Бахарова";
     pamyatnik14s.innerHTML =
@@ -561,8 +561,8 @@ lang.addEventListener("click", () => {
     pamyatnik19s.innerHTML = "Мемориальный комплекс<br/> в честь советских ...";
     pamyatnik20s.innerHTML = 'Мемориальный комплекс <br />"Прорыв"';
     pamyatnik21s.innerHTML = "Памятник Памяти <br />Узников Гетто";
-    pamyatnik22s.innerHTML = "Мемориал <br/>Курган <br />Славы";
-    pamyatnik23s.innerHTML = "Вечный огонь";
+    pamyatnik22s.innerHTML = "Памятник Учителям и Ученикам - <br />Погибшим В Годы Великой Отечественной Войны";
+    pamyatnik23s.innerHTML = "Братская могила советских ...";
     // pamyatnik24s.innerHTML = "комплекс <br />холокоста";
     if (StateNumber == 1) {
       t2.innerHTML = "Память о прошлом";
@@ -586,7 +586,7 @@ lang.addEventListener("click", () => {
     for (let i of vern) {
       i.innerHTML = "Націсніце, каб вярнуцца<";
     }
-    text.innerHTML = "Націсніце каб пачаць";
+    text.innerHTML = "Націсніце, каб пачаць";
     bt16.innerHTML = "Гомельская вобласць";
     bt15.innerHTML = "Мінская вобласць";
     bt19.innerHTML = "Брэсцкая вобласць";
@@ -608,7 +608,7 @@ lang.addEventListener("click", () => {
     pamyatnik10s.innerHTML =
       "Мемарыяльны комплекс <br />азвадбадзіцелям Пінска";
     pamyatnik11s.innerHTML = "Манумент<br />з танкам";
-    pamyatnik12s.innerHTML = "Помнік <br/>урбановічу";
+    pamyatnik12s.innerHTML = "Памятны знак у памяць аб ...";
     pamyatnik13s.innerHTML =
       "Помнік-танк<br />на магіле генерала <br />Б.С.Бахарава";
     pamyatnik14s.innerHTML =
@@ -619,9 +619,9 @@ lang.addEventListener("click", () => {
     pamyatnik18s.innerHTML = "Помнік дэсантнікам";
     pamyatnik19s.innerHTML = "Мемарыяльны комплекс<br/> у гонар савецкіх ...";
     pamyatnik20s.innerHTML = 'Мемарыяльны комплекс <br />"Прарыў"';
-    pamyatnik21s.innerHTML = "Помнік Памяці <br />Вязняў Гета";
-    pamyatnik22s.innerHTML = "Мемарыял<br/> Курган <br />Славы";
-    pamyatnik23s.innerHTML = "Вечны агонь";
+    pamyatnik21s.innerHTML = "Помнік Памяці <br/>Вязняў Гета";
+    pamyatnik22s.innerHTML = "Помнік настаўнікам і вучням -<br/>загінуўшым у гады Вялікай Айчыннай вайны";
+    pamyatnik23s.innerHTML = "Брацкая магіла савецкіх ...";
     // pamyatnik24s.innerHTML = "Комплекс <br />халакоста";
     if (StateNumber == 1) {
       t2.innerHTML = "Памяць аб мінулым";
