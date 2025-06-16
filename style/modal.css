@@ -95,10 +95,10 @@
 
 .monument-modal {
   z-index: -1;
-  width: 92%;
-  margin-top: -21px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
   border-radius: 10px;
-  background-size: cover;
 }
 .monument-modal-vidio {
   z-index: 10;
