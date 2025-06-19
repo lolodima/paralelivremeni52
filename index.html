@@ -28,6 +28,7 @@
   <body>
     <div class="wrapperAllDontTouch">
       <header class="zagolovok">
+        <!-- <img src="img/gerb.png" alt="герб" class="gerb">-->
         <span class="lang">RU<img class="" src="./img/globus.png" /></span>
         <img src="img/ggmk.png" alt="" class="ggmk" />
         <span class="title1 animated">Интерактивные часы</span>
@@ -102,7 +103,22 @@
         </div>
       </div>
 
-      <div class="cyber oblast_cyber"></div>
+      <div class="cyber oblast_cyber">
+        <div
+          target="_blank"
+          title="Памятник промышленности"
+          class="gallery_pamyatnik industry other"
+          onclick="promModal()">
+          <img src="img/промышленность1.jpg" />
+        </div>
+        <div
+          target="_blank"
+          title="Памятник Науке"
+          class="gallery_pamyatnik nauka science"
+          onclick="scienceModal()">
+          <img src="img/наука.jpg" />
+        </div>
+      </div>
 
       <div class="cyber_title cyber vern">Нажмите, чтобы вернуться</div>
 
@@ -129,7 +145,7 @@
             Витебская область
           </button>
           <button id="bt22" class="sButton_attachment">
-            Гродненнская область
+            Гродненская область
           </button>
         </div>
       </div>
@@ -239,7 +255,7 @@
         <a
           class="pamyatnik12 pamyatnik century20 area3"
           target="_blank"
-          href="https://www.tripadvisor.ru/Attraction_Review-g6280959-d7393476-Reviews-Urbanovich_Monument-Ruzhany_Brest_Region.html">
+        >
           <img src="img/pamyatnik.png" class="pamyatnik12img" />
           <span class="pamyatnik2-span"> Памятный знак в память об ...</span>
         </a>
@@ -264,7 +280,7 @@
           target="_blank"
           href="https://planetabelarus.by/sights/pamyatnik-k-200-letiyu-bitvy-pri-lesnoy/">
           <img src="img/pamyatnik.png" class="pamyatnik15img" />
-          <span class="pamyatnik3-span">Памятник битве при лесной</span>
+          <span class="pamyatnik3-span">Памятник битве при Лесной</span>
         </div>
         <div
           class="pamyatnik17 pamyatnik century20 area5"
@@ -306,7 +322,7 @@
         <div
           class="pamyatnik21 pamyatnik century20 area6"
           target="_blank"
-          href="https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D1%86%D0%B5%D0%B2%D0%B5%D1%86">
+   >
           <img src="img/pamyatnik.png" class="pamyatnik21img" />
           <span class="pamyatnik1-span"
             >Памятник Памяти <br />Узников Гетто</span
@@ -335,7 +351,7 @@
           target="_blank"
           href="https://ru.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9">
           <img src="img/komplex.png" class="pamyatnik27img" />
-          <span class="pamyatnik3-span">Буйническое поле</span>
+          <span class="pamyatnik3-span">Буйничское поле</span>
         </div>
         <div class="pamyatnik28 pamyatnik century20 area4" target="_blank">
           <img src="img/komplex.png" class="pamyatnik28img" />
@@ -384,7 +400,7 @@
         </div>
         <div
           class="prezent_pamyatnik pp5 tooltip-container"
-          title="Памятник посвященный Три штыка">
+          title="Мемориал '' Три штыка''">
           <img src="./img/настоящее/три штыка.jfif" class="demo-box" />
         </div>
         <div
@@ -424,13 +440,13 @@
         </div>
         <div
           class="prezent_pamyatnik pp13 tooltip-container"
-          title="Памятник посвященный хмель">
+          title="Памятник посвященный Богдану Хмельницкому">
           <img src="./img/настоящее/хмель.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp14 tooltip-container"
           title="Памятник Курган бессмертия">
-          <img src="./img/настоящее/курган бессмертия.jfif" class="demo-box" />
+          <img src="./img/настоящее/курган бессмертия.jpg" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp15 tooltip-container"
@@ -457,12 +473,12 @@
         <div class="cyber_back_container">
           <div class="filter cyber">
             <h2>Фильтр</h2>
-            <button type="button" class="heroesb filter_btn">герои беларуси</button>
             <button type="button" class="scienceb filter_btn">наука</button>
             <button type="button" class="warb filter_btn">армия</button>
             <button type="button" class="economb filter_btn">экономика</button>
             <button type="button" class="sportb filter_btn">спорт</button>
             <button type="button" class="medb filter_btn">медицина</button>
+            <button type="button" class="otherb filter_btn">другое</button>
             <button type="button" class="showAll filter_btn_active">
               Показать всё
             </button>
