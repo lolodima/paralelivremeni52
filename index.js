@@ -110,7 +110,7 @@ let StateNumber = 0;
 let slider = document.querySelector(".slider");
 const huian = document.querySelector(".close");
 const cHuian = document.querySelector(".cClose");
-const monument_modal= document.querySelector(".monument_modal");
+const monument_modal = document.querySelector(".monument_modal");
 let isPrompt = false;
 let cyber_title = document.querySelectorAll(".cyber_title");
 let steam_title = document.querySelectorAll(".steem_title");
@@ -127,49 +127,34 @@ const changeCentryBtn1 = document.querySelector(".changeCentry1");
 const changeCentryBtn2 = document.querySelector(".changeCentry2");
 let currentOblast = "";
 const HeroDate = document.querySelector("lifeTime");
-let reference=document.querySelector(".reference")
-let categories = {
-  science: document.querySelectorAll(".science"),
-  med: document.querySelectorAll(".med"),
-  war: document.querySelectorAll(".war"),
-  econom: document.querySelectorAll(".econom"),
-  sport: document.querySelectorAll(".sport"),
-  other: document.querySelectorAll(".other"),
-};
+let reference = document.querySelector(".reference");
 let content;
-let contentIndex=0;
+let contentIndex = 0;
 
 function showCategory(categoryToShow, e) {
-  categories = {
-    science: document.querySelectorAll(".science"),
-    med: document.querySelectorAll(".med"),
-    war: document.querySelectorAll(".war"),
-    econom: document.querySelectorAll(".econom"),
-    sport: document.querySelectorAll(".sport"),
-    other: document.querySelectorAll(".other"),
-  };
+  const allItems = document.querySelectorAll(".gallery_pamyatnik");
+  
   document.querySelectorAll(".filter>button").forEach((el) => {
     el.classList.add("filter_btn");
     el.classList.remove("filter_btn_active");
   });
-    e.target.classList.remove("filter_btn");
-    e.target.classList.add("filter_btn_active");
+  e.target.classList.remove("filter_btn");
+  e.target.classList.add("filter_btn_active");
 
-  for (const category in categories)
-    categories[category].forEach((item) => {
-      if (category === categoryToShow) {
-        item.style.transition =  "opacity 1.5s ease-in-out, visibility 0s linear 0.3s";
-        item.style.opacity = "1";
-        item.style.visibility = "visible";
-      } else {
-        item.style.transition = "opacity 0.3s ease, visibility 0s linear 0s";
-        item.style.opacity = "0";
-        item.style.visibility = "hidden";
-      }
-    });
+  allItems.forEach((item) => {
+    if (item.classList.contains(categoryToShow)) {
+      item.style.transition = "opacity 1.5s ease-in-out, visibility 0s linear 0.3s";
+      item.style.opacity = "1";
+      item.style.visibility = "visible";
+    } else {
+      item.style.transition = "opacity 0.3s ease, visibility 0s linear 0s";
+      item.style.opacity = "0";
+      item.style.visibility = "hidden";
+    }
+  });
 }
 
-let isVidio=false
+let isVidio = false;
 function showAllCategories(e) {
   const categories = {
     science: document.querySelectorAll(".science"),
@@ -177,7 +162,7 @@ function showAllCategories(e) {
     war: document.querySelectorAll(".war"),
     econom: document.querySelectorAll(".econom"),
     sport: document.querySelectorAll(".sport"),
-    other: document.querySelectorAll(".other"),
+    heroes: document.querySelectorAll(".heroes"),
   };
 
   document.querySelectorAll(".filter>button").forEach((el) => {
@@ -194,26 +179,27 @@ function showAllCategories(e) {
     });
   }
 }
-document.querySelector(".steem_title").addEventListener("click",()=>{
+
+document.querySelector(".steem_title").addEventListener("click", () => {
   StateNumber = 3;
   clCenter.style.display = "none";
   clCyber.style.display = "block";
   clSteam.style.display = "block";
   cl.click();
-})
-document.querySelector(".cyber_title").addEventListener("click",()=>{
+});
+document.querySelector(".cyber_title").addEventListener("click", () => {
   StateNumber = 3;
   clCenter.style.display = "none";
   clCyber.style.display = "block";
   clSteam.style.display = "block";
   cl.click();
-})
-document.querySelector(".pClose").addEventListener("click",()=>{
+});
+document.querySelector(".pClose").addEventListener("click", () => {
   modalPast.style.display = "none";
-  monumentVidio.style.display="none"
-  isVidio=false
-  monument.style.display="block"
-})
+  monumentVidio.style.display = "none";
+  isVidio = false;
+  monument.style.display = "block";
+});
 document.querySelectorAll(".scienceb").forEach((button) => {
   button.addEventListener("click", (e) => showCategory("science", e));
 });
@@ -234,8 +220,8 @@ document.querySelectorAll(".sportb").forEach((button) => {
   button.addEventListener("click", (e) => showCategory("sport", e));
 });
 
-document.querySelectorAll(".otherb").forEach((button) => {
-  button.addEventListener("click", (e) => showCategory("other", e));
+document.querySelectorAll(".heroesb").forEach((button) => {
+  button.addEventListener("click", (e) => showCategory("heroes", e));
 });
 
 // Назначение обработчика для кнопки Show All
@@ -251,43 +237,43 @@ function setActiveMicro(switch1) {
   }
 }
 
-isVidio=false
-function checkSlideType(){
-  if(content[contentIndex].type=="vidio"){
-    monument.style.display='none'
-    monumentVidio.style.display='block'
-    monumentVidio.src=content[contentIndex].reference
+isVidio = false;
+function checkSlideType() {
+  if (content[contentIndex].type == "vidio") {
+    monument.style.display = "none";
+    monumentVidio.style.display = "block";
+    monumentVidio.src = content[contentIndex].reference;
   }
-  if(content[contentIndex].type=="image"){
-    monument.style.display='block'
-    monumentVidio.style.display='none'
-    monument.src=content[contentIndex].reference
+  if (content[contentIndex].type == "image") {
+    monument.style.display = "block";
+    monumentVidio.style.display = "none";
+    monument.src = content[contentIndex].reference;
   }
 }
 function changeMonumnentImageNext() {
-  contentIndex+=1
-  if(contentIndex>= content.length){
-    contentIndex=0
+  contentIndex += 1;
+  if (contentIndex >= content.length) {
+    contentIndex = 0;
   }
-  checkSlideType()
+  checkSlideType();
 }
 
 function changeMonumnentImageBack() {
-  contentIndex-=1
-  if(contentIndex<0){
-    contentIndex=content.length-1
+  contentIndex -= 1;
+  if (contentIndex < 0) {
+    contentIndex = content.length - 1;
   }
-  if(content[contentIndex].type=="vidio"){
-    monument.style.display='none'
-    monumentVidio.style.display='block'
-    monumentVidio.src=content[contentIndex].reference
+  if (content[contentIndex].type == "vidio") {
+    monument.style.display = "none";
+    monumentVidio.style.display = "block";
+    monumentVidio.src = content[contentIndex].reference;
   }
-  if(content[contentIndex].type=="image"){
-    monument.style.display='block'
-    monumentVidio.style.display='none'
-    monument.src=content[contentIndex].reference
+  if (content[contentIndex].type == "image") {
+    monument.style.display = "block";
+    monumentVidio.style.display = "none";
+    monument.src = content[contentIndex].reference;
   }
-  checkSlideType()
+  checkSlideType();
 }
 function changeHeroImage() {
   if (isRealHero) {
@@ -299,7 +285,6 @@ function changeHeroImage() {
   }
   isRealHero = !isRealHero;
 }
-
 
 function showImage(index) {
   images[currentIndex].classList.remove("active");
@@ -324,7 +309,6 @@ document.querySelector(".slider").addEventListener("click", function (event) {
 });
 
 document.addEventListener("keydown", (e) => {
-  
   if (e.key == "Escape") {
     modal.style.display = "none";
     isRealHero = false;
@@ -359,7 +343,7 @@ document.addEventListener("keydown", (e) => {
     clCyber.style.display = "none";
     clSteam.style.display = "none";
     clPresent.style.display = "block";
-  
+
     setPresent();
   }
 });
@@ -385,49 +369,6 @@ function setModal(text, label, img1, img2, heroSound) {
   }
 }
 
-function promModal() {
-  modal_arrows.style.display = "none";
-  if (!langChange) {
-    setModal(
-      "Промышленный комплекс формирует: почти треть создаваемого ВВП (27,1% в 2021 г.), три четверти экспорта (75-80%), значительную сумму валютных поступлений; обеспечивает рабочими местами четверть экономически активного населения страны. При этом почти половину промышленного производства формируют частные предприятия (организации без доли государства). Промышленность - одна из наиболее динамично развивающихся отраслей белорусской экономики. По итогам 2021 г. промышленность приросла на 6,5% - это один из лучших результатов среди стран Евразийского экономического союза (ЕАЭС).",
-      "Промышленный комплекс - основа развития национальной экономики",
-      "img/промышленность1.jpg",
-      "./img/промышленность1.jpg",
-      "sound/prom.wav"
-    );
-  } else {
-    setModal(
-      "Прамысловы комплекс фарміруе: амаль трэць ствараемага ВУП (27,1% у 2021 г.), тры чвэрці экспарту (75-80%), значную суму валютных паступленняў; забяспечвае працоўнымі месцамі чвэрць эканамічна актыўнага насельніцтва краіны. Пры гэтым амаль палову прамысловай вытворчасці фармуюць прыватныя прадпрыемствы (арганізацыі без долі дзяржавы). Прамысловасць - адна з найбольш дынамічна развіваюцца галін беларускай эканомікі. Па выніках 2021 года прамысловасць прырасла на 6,5% - гэта адзін з лепшых вынікаў сярод краін Еўразійскага эканамічнага саюза (ЕАЭС).",
-      "Прамысловы комплекс-аснова развіцця нацыянальнай эканомікі",
-      "img/промышленность1.jpg",
-      "./img/промышленность1.jpg",
-      "sound/prom.wav"
-    );
-  }
-}
-
-function scienceModal() {
-  modal_arrows.style.display = "none";
-  reference.style.display="none"
-  if (!langChange) {
-    setModal(
-      "В ряду крупных новейших достижений - искусственное выращивание органов и тканей, разработка нанолекарств с заданными свойствами, создание искусственного интеллекта, по ряду параметров превосходящего человеческий. По всем названным мировым достижениям наша наука находится на передовых позициях, а в некоторых разработках - даже лидирует. Машиностроители разрабатывают новейшие электротранспортные средства и компоненты; физики и электронщики создают высококонкурентные лазеры и схемы, востребованные в США, Японии. Созданы комплекс автоматизированного составления цифровых карт, суперкомпьютер для геологических исследований и офисный суперкомпьютер с супервысокой для этого класса машин производительностью - 100 терафлопс (1 триллион операций в секунду).",
-      "Наука — фундамент нашей государственности",
-      "img/наука.jpg",
-      "./img/наука.jpg",
-      "sound/science.wav"
-    );
-  } else {
-    setModal(
-      "Нарадзілася 14 верасня 1990 года ў Мінску, у рабочай сям'і, бацька і маці працавалі дворнікамі. Скончыла сярэднюю школу № 151 у Мінску. Пасля заканчэння школы прафесійна займалася бальнымі танцамі. У 2010-2011 гадах працавала ў Мінскім аддзяленні Беларускай чыгункі, у 2011 годзе — у кампаніі з дадатковай адказнасцю «Сатурн-2», якая займалася аптовым гандлем прадуктамі харчавання. З 2012 года завочна вучылася на эканамічным факультэце Мінскага інавацыйнага ўніверсітэта па спецыяльнасці «менеджмент (інфармацыйны)». У 2013-2015 гадах працавала ў ТАА «Мар'яна Інвест», якое займалася рознічным гандлем каўбаснымі вырабамі і вэнджанінай. З 2017 года працавала бортправадніцай-інструктарам авіякампаніі «Белавія» і лётала ў складзе экіпажаў пасажырскіх самалётаў Boeing і Embraer.",
-      "Марына Васілеўская",
-      "img/наука.jpg",
-      "./img/наука.jpg",
-      "sound/science.wav"
-    );
-  }
-}
-
 function promptModal() {
   isPrompt = true;
   setModal("", "", "", "", "");
@@ -436,9 +377,9 @@ function promptModal() {
 huian.addEventListener("click", () => {
   modal.style.display = "none";
   modalPast.style.display = "none";
-  isVidio=false
-  monumentVidio.style.display="none"
-  monument.style.display="block"
+  isVidio = false;
+  monumentVidio.style.display = "none";
+  monument.style.display = "block";
   isRealHero = false;
   modal_arrows.style.transform = "rotate(0deg)";
 });
@@ -446,9 +387,9 @@ huian.addEventListener("click", () => {
 cHuian.addEventListener("click", () => {
   modal.style.display = "none";
   modalPast.style.display = "none";
-  isVidio=false
-  monumentVidio.style.display="none"
-  monument.style.display="block"
+  isVidio = false;
+  monumentVidio.style.display = "none";
+  monument.style.display = "block";
   window.speechSynthesis.cancel();
 });
 
@@ -458,9 +399,9 @@ window.onclick = function (event) {
     setActiveMicro(false);
     modal.style.display = "none";
     modalPast.style.display = "none";
-    isVidio=false
-    monumentVidio.style.display="none"
-    monument.style.display="block"
+    isVidio = false;
+    monumentVidio.style.display = "none";
+    monument.style.display = "block";
     modal_arrows.style.transform = "rotate(0deg)";
   }
 };
@@ -493,24 +434,23 @@ function showImages() {
 }
 
 function restartAnimation() {
-  const el = document.querySelector('.title1');
-  const el2 = document.querySelector('.title2');
-  const el3 = document.querySelector('.text');
-  el.classList.remove('animated'); 
-  el2.classList.remove('animated'); 
-  el3.classList.remove('animated1'); 
-  void el.offsetWidth;            
-  void el2.offsetWidth;            
-  void el3.offsetWidth;            
-  el.classList.add('animated');    
-  el2.classList.add('animated');    
-  el3.classList.add('animated1'); 
-  if (langChange){
+  const el = document.querySelector(".title1");
+  const el2 = document.querySelector(".title2");
+  const el3 = document.querySelector(".text");
+  el.classList.remove("animated");
+  el2.classList.remove("animated");
+  el3.classList.remove("animated1");
+  void el.offsetWidth;
+  void el2.offsetWidth;
+  void el3.offsetWidth;
+  el.classList.add("animated");
+  el2.classList.add("animated");
+  el3.classList.add("animated1");
+  if (langChange) {
     setTimeout(() => {
-      el3.style.left = "51%"
-    }, 50)
-  }   
-  else{
+      el3.style.left = "51%";
+    }, 50);
+  } else {
     el3.style.left = "50%";
   }
 }
@@ -521,12 +461,12 @@ lang.addEventListener("click", () => {
   } else {
     lang.innerHTML = 'RU <img class="" src="./img/globus.png"/>';
   }
-  ggmk.src="./img/ggmk.png"
+  ggmk.src = "./img/ggmk.png";
   langChange = !langChange;
 
   if (!langChange) {
     for (let i of vern) {
-      i.innerHTML = "Нажмите, чтобы вернуться<";
+      i.innerHTML = "Нажмите, чтобы вернуться";
     }
     text.innerHTML = "Нажмите, чтобы начать";
     bt16.innerHTML = "Гомельская область";
@@ -561,7 +501,8 @@ lang.addEventListener("click", () => {
     pamyatnik19s.innerHTML = "Мемориальный комплекс<br/> в честь советских ...";
     pamyatnik20s.innerHTML = 'Мемориальный комплекс <br />"Прорыв"';
     pamyatnik21s.innerHTML = "Памятник Памяти <br />Узников Гетто";
-    pamyatnik22s.innerHTML = "Памятник Учителям и Ученикам - <br />Погибшим В Годы Великой Отечественной Войны";
+    pamyatnik22s.innerHTML =
+      "Памятник Учителям и Ученикам - <br />Погибшим В Годы Великой Отечественной Войны";
     pamyatnik23s.innerHTML = "Братская могила советских ...";
     // pamyatnik24s.innerHTML = "комплекс <br />холокоста";
     if (StateNumber == 1) {
@@ -573,18 +514,16 @@ lang.addEventListener("click", () => {
       t2.innerHTML = "Взгляд в будущее";
     }
 
-    document.querySelector('.scienceb').innerHTML = 'НАУКА'
-    document.querySelector('.medb').innerHTML = 'МЕДИЦИНА'
-    document.querySelector('.warb').innerHTML = 'АРМИЯ'
-    document.querySelector('.economb').innerHTML = 'ЭКОНОМИКА'
-    document.querySelector('.sportb').innerHTML = 'СПОРТ'
-    document.querySelector('.otherb').innerHTML = 'ДРУГОЕ'
-    document.querySelector('.showAll').innerHTML = 'ПОКАЗАТЬ ВСЕ'
-  } 
-  
-  else {
+    document.querySelector(".scienceb").innerHTML = "НАУКА";
+    document.querySelector(".medb").innerHTML = "МЕДИЦИНА";
+    document.querySelector(".warb").innerHTML = "АРМИЯ";
+    document.querySelector(".economb").innerHTML = "ЭКОНОМИКА";
+    document.querySelector(".sportb").innerHTML = "СПОРТ";
+    document.querySelector(".heroesb").innerHTML = "герои беларуси";
+    document.querySelector(".showAll").innerHTML = "ПОКАЗАТЬ ВСЕ";
+  } else {
     for (let i of vern) {
-      i.innerHTML = "Націсніце, каб вярнуцца<";
+      i.innerHTML = "Націсніце, каб вярнуцца";
     }
     text.innerHTML = "Націсніце, каб пачаць";
     bt16.innerHTML = "Гомельская вобласць";
@@ -614,13 +553,14 @@ lang.addEventListener("click", () => {
     pamyatnik14s.innerHTML =
       "Помнік<br />воінам<br />-інтэрнацыяналіст-<br />ам";
     pamyatnik15s.innerHTML = "Помнік бітве пры лясной";
-    ggmk.src="./img/ggmk_bel.png"
+    ggmk.src = "./img/ggmk_bel.png";
     pamyatnik17s.innerHTML = "Курган <br/>славы";
     pamyatnik18s.innerHTML = "Помнік дэсантнікам";
     pamyatnik19s.innerHTML = "Мемарыяльны комплекс<br/> у гонар савецкіх ...";
     pamyatnik20s.innerHTML = 'Мемарыяльны комплекс <br />"Прарыў"';
     pamyatnik21s.innerHTML = "Помнік Памяці <br/>Вязняў Гета";
-    pamyatnik22s.innerHTML = "Помнік настаўнікам і вучням -<br/>загінуўшым у гады Вялікай Айчыннай вайны";
+    pamyatnik22s.innerHTML =
+      "Помнік настаўнікам і вучням -<br/>загінуўшым у гады Вялікай Айчыннай вайны";
     pamyatnik23s.innerHTML = "Брацкая магіла савецкіх ...";
     // pamyatnik24s.innerHTML = "Комплекс <br />халакоста";
     if (StateNumber == 1) {
@@ -632,13 +572,13 @@ lang.addEventListener("click", () => {
       t2.innerHTML = "Погляд у будучыню";
     }
 
-    document.querySelector('.scienceb').innerHTML = 'НАВУКА'
-    document.querySelector('.medb').innerHTML = 'МЕДЫЦЫНА'
-    document.querySelector('.warb').innerHTML = 'АРМІЯ'
-    document.querySelector('.economb').innerHTML = 'ЭКАНОМІКА'
-    document.querySelector('.sportb').innerHTML = 'СПОРТ'
-    document.querySelector('.otherb').innerHTML = 'ДРУГОЕ'
-    document.querySelector('.showAll').innerHTML = 'ПАКАЗАЦЬ УСЕ'
+    document.querySelector(".scienceb").innerHTML = "НАВУКА";
+    document.querySelector(".medb").innerHTML = "МЕДЫЦЫНА";
+    document.querySelector(".warb").innerHTML = "АРМІЯ";
+    document.querySelector(".economb").innerHTML = "ЭКАНОМІКА";
+    document.querySelector(".sportb").innerHTML = "СПОРТ";
+    document.querySelector(".heroesb").innerHTML = "Героі Беларусі";
+    document.querySelector(".showAll").innerHTML = "ПАКАЗАЦЬ УСЕ";
   }
   lastSteamButton.click();
   restartAnimation();
@@ -671,17 +611,15 @@ clCyber.addEventListener("click", () => {
   clPresent.style.display = "none";
   cl.click();
 });
-clPresent.addEventListener("click",()=>{
-  
-            
-            StateNumber = 4;
-    clCenter.style.display = "block";
-    clCyber.style.display = "none";
-    clSteam.style.display = "none";
-    clPresent.style.display = "none";
-            setPresent()
-            cl.click();
-})
+clPresent.addEventListener("click", () => {
+  StateNumber = 4;
+  clCenter.style.display = "block";
+  clCyber.style.display = "none";
+  clSteam.style.display = "none";
+  clPresent.style.display = "none";
+  setPresent();
+  cl.click();
+});
 clCenter.addEventListener("click", () => {
   StateNumber = 3;
   clCenter.style.display = "none";
@@ -690,78 +628,70 @@ clCenter.addEventListener("click", () => {
   clPresent.style.display = "block";
   cl.click();
 });
-function setSteem(){
-  let m = 0 + Math.random() * 110;;
-  let s = 0 + Math.random() * 110;;
+function setSteem() {
+  let m = 0 + Math.random() * 110;
+  let s = 0 + Math.random() * 110;
   sBackCont.style.flex = 1;
   cBackCont.style.flex = 0;
   sc.style.transform = `rotate(${s}deg)`;
   mn.style.transform = `rotate(${m}deg)`;
-  t1.style.display="inline"
+  t1.style.display = "inline";
   toggleVisibility(cyber, false);
   toggleVisibility(steem, true);
-  toggleVisibility( present,false);
+  toggleVisibility(present, false);
   sBack.src = "img/sBack.png";
   zagolovok.style.backgroundImage = "url(./style/szagolovok.png)";
   footerr.style.backgroundImage = "url(./style/sfoot.png)";
   t2.innerHTML = langChange ? "Памяць аб мінулым" : "Память о прошлом";
   text.style.display = "none";
   document.querySelector(".clock").style.marginLeft = "10%";
-
 }
-function setCyber(){
-  t1.style.display="inline"
+function setCyber() {
+  t1.style.display = "inline";
   sBackCont.style.flex = 0;
   cBackCont.style.flex = 1;
   toggleVisibility(cyber, true);
   toggleVisibility(steem, false);
-  toggleVisibility( present,false);
+  toggleVisibility(present, false);
 
   cBack.src = "img/future_phone.png";
   let m = 250 + Math.random() * 110;
-  let s = 250 + Math.random() * 110
- sc.style.transform = `rotate(${s}deg)`;
- mn.style.transform = `rotate(${m}deg)`;
+  let s = 250 + Math.random() * 110;
+  sc.style.transform = `rotate(${s}deg)`;
+  mn.style.transform = `rotate(${m}deg)`;
   zagolovok.style.backgroundImage = "url(./img/cyber_header.png)";
   footerr.style.backgroundImage = "url(./img/cyber_footer.png)";
-  t2.innerHTML = langChange
-    ? "Погляд у будучыню"
-    : "Взгляд в будущее";
+  t2.innerHTML = langChange ? "Погляд у будучыню" : "Взгляд в будущее";
   document.querySelector(".clock").style.marginLeft = "calc(90% - 250px)";
   text.style.display = "none";
 }
-function setPresent(){
+function setPresent() {
   sBackCont.style.flex = 0;
   cBackCont.style.flex = 1;
-  t1.style.display="inline"
+  t1.style.display = "inline";
   toggleVisibility(cyber, false);
   toggleVisibility(steem, false);
-  toggleVisibility( present,true);
+  toggleVisibility(present, true);
   document.querySelector(".clock").style.marginLeft = "calc(48% - 125px)";
   cBack.src = "img/present_phone.png";
-let  m = 120 + Math.random() * 110;
- let  s = 120 + Math.random() * 110;
-   sc.style.transform = `rotate(${s}deg)`;
-   mn.style.transform = `rotate(${m}deg)`;
+  let m = 120 + Math.random() * 110;
+  let s = 120 + Math.random() * 110;
+  sc.style.transform = `rotate(${s}deg)`;
+  mn.style.transform = `rotate(${m}deg)`;
   zagolovok.style.backgroundImage = "url(./img/present_header.png)";
   footerr.style.backgroundImage = "url(./img/present_footer.png)";
-  t1.style.display="none"
-  t2.innerHTML = langChange
-    ? "Рэха сапраўднага"
-    : "Эхо настоящего";
+  t1.style.display = "none";
+  t2.innerHTML = langChange ? "Рэха сапраўднага" : "Эхо настоящего";
 
   text.style.display = "none";
-  
 }
-function setCenter(){
+function setCenter() {
   zagolovok.style.backgroundImage = "url(style/header_image.png)";
   sc.style.transform = `rotate(0deg)`;
   mn.style.transform = `rotate(0deg)`;
   t1.style.visibility = "visible";
-  t1.style.display="inline"
-  t1.innerHTML = langChange
-    ? "Інтэрактыўны гадзіннік"
-    : "Интерактивные часы";
+  t1.style.display = "inline";
+  t1.innerHTML = langChange ? "Інтэрактыўны гадзіннік" : "Интерактивные часы";
   t2.innerHTML = langChange ? "Паралелі часу" : "Параллели времени";
   cBack.src = "img/centralbackground.png";
   sBack.src = "img/centralbackground.png";
@@ -779,23 +709,22 @@ cl.addEventListener("click", (e) => {
   let m, s;
   t1.innerHTML = "<span style='visibility:hidden'>fds</span>";
   switch (StateNumber) {
-   
     case 1:
-      setSteem()
+      setSteem();
       break;
 
     case 2:
-    setCyber()
+      setCyber();
       break;
 
     case 3:
-setCenter()
+      setCenter();
       break;
-  
+
     case 4:
-    setPresent()
-          break;
-      }
+      setPresent();
+      break;
+  }
   // Анимация стрелок
   sc.style.transform = `rotate(${s}deg)`;
   mn.style.transform = `rotate(${m}deg)`;
@@ -817,10 +746,9 @@ bt15.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Минская область";
   }
-  if (!langChange){
+  if (!langChange) {
     sImg.src = "./img/allBelarusMinsk.png";
-  }
-  else{
+  } else {
     sImg.src = "./img/allBelarusMinsk_bel.png";
   }
 
@@ -844,10 +772,9 @@ bt16.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Гомельская область";
   }
-  if (!langChange){
+  if (!langChange) {
     sImg.src = "img/allBelarusHomel.png";
-  }
-  else{
+  } else {
     sImg.src = "img/allBelarusHomel_bel.png";
   }
 
@@ -872,11 +799,9 @@ bt19.addEventListener("click", () => {
     sAP.innerHTML = "Брестская область";
   }
 
-  if (!langChange){
+  if (!langChange) {
     sImg.src = "./img/allBelarusBrest.png";
-
-  }
-  else{
+  } else {
     sImg.src = "./img/allBelarusBrest_bel.png";
   }
   oblast.style.backgroundImage = "url(./style/брестская.png)";
@@ -891,7 +816,6 @@ bt19.addEventListener("click", () => {
   }
   lastSteamButton = bt19;
   currentArea = "area3";
-
 });
 
 bt20.addEventListener("click", () => {
@@ -902,11 +826,9 @@ bt20.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Могилёвская область";
   }
-  if (!langChange){
+  if (!langChange) {
     sImg.src = "./img/allBelarusMogilev.png";
-
-  }
-  else{
+  } else {
     sImg.src = "./img/allBelarusMogilev_bel.png";
   }
 
@@ -916,7 +838,6 @@ bt20.addEventListener("click", () => {
     pamyatnik14.style.display = "inline-block";
     pamyatnik15.style.display = "inline-block";
     pamyatnik27.style.display = "inline-block";
-
   }
   lastSteamButton = bt20;
   currentArea = "area4";
@@ -930,11 +851,9 @@ bt21.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Витебская область";
   }
-  if (!langChange){
+  if (!langChange) {
     sImg.src = "./img/allBelarusVitebsk.png";
-
-  }
-  else{
+  } else {
     sImg.src = "./img/allBelarusVitebsk_bel.png";
   }
 
@@ -944,7 +863,6 @@ bt21.addEventListener("click", () => {
     pamyatnik18.style.display = "inline-block";
     pamyatnik19.style.display = "inline-block";
     pamyatnik20.style.display = "inline-block";
-
   }
   lastSteamButton = bt21;
   currentArea = "area5";
@@ -958,12 +876,9 @@ bt22.addEventListener("click", () => {
   } else {
     sAP.innerHTML = "Гродненская область";
   }
-  if (!langChange){
- 
+  if (!langChange) {
     sImg.src = "./img/allBelarusGrodno.png";
-
-  }
-  else{
+  } else {
     sImg.src = "./img/allBelarusGrodno_bel.png";
   }
 
@@ -984,11 +899,9 @@ let currentArea = "area1";
 const centry = document.querySelector(".centry");
 const pamyatniks = document.querySelectorAll(".pamyatnik");
 
-
-
 //памятники для будущего
 function setHero(id, arrows) {
-  reference.style.display="none"
+  reference.style.display = "none";
   fetch("heroes.json")
     .then((response) => response.json())
     .then((data) => {
@@ -1005,27 +918,24 @@ function setHero(id, arrows) {
       slider.style.display = "none";
       lifeTime.innerHTML = heroData.lifeTimeRu;
 
-      if (arrows == false){
-        modal_arrows.style.display = "none"
-      }
-      else {
-        modal_arrows.style.display = "block"
+      if (arrows == false) {
+        modal_arrows.style.display = "none";
+      } else {
+        modal_arrows.style.display = "block";
       }
 
       if (!langChange) {
         modal_text.innerHTML = heroData.textRu;
         nameHero.innerHTML = heroData.nameRu;
-
       } else {
         modal_text.innerHTML = heroData.textBY;
         nameHero.innerHTML = heroData.nameBy;
       }
-      if(heroData.haveVidio){
-        reference.style.display="block"
-        reference.href=heroData.haveVidio
-       
+      if (heroData.haveVidio) {
+        reference.style.display = "block";
+        reference.href = heroData.haveVidio;
       }
- 
+
       modal_content.style.visibility = "visible";
       hero.src = heroData.imgCyber;
       sound = heroData.sound;
@@ -1034,11 +944,11 @@ function setHero(id, arrows) {
 }
 
 class HeroMark {
-  constructor(id, name, imag, filter,x,y, arrows) {
+  constructor(id, name, imag, filter, x, y, arrows) {
     this.id = id;
     this.name = name;
-    this.x=x;
-    this.y=y
+    this.x = x;
+    this.y = y;
     this.imag = imag;
     this.filter = filter;
     this.minLeft = 20;
@@ -1057,11 +967,18 @@ class HeroMark {
     div.style.left = `${this.x}%`;
     div.style.top = `${this.y}%`;
     div.classList.add("gallery_pamyatnik");
-    div.classList.add(`${this.filter}`);
+    if (Array.isArray(this.filter)) {
+      this.filter.forEach((element) => {
+        div.classList.add(element);
+      });
+    } else if (typeof this.filter === "string") {
+      div.classList.add(this.filter);
+    }
+
     div.title = this.name;
     div.innerHTML = `<img src="${this.imag}" alt="${this.name}"/>`;
     oC.appendChild(div);
-    if (this.arrows == false){
+    if (this.arrows == false) {
       console.log(this.arrows);
     }
     div.onclick = () => setHero(this.id, this.arrows);
@@ -1086,8 +1003,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
     .catch((error) => console.error("Ошибка загрузки JSON:", error));
-}
-);
+});
 
 //озвучка
 const modal_text_p = document.querySelector("#modal_text_p");
@@ -1110,82 +1026,78 @@ let modal_content_past = document.querySelector(".modal-content-past");
 const pam = document.querySelectorAll(".pamyatnik");
 
 //модалка для прошлого
-function setPastModal(text, label,data,p) {
-
+function setPastModal(text, label, data, p) {
   if (isPrompt == false) {
-    content=data.content
-console.log(content)
+    content = data.content;
+    console.log(content);
 
-    if (!content){
-      console.error("данные об памятнике "+p+" отсутствуют");
-      return
+    if (!content) {
+      console.error("данные об памятнике " + p + " отсутствуют");
+      return;
     }
-    if(content.length>1){
-      
-      if(data.content[0].type=="vidio"){
-        monument.style.display='none'
-        monumentVidio.style.display='block'
-        monumentVidio.src=data.content[0].reference
+    if (content.length > 1) {
+      if (data.content[0].type == "vidio") {
+        monument.style.display = "none";
+        monumentVidio.style.display = "block";
+        monumentVidio.src = data.content[0].reference;
       }
-      if(data.content[0].type=="image"){
-        monument.style.display='block'
-        monumentVidio.style.display='none'
-        monument.src=data.content[0].reference
+      if (data.content[0].type == "image") {
+        monument.style.display = "block";
+        monumentVidio.style.display = "none";
+        monument.src = data.content[0].reference;
       }
-      modal_arrows_past_back.style.display="block"
-      modal_arrows_past_next.style.display="block"
-
+      modal_arrows_past_back.style.display = "block";
+      modal_arrows_past_next.style.display = "block";
     }
-    if (content.length==1){
-      if(data.content[0].type=="vidio"){
-        monument.style.display='none'
-        monumentVidio.style.display='block'
-        monumentVidio.src=data.content[0].reference
+    if (content.length == 1) {
+      if (data.content[0].type == "vidio") {
+        monument.style.display = "none";
+        monumentVidio.style.display = "block";
+        monumentVidio.src = data.content[0].reference;
       }
-      if(data.content[0].type=="image"){
-        monument.style.display='block'
-        monumentVidio.style.display='none'
-        monument.src=data.content[0].reference
+      if (data.content[0].type == "image") {
+        monument.style.display = "block";
+        monumentVidio.style.display = "none";
+        monument.src = data.content[0].reference;
       }
-      modal_arrows_past_back.style.display="none"
-      modal_arrows_past_next.style.display="none"
-    
+      modal_arrows_past_back.style.display = "none";
+      modal_arrows_past_next.style.display = "none";
     }
-    if(content.length==0){
-      console.log("контент памятника " +p+" пуст")
+    if (content.length == 0) {
+      console.log("контент памятника " + p + " пуст");
     }
     modalPast.style.display = "block";
-    slider.style.display = "none"
+    slider.style.display = "none";
     modal_text_past.innerHTML = text;
     nameMonument.innerHTML = label;
   }
 }
 
+fetch("monuments.json")
+  .then((response) => response.json())
+  .then((data) => {
+    pam.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        let p = [...event.target.parentElement.classList][0].split("")[9];
+        if (
+          [...event.target.parentElement.classList][0].split("")[10] !=
+          undefined
+        ) {
+          p =
+            p + "" + [...event.target.parentElement.classList][0].split("")[10];
+        }
+        const text = !langChange ? data[p].textRu : data[p].textBy;
+        const name = !langChange ? data[p].nameRu : data[p].nameBy;
 
-  fetch("monuments.json")
-    .then((response) => response.json())
-    .then((data) => {
-      pam.forEach((element) => {
-        element.addEventListener("click", (event) => {
-          let p = [...event.target.parentElement.classList][0].split("")[9];
-          if([...event.target.parentElement.classList][0].split("")[10]!=undefined){
-            p=p+""+[...event.target.parentElement.classList][0].split("")[10]
-          }
-          const text = !langChange ? data[p].textRu : data[p].textBy;
-          const name = !langChange ? data[p].nameRu : data[p].nameBy;
+        if (data[p].haveVidio) {
+          modal_arrows_past_next.style.display = "block";
+          monumentVidio.src = data[p].haveVidio;
+        } else {
+          modal_arrows_past_next.style.display = "none";
+        }
 
-          if(data[p].haveVidio){
-            modal_arrows_past_next.style.display="block"
-            monumentVidio.src=data[p].haveVidio
-          }
-          else{
-            modal_arrows_past_next.style.display="none"
-          }
-
-          setPastModal(text, name, data[p],p);
-      
-        });
+        setPastModal(text, name, data[p], p);
       });
-    })
-    .catch((error) => console.error("Ошибка загрузки JSON:", error));
-;
+    });
+  })
+  .catch((error) => console.error("Ошибка загрузки JSON:", error));
