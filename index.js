@@ -134,7 +134,7 @@ let categories = {
   war: document.querySelectorAll(".war"),
   econom: document.querySelectorAll(".econom"),
   sport: document.querySelectorAll(".sport"),
-  heroes: document.querySelectorAll(".heroes"),
+  other: document.querySelectorAll(".other"),
 };
 let content;
 let contentIndex=0;
@@ -146,7 +146,7 @@ function showCategory(categoryToShow, e) {
     war: document.querySelectorAll(".war"),
     econom: document.querySelectorAll(".econom"),
     sport: document.querySelectorAll(".sport"),
-    heroes: document.querySelectorAll(".heroes"),
+    other: document.querySelectorAll(".other"),
   };
   document.querySelectorAll(".filter>button").forEach((el) => {
     el.classList.add("filter_btn");
@@ -177,7 +177,7 @@ function showAllCategories(e) {
     war: document.querySelectorAll(".war"),
     econom: document.querySelectorAll(".econom"),
     sport: document.querySelectorAll(".sport"),
-    heroes: document.querySelectorAll(".heroes"),
+    other: document.querySelectorAll(".other"),
   };
 
   document.querySelectorAll(".filter>button").forEach((el) => {
@@ -234,8 +234,8 @@ document.querySelectorAll(".sportb").forEach((button) => {
   button.addEventListener("click", (e) => showCategory("sport", e));
 });
 
-document.querySelectorAll(".heroesb").forEach((button) => {
-  button.addEventListener("click", (e) => showCategory("heroes", e));
+document.querySelectorAll(".otherb").forEach((button) => {
+  button.addEventListener("click", (e) => showCategory("other", e));
 });
 
 // Назначение обработчика для кнопки Show All
@@ -385,6 +385,49 @@ function setModal(text, label, img1, img2, heroSound) {
   }
 }
 
+function promModal() {
+  modal_arrows.style.display = "none";
+  if (!langChange) {
+    setModal(
+      "Промышленный комплекс формирует: почти треть создаваемого ВВП (27,1% в 2021 г.), три четверти экспорта (75-80%), значительную сумму валютных поступлений; обеспечивает рабочими местами четверть экономически активного населения страны. При этом почти половину промышленного производства формируют частные предприятия (организации без доли государства). Промышленность - одна из наиболее динамично развивающихся отраслей белорусской экономики. По итогам 2021 г. промышленность приросла на 6,5% - это один из лучших результатов среди стран Евразийского экономического союза (ЕАЭС).",
+      "Промышленный комплекс - основа развития национальной экономики",
+      "img/промышленность1.jpg",
+      "./img/промышленность1.jpg",
+      "sound/prom.wav"
+    );
+  } else {
+    setModal(
+      "Прамысловы комплекс фарміруе: амаль трэць ствараемага ВУП (27,1% у 2021 г.), тры чвэрці экспарту (75-80%), значную суму валютных паступленняў; забяспечвае працоўнымі месцамі чвэрць эканамічна актыўнага насельніцтва краіны. Пры гэтым амаль палову прамысловай вытворчасці фармуюць прыватныя прадпрыемствы (арганізацыі без долі дзяржавы). Прамысловасць - адна з найбольш дынамічна развіваюцца галін беларускай эканомікі. Па выніках 2021 года прамысловасць прырасла на 6,5% - гэта адзін з лепшых вынікаў сярод краін Еўразійскага эканамічнага саюза (ЕАЭС).",
+      "Прамысловы комплекс-аснова развіцця нацыянальнай эканомікі",
+      "img/промышленность1.jpg",
+      "./img/промышленность1.jpg",
+      "sound/prom.wav"
+    );
+  }
+}
+
+function scienceModal() {
+  modal_arrows.style.display = "none";
+  reference.style.display="none"
+  if (!langChange) {
+    setModal(
+      "В ряду крупных новейших достижений - искусственное выращивание органов и тканей, разработка нанолекарств с заданными свойствами, создание искусственного интеллекта, по ряду параметров превосходящего человеческий. По всем названным мировым достижениям наша наука находится на передовых позициях, а в некоторых разработках - даже лидирует. Машиностроители разрабатывают новейшие электротранспортные средства и компоненты; физики и электронщики создают высококонкурентные лазеры и схемы, востребованные в США, Японии. Созданы комплекс автоматизированного составления цифровых карт, суперкомпьютер для геологических исследований и офисный суперкомпьютер с супервысокой для этого класса машин производительностью - 100 терафлопс (1 триллион операций в секунду).",
+      "Наука — фундамент нашей государственности",
+      "img/наука.jpg",
+      "./img/наука.jpg",
+      "sound/science.wav"
+    );
+  } else {
+    setModal(
+      "Нарадзілася 14 верасня 1990 года ў Мінску, у рабочай сям'і, бацька і маці працавалі дворнікамі. Скончыла сярэднюю школу № 151 у Мінску. Пасля заканчэння школы прафесійна займалася бальнымі танцамі. У 2010-2011 гадах працавала ў Мінскім аддзяленні Беларускай чыгункі, у 2011 годзе — у кампаніі з дадатковай адказнасцю «Сатурн-2», якая займалася аптовым гандлем прадуктамі харчавання. З 2012 года завочна вучылася на эканамічным факультэце Мінскага інавацыйнага ўніверсітэта па спецыяльнасці «менеджмент (інфармацыйны)». У 2013-2015 гадах працавала ў ТАА «Мар'яна Інвест», якое займалася рознічным гандлем каўбаснымі вырабамі і вэнджанінай. З 2017 года працавала бортправадніцай-інструктарам авіякампаніі «Белавія» і лётала ў складзе экіпажаў пасажырскіх самалётаў Boeing і Embraer.",
+      "Марына Васілеўская",
+      "img/наука.jpg",
+      "./img/наука.jpg",
+      "sound/science.wav"
+    );
+  }
+}
+
 function promptModal() {
   isPrompt = true;
   setModal("", "", "", "", "");
@@ -483,7 +526,7 @@ lang.addEventListener("click", () => {
 
   if (!langChange) {
     for (let i of vern) {
-      i.innerHTML = "Нажмите, чтобы вернуться";
+      i.innerHTML = "Нажмите, чтобы вернуться<";
     }
     text.innerHTML = "Нажмите, чтобы начать";
     bt16.innerHTML = "Гомельская область";
@@ -535,13 +578,13 @@ lang.addEventListener("click", () => {
     document.querySelector('.warb').innerHTML = 'АРМИЯ'
     document.querySelector('.economb').innerHTML = 'ЭКОНОМИКА'
     document.querySelector('.sportb').innerHTML = 'СПОРТ'
-    document.querySelector('.heroesb').innerHTML = 'герои беларуси'
+    document.querySelector('.otherb').innerHTML = 'ДРУГОЕ'
     document.querySelector('.showAll').innerHTML = 'ПОКАЗАТЬ ВСЕ'
   } 
   
   else {
     for (let i of vern) {
-      i.innerHTML = "Націсніце, каб вярнуцца";
+      i.innerHTML = "Націсніце, каб вярнуцца<";
     }
     text.innerHTML = "Націсніце, каб пачаць";
     bt16.innerHTML = "Гомельская вобласць";
@@ -594,7 +637,7 @@ lang.addEventListener("click", () => {
     document.querySelector('.warb').innerHTML = 'АРМІЯ'
     document.querySelector('.economb').innerHTML = 'ЭКАНОМІКА'
     document.querySelector('.sportb').innerHTML = 'СПОРТ'
-    document.querySelector('.heroesb').innerHTML = 'Героі Беларусі'
+    document.querySelector('.otherb').innerHTML = 'ДРУГОЕ'
     document.querySelector('.showAll').innerHTML = 'ПАКАЗАЦЬ УСЕ'
   }
   lastSteamButton.click();

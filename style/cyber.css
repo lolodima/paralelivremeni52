@@ -260,7 +260,7 @@ z-index: 100;
   padding: 12px;
   text-align: center;
   cursor: pointer;
-  width: 85%;
+  width: 80%;
   text-transform: uppercase;
   transition: background 0.3s, transform 0.2s;
   font-size: 16px;
