@@ -4,7 +4,7 @@
   height: 43%;
   left: 57%;
   top: 12%;
-  z-index: 1000000;
+  z-index: 90;
   padding: 10px;
   background-image: url("./img/present_oblast.png");
   border-radius: 10px;
@@ -54,6 +54,7 @@
   border-radius: 30px;
   border: 3px solid grey;
   cursor: pointer;
+  z-index: 100;
 }
 
 .prezent_pamyatnik>img{
