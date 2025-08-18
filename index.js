@@ -471,7 +471,7 @@ lang.addEventListener("click", () => {
     text.innerHTML = "Нажмите, чтобы начать";
     bt16.innerHTML = "Гомельская область";
     bt15.innerHTML = "Минская область";
-    bt19.innerHTML = "Бресткая область";
+    bt19.innerHTML = "Брестская область";
     bt20.innerHTML = "Могилевская область";
     bt21.innerHTML = "Витебская область";
     bt22.innerHTML = "Гродненнская область";
@@ -488,7 +488,7 @@ lang.addEventListener("click", () => {
     pamyatnik8s.innerHTML = "Памятник войнам<br />освободителям";
     pamyatnik9s.innerHTML = "Памятник<br />жертвам <br />холокоста";
     pamyatnik10s.innerHTML =
-      "Мемориальный комплекс <br />осводбодителям пинска";
+      "Мемориальный комплекс <br />осводбодителям Пинска";
     pamyatnik11s.innerHTML = "Монумент<br />с танком";
     pamyatnik12s.innerHTML = "Памятный знак в память об ...";
     pamyatnik13s.innerHTML =
