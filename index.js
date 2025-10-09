@@ -3,6 +3,7 @@
 const sc = document.querySelector("#sc");
 const mn = document.querySelector("#mn");
 const cl = document.querySelector("#cl");
+const barier=document.querySelector(".barier")
 const cBack = document.querySelector("#cyber_back");
 const sBack = document.querySelector("#steam_back");
 const zagolovok = document.querySelector(".zagolovok");
@@ -130,7 +131,7 @@ const HeroDate = document.querySelector("lifeTime");
 let reference = document.querySelector(".reference");
 let content;
 let contentIndex = 0;
-
+let isPromishlinost
 function showCategory(categoryToShow, e) {
   const allItems = document.querySelectorAll(".gallery_pamyatnik");
   
@@ -908,7 +909,7 @@ function setHero(id, arrows) {
       const heroData = data[id];
 
       if (!heroData) {
-        console.error(`Герой с именем ${id} не найден в JSON`);
+        console.error(`Герой с именем ${id} не найдеfн в JSON`);
         return;
       }
 
@@ -939,6 +940,11 @@ function setHero(id, arrows) {
       modal_content.style.visibility = "visible";
       hero.src = heroData.imgCyber;
       sound = heroData.sound;
+      if(heroData.isHero){
+        modal_arrows.style.transform = "rotate(180deg)";
+        hero.src = realHeroPath;
+        isRealHero=true;
+      }
     })
     .catch((error) => console.error("Ошибка загрузки JSON:", error));
 }
@@ -1101,3 +1107,21 @@ fetch("monuments.json")
     });
   })
   .catch((error) => console.error("Ошибка загрузки JSON:", error));
+function  presentChanger(isProisvodstva){
+  if(isProisvodstva){
+    document.querySelector(".prezent_pamyatniki").style.display="none"
+    document.querySelector(".mapContainer").style.display="none"
+    document.querySelector(".proiszvodstvaList").style.display="flex"
+    document.querySelector(".proizvostva").style.display="block"
+    barier.style.display="none"
+  
+  }
+  else{
+    document.querySelector(".prezent_pamyatniki").style.display="block"
+    document.querySelector(".mapContainer").style.display="block"
+    document.querySelector(".proiszvodstvaList").style.display="none"
+    document.querySelector(".proizvostva").style.display="none"
+    barier.style.display="block"
+  }
+
+}
