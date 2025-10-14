@@ -984,9 +984,6 @@ class HeroMark {
     div.title = this.name;
     div.innerHTML = `<img src="${this.imag}" alt="${this.name}"/>`;
     oC.appendChild(div);
-    if (this.arrows == false) {
-      console.log(this.arrows);
-    }
     div.onclick = () => setHero(this.id, this.arrows);
   }
 }

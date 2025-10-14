@@ -238,9 +238,9 @@ background: url("./present_button_phone.png")
   background-color: azure;
   height: 12px;
   width: 20px;
-  left: 65%;
-  top:-18px;
-  position:relative;
+left:  19%;
+top: 67%;
+  position:absolute;
   z-index: 10000000000000000;
 
 }
