@@ -17,6 +17,7 @@ const bt16 = document.querySelector("#bt16");
 const bt17 = document.querySelector("#bt17");
 const bt18 = document.querySelector("#bt18");
 const bt19 = document.querySelector("#bt19");
+
 const bt20 = document.querySelector("#bt20");
 const bt21 = document.querySelector("#bt21");
 const bt22 = document.querySelector("#bt22");
@@ -105,6 +106,7 @@ const modal_text = document.querySelector(".modal_text>p");
 const nameHero = document.querySelector(".nameHero");
 const lifeTime = document.querySelector(".lifeTime");
 const modal = document.getElementById("myModal");
+let prom=document.querySelectorAll(".prom")
 let modal_content = document.querySelector(".modal-content");
 const footerr = document.querySelector(".o_nas");
 let StateNumber = 0;
@@ -119,11 +121,13 @@ const images = document.querySelectorAll(".slider img");
 let modal_arrows = document.querySelector(".modal_arrows");
 let modal_arrows_past_next = document.querySelector(".modal_arrows_past_next");
 let modal_arrows_past_back = document.querySelector(".modal_arrows_past_back");
+
 let currentIndex = 0;
 let isRealHero = false;
 let realHeroPath = "";
 let futureHeroPath = "";
 let sound = "";
+let  factoryData=""
 const changeCentryBtn1 = document.querySelector(".changeCentry1");
 const changeCentryBtn2 = document.querySelector(".changeCentry2");
 let currentOblast = "";
@@ -1103,8 +1107,84 @@ fetch("monuments.json")
       });
     });
   })
+  .catch((error) => console.error("Ошибка загрузки JSON:", error));4
+  fetch("factory.json")
+  .then((response) => response.json())
+  .then((data) => {
+    
+ factoryData=  data
+ console.log(data)
+  })
   .catch((error) => console.error("Ошибка загрузки JSON:", error));
+  function setPresentModal(text, label, data, p) {
+    if (isPrompt == false) {
+      content = data.content;
+      console.log(content);
+  
+      if (!content) {
+        console.error("данные об памятнике " + p + " отсутствуют");
+        return;
+      }
+      if (content.length > 1) {
+        if (data.content[0].type == "vidio") {
+          monument.style.display = "none";
+          monumentVidio.style.display = "block";
+          monumentVidio.src = data.content[0].reference;
+        }
+        if (data.content[0].type == "image") {
+          monument.style.display = "block";
+          monumentVidio.style.display = "none";
+          monument.src = data.content[0].reference;
+        }
+        modal_arrows_past_back.style.display = "block";
+        modal_arrows_past_next.style.display = "block";
+      }
+      if (content.length == 1) {
+        if (data.content[0].type == "vidio") {
+          monument.style.display = "none";
+          monumentVidio.style.display = "block";
+          monumentVidio.src = data.content[0].reference;
+        }
+        if (data.content[0].type == "image") {
+          monument.style.display = "block";
+          monumentVidio.style.display = "none";
+          monument.src = data.content[0].reference;
+        }
+        modal_arrows_past_back.style.display = "none";
+        modal_arrows_past_next.style.display = "none";
+      }
+      if (content.length == 0) {
+        console.log("контент памятника " + p + " пуст");
+      }
+      modalPast.style.display = "block";
+      slider.style.display = "none";
+      modal_text_past.innerHTML = text;
+      nameMonument.innerHTML = label;
+    }
+  }
+  prom.forEach((el,i)=>{
+    console.log(prom[i])
+    el.addEventListener("click", ()=>{
+
+      if(factoryData[i+1]){
+        const text = !langChange ? factoryData[i+1].textRu : factoryData[i+1].textBy;
+        const name = !langChange ? factoryData[i+1].nameRu : factoryData[i+1].nameBy;
+
+setPresentModal(text,name,factoryData[i+1],i+1)
+      }
+    }
+    )
+  })
+function setPersonalPresentModal(i){
+  if(factoryData[i]){
+    const text = !langChange ? factoryData[i].textRu : factoryData[i].textBy;
+    const name = !langChange ? factoryData[i].nameRu : factoryData[i].nameBy;
+
+setPresentModal(text,name,factoryData[i],i)
+  }
+}
 function  presentChanger(isProisvodstva){
+
   if(isProisvodstva){
     document.querySelector(".prezent_pamyatniki").style.display="none"
     document.querySelector(".mapContainer").style.display="none"
