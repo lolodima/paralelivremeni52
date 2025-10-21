@@ -74,6 +74,7 @@ const pamyatnik7 = document.querySelector(".pamyatnik7");
 const pamyatnik8 = document.querySelector(".pamyatnik8");
 const pamyatnik9 = document.querySelector(".pamyatnik9");
 const pamyatnik10 = document.querySelector(".pamyatnik10");
+const mcp= document.querySelector(" .modal-content-past")
 const pamyatnik11 = document.querySelector(".pamyatnik11");
 const pamyatnik12 = document.querySelector(".pamyatnik12");
 const pamyatnik13 = document.querySelector(".pamyatnik13");
@@ -1034,6 +1035,7 @@ const pam = document.querySelectorAll(".pamyatnik");
 
 //модалка для прошлого
 function setPastModal(text, label, data, p) {
+  mcp.style.backgroundImage="url('./style/img/past_modal.png')"
   if (isPrompt == false) {
     content = data.content;
     console.log(content);
@@ -1078,6 +1080,8 @@ function setPastModal(text, label, data, p) {
     modal_text_past.innerHTML = text;
     nameMonument.innerHTML = label;
   }
+  modal_text_past.style.color="black"
+  nameMonument.style.color="black"
 }
 
 fetch("monuments.json")
@@ -1117,6 +1121,7 @@ fetch("monuments.json")
   })
   .catch((error) => console.error("Ошибка загрузки JSON:", error));
   function setPresentModal(text, label, data, p) {
+    mcp.style.backgroundImage="url('./style/img/present_modal.png')"
     if (isPrompt == false) {
       content = data.content;
       console.log(content);
@@ -1160,6 +1165,8 @@ fetch("monuments.json")
       slider.style.display = "none";
       modal_text_past.innerHTML = text;
       nameMonument.innerHTML = label;
+      modal_text_past.style.color="white"
+      nameMonument.style.color="white"
     }
   }
   prom.forEach((el,i)=>{

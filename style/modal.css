@@ -48,7 +48,7 @@
     }
 
     .modal-content-past {
-      background-image: url('img/past_modal.png');
+      background-image: url('img/present_modal.png');
       user-select: auto;
       padding-right: 20px;
       height: 80%;
