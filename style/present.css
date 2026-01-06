@@ -352,20 +352,20 @@ left: 130%;
     left: 100%;
 
   }
-  .promt18{
+  .prom18{
+    position: relative;
+    top:-700%;
+    left: 150%; 
+  }
+  .prom19{
     position: relative;
     top:-870%;
-    left: 150%; 
+    left: 250%; 
   }
-  .promt19{
+  .prom20{
     position: relative;
-    top:100%;
-    left: 150%; 
-  }
-  .promt20{
-    position: relative;
-    top:100%;
-    left: 150%; 
+    top:-870%;
+    left: 50%; 
   }
   .promt21{
     position: relative;
