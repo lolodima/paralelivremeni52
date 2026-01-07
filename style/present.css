@@ -263,103 +263,103 @@ font-family: "Russo One", sans-serif;
   padding-top:1000px;
 }
 .prom1{
-position: relative;
-top:340%;
+position: absolute;
+top:250%;
 left: 130%;
 }
 .prom2{
-  position: relative;
-  top:360%;
+  position: absolute;
+  top:520%;
   left: 260%; 
 }
 .prom3{
-  position: relative;
-  top:100%;
+  position: absolute;
+  top:400%;
   left: 150%; 
 }
 
 .prom5{
-  position: relative;
-  top:40%;
-  left: 240%; 
+  position: absolute;
+  top:300%;
+  left: 300%; 
 }
 .prom6{
-  position: relative;
-  top:30%;
-  left: 150%; 
+  position: absolute;
+  top:320%;
+  left: 60%; 
 }
 .prom4{
-  position: relative;
-  top:130%;
-  left: 350%; 
+  position: absolute;
+  top:500%;
+  left: 0%; 
 }
 
 .prom7{
-  position: relative;
-  top:-400%;
-  left: 250%; 
+  position: absolute;
+ top:120%;
+ left: 150%; 
 }
 .prom8{
-  position: relative;
-  top:0%;
-  left: 150%; 
+  position: absolute;
+  top:500%;
+  left: 370%; 
 }
 .prom9{
-  position: relative;
-  top:-200%;
-  left: 0%; 
+  position: absolute;
+  top:290%;
+  left: 210%; 
 }
 .prom10{
-  position: relative;
-  top:-400%;
-  left: 0%; 
+  position: absolute;
+  top:500%;
+  left: -100%; 
 }
 .prom11{
-  position: relative;
-  top:-160%;
-  left: 260%;
+  position: absolute;
+  top:450%;
+  left: 280%;
   }
   .prom12{
-    position: relative;
-    top:-560%;
-    left: 320%; 
+    position: absolute;
+    top:340%;
+    left: 390%; 
   }
   .prom13{
     position: relative;
-    top:-700%;
-    left: 100%; 
+    top:540%;
+    left: 170%; 
   }
   
   .prom14{
-    position: relative;
-    top:-500%;
-    left: 400%; 
+    position: absolute;
+    top:610%;
+    left: 240%; 
   }
   
   .prom15{
     position: relative;
-    top:-900%;
+    top:340%;
     left:50%; 
   }
   .prom16{
     position: relative;
-    top:-790%;
-    left: 40%; 
+    top:320%;
+    left: 110%; 
   }
   .prom17{
-    position: relative;
-    top:-750%;
-    left: 100%;
+    position: absolute;
+    top:330%;
+    left: 140%;
 
   }
   .prom18{
-    position: relative;
-    top:-700%;
-    left: 150%; 
+    position: absolute;
+    top:590%;
+    left: 350%; 
   }
   .prom19{
-    position: relative;
-    top:-870%;
+    position: absolute;
+    top:370%;
     left: 250%; 
   }
   .prom20{
