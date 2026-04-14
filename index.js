@@ -73,6 +73,7 @@ const pamyatnik6 = document.querySelector(".pamyatnik6");
 const pamyatnik7 = document.querySelector(".pamyatnik7");
 const pamyatnik8 = document.querySelector(".pamyatnik8");
 const pamyatnik9 = document.querySelector(".pamyatnik9");
+const title3=document.querySelector(".title3")
 const pamyatnik10 = document.querySelector(".pamyatnik10");
 const mcp= document.querySelector(" .modal-content-past")
 const pamyatnik11 = document.querySelector(".pamyatnik11");
@@ -122,7 +123,7 @@ const images = document.querySelectorAll(".slider img");
 let modal_arrows = document.querySelector(".modal_arrows");
 let modal_arrows_past_next = document.querySelector(".modal_arrows_past_next");
 let modal_arrows_past_back = document.querySelector(".modal_arrows_past_back");
-
+let filtr=document.querySelector(".filtr")
 let currentIndex = 0;
 let isRealHero = false;
 let realHeroPath = "";
@@ -137,6 +138,8 @@ let reference = document.querySelector(".reference");
 let content;
 let contentIndex = 0;
 let isPromishlinost
+let present_pamyatniki=document.querySelector(".present_pamyatniki")
+let present_factory=document.querySelector(".present_factory")
 function showCategory(categoryToShow, e) {
   const allItems = document.querySelectorAll(".gallery_pamyatnik");
   
@@ -474,9 +477,12 @@ lang.addEventListener("click", () => {
     for (let i of vern) {
       i.innerHTML = "Нажмите, чтобы вернуться";
     }
+    present_pamyatniki.innerHTML="Памятники";
+    present_factory.innerHTML="Промышленность"
     text.innerHTML = "Нажмите, чтобы начать";
     bt16.innerHTML = "Гомельская область";
     bt15.innerHTML = "Минская область";
+    title3.innerHTML="Производства Беларуси"
     bt19.innerHTML = "Брестская область";
     bt20.innerHTML = "Могилевская область";
     bt21.innerHTML = "Витебская область";
@@ -485,7 +491,7 @@ lang.addEventListener("click", () => {
     li3.innerHTML = "Номер телефона: 8 (0232) 50-12-73";
     li2.innerHTML = "Адрес: г. Гомель, ул. Объездная, 2";
     pamyatnik1s.innerHTML = 'Мемориальный <br />комплекс<br/>"Хатынь"';
-    pamyatnik2s.innerHTML = "курган славы";
+    pamyatnik2s.innerHTML = "Курган славы";
     pamyatnik3s.innerHTML = "Мемориальный <br/>косплекс<br />Шталаг 342";
     pamyatnik4s.innerHTML = 'Мемориал<br/>"Яма"';
     pamyatnik5s.innerHTML = "Мемориал <br/>вечный огонь";
@@ -518,8 +524,10 @@ lang.addEventListener("click", () => {
       t1.innerHTML = "Интерактивные часы";
     } else {
       t2.innerHTML = "Взгляд в будущее";
-    }
-
+    }      if (StateNumber == 4){
+             t2.innerHTML = "Эхо настоящего";
+        }
+filtr.innerHTML="Фильтр"
     document.querySelector(".scienceb").innerHTML = "НАУКА";
     document.querySelector(".medb").innerHTML = "МЕДИЦИНА";
     document.querySelector(".warb").innerHTML = "АРМИЯ";
@@ -531,11 +539,15 @@ lang.addEventListener("click", () => {
     for (let i of vern) {
       i.innerHTML = "Націсніце, каб вярнуцца";
     }
+    filtr.innerHTML="Фiльтр"
+        present_pamyatniki.innerHTML="Помнікі";
+    present_factory.innerHTML="Прамысловасць"
     text.innerHTML = "Націсніце, каб пачаць";
     bt16.innerHTML = "Гомельская вобласць";
     bt15.innerHTML = "Мінская вобласць";
     bt19.innerHTML = "Брэсцкая вобласць";
     bt20.innerHTML = "Магілёўская вобласць";
+    title3.innerHTML="Вытворчасці Беларусі"
     bt21.innerHTML = "Віцебская вобласць";
     bt22.innerHTML = "Гродзенская вобласць";
     h_footer.innerHTML = "Як звязацца з намі?";
@@ -577,6 +589,9 @@ lang.addEventListener("click", () => {
     } else {
       t2.innerHTML = "Погляд у будучыню";
     }
+        if (StateNumber == 4){
+             t2.innerHTML = "Рэха сапраўднага";
+        }
 
     document.querySelector(".scienceb").innerHTML = "НАВУКА";
     document.querySelector(".medb").innerHTML = "МЕДЫЦЫНА";
@@ -1169,6 +1184,7 @@ fetch("monuments.json")
       nameMonument.style.color="white"
     }
   }
+
   prom.forEach((el,i)=>{
     console.log(prom[i])
     el.addEventListener("click", ()=>{
