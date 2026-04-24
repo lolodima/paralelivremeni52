@@ -6,6 +6,7 @@
     display: none; 
     position: fixed;
     z-index: 1000000;
+        overflow-y: hidden;
     left: 0;
     top: 0;
     width: 100%; 
@@ -39,6 +40,7 @@
   .modalPast {
     user-select: auto;
     display: none;
+
       position: fixed; 
       z-index: 1000000;
       left: 0;
@@ -52,7 +54,7 @@
       user-select: auto;
       padding-right: 20px;
       height: 80%;
-      overflow-y: auto;
+      overflow-y: hidden;
       border: 1px solid rgb(0, 0, 0)fff;
       width: 80%;
       color: black;
@@ -70,7 +72,7 @@
   .close, .cClose, .pClose {
     color: black;
     float: right;
-    font-size: 28px;
+    font-size: 56px;
     background-color: transparent;
     margin: 3px;
     border-radius: 3px;
@@ -116,9 +118,9 @@
 color: rgb(0, 0, 0);
 font-family: "Russo One", sans-serif;
 font-weight: normal;
-display: flex;
 border-radius: 10px;
-margin-left: 50%;
+margin: auto;
+text-align: center;
 font-size: 220%;
 user-select: auto;
 }

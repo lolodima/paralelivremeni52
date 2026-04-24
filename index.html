@@ -8,7 +8,8 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+        <meta name="viewport" content="width=1200, user-scalable=yes" />
     <title>Наследие</title>
 
     <link rel="stylesheet" href="./style.css" />
@@ -104,14 +105,14 @@
 
       <div class="cyber oblast_cyber"></div>
 
-      <div class="cyber_title cyber vern">Нажмите, чтобы вернуться</div>
+      <div class="cyber_title cyber vern">Нажмите на часы, чтобы вернуться</div>
 
       <div target="_blank" class="steam_a steem">
         <img class="sImage" src="./img/allBelarusMinsk.png" />
         <br />
         <p class="steam_a_p">Минская область</p>
       </div>
-      <div class="steem_title steem vern">Нажмите, чтобы вернуться</div>
+      <div class="steem_title steem vern">Нажмите на часы, чтобы вернуться</div>
 
       <div class="panel steem">
         <div class="sButton">
@@ -146,7 +147,7 @@
 
         <div class="pamyatnik2 pamyatnik century20 area1">
           <img src="img/komplex.png" class="pamyatnik2img" />
-          <span class="pamyatnik2-span">курган славы</span>
+          <span class="pamyatnik2-span">Курган славы</span>
         </div>
         <div
           class="pamyatnik3 pamyatnik century20 area1"
@@ -527,19 +528,19 @@
             </div>
           </div>
       <div class=" present  presentChanger">
-        <button onclick="presentChanger(false)">
+        <button onclick="presentChanger(false)" class="present_pamyatniki">
           Памятники
         </button>
-        <button onclick="presentChanger(true)">
+        <button onclick="presentChanger(true)" class="present_factory">
           Промышленность
         </button>
       </div>
-      <div class="text animated1">Нажмите, чтобы начать</div>
+      <div class="text animated1">Нажмите на часы, чтобы начать</div>
 
       <div class="container">
         <div class="cyber_back_container">
           <div class="filter cyber">
-            <h2>Фильтр</h2>
+            <h2 class="filtr">Фильтр</h2>
             <button type="button" class="heroesb filter_btn">герои беларуси</button>
             <button type="button" class="scienceb filter_btn">наука</button>
             <button type="button" class="warb filter_btn">армия</button>
