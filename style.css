@@ -140,3 +140,6 @@ marquee {
 .modal_arrows:hover {
   cursor: pointer;
 }
+p>a{
+  color:white;
+}
