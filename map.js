@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 let map = L.map('map').setView([53.54, 27.23], 6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -45,46 +47,129 @@ const names = [
     "Памятник Милицонерам Погибшим При Исполнении Служебных Обязанностей"
 ];
 
+const addresses = [
+    "г. Гомель, ул. Привакзальная",
+    "г. Витебск, ул. Покровская, 11",
+    "г. Минск, ул. Старовиленская (возле Троицкого предместья)",
+    "г. Гомель, Набережная улица",
+    "г. Витебск, площадь Победы",
+    "г. Минск, ул. Немига, 2",
+    "г. Минск, пр-т Победителей, 10",
+    "г. Минск, ул. М. Богдановича, 7",
+    "г. Минск, пр-т Независимости, 50",
+    "г. Минск, ул. Я. Коласа, 25",
+    "г. Гомель, ул. Сухого, 1",
+    "г. Минск, пр-т Независимости, 26",
+    "г. Гомель, ул. Б. Хмельницкого, 2",
+    "г. Полоцк, ул. Курган Бессмертия",
+    "г. Гродно, ул. Э. Ожешко, 2",
+    "г. Минск, ул. К. Маркса, 19"
+];
+
 // Добавляем метки
 locations.forEach((coords, i) => {
-    L.marker(coords, { draggable: false }) // Запрещаем перетаскивание
+    L.marker(coords, { draggable: false })
         .addTo(map)
         .bindPopup(names[i]);
 });
 
-// Обработка клика по кнопке
+// Функция для показа названия и адреса над картой
+function showPresentTitle(name, address) {
+    const titleEl = document.querySelector(".present_title");
+    if (!titleEl) return;
+    titleEl.innerHTML = '<span class="present_address_label">' + name + '</span><br><span class="present_address_text">' + address + '</span>';
+    titleEl.setAttribute("style", "display: block !important; visibility: visible !important; opacity: 1 !important;");
+}
+
+// Обработка клика по кнопкам памятников
 for (let i = 0; i < locations.length; i++) {
-    document.querySelector('.pp' + (i + 1)).addEventListener('click', () => {
+    const btn = document.querySelector('.pp' + (i + 1));
+    if (!btn) continue;
+    btn.addEventListener('click', function() {
         buildRoute(locations[i]);
-        document.querySelector(".present_title").innerHTML= document.querySelector('.pp' + (i + 1)+">.tooltip-text").innerHTML
+        // Берём название из .address, адрес из data-address
+        const name = btn.querySelector('.address') ? btn.querySelector('.address').innerHTML : names[i];
+        const address = btn.getAttribute('data-address') || addresses[i];
+        showPresentTitle(name, address);
     });
 }
 
+// Default fallback coordinates (Minsk, Belarus) used if geolocation is unavailable
+const DEFAULT_COORDS = [53.9006, 27.5590];
+
+// Cached user position so we don't ask for permission on every click
+let cachedUserCoords = null;
+let geolocationAttempted = false;
+
 function buildRoute(targetCoords) {
-    if (!navigator.geolocation) {
-        alert("Геолокация не поддерживается вашим браузером");
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+        drawRoute(DEFAULT_COORDS, targetCoords);
         return;
     }
 
-    navigator.geolocation.getCurrentPosition(
-        position => {
-            const userCoords = [position.coords.latitude, position.coords.longitude];
+    if (cachedUserCoords) {
+        drawRoute(cachedUserCoords, targetCoords);
+        return;
+    }
 
-            if (currentRoute) {
-                map.removeControl(currentRoute);
-            }
+    if (geolocationAttempted) {
+        drawRoute(DEFAULT_COORDS, targetCoords);
+        return;
+    }
+    geolocationAttempted = true;
 
-            currentRoute = L.Routing.control({
-                waypoints: [
-                    L.latLng(userCoords),
-                    L.latLng(targetCoords)
-                ],
-                routeWhileDragging: false,
-                show: false
-            }).addTo(map);
-        },
-        error => {
-            alert("Ошибка определения местоположения: " + error.message);
-        }
-    );
+    let timedOut = false;
+    const timer = setTimeout(function () {
+        timedOut = true;
+        drawRoute(DEFAULT_COORDS, targetCoords);
+    }, 4000);
+
+    try {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                if (timedOut) return;
+                clearTimeout(timer);
+                cachedUserCoords = [position.coords.latitude, position.coords.longitude];
+                drawRoute(cachedUserCoords, targetCoords);
+            },
+            function () {
+                if (timedOut) return;
+                clearTimeout(timer);
+                drawRoute(DEFAULT_COORDS, targetCoords);
+            },
+            { enableHighAccuracy: false, maximumAge: 60000, timeout: 3500 }
+        );
+    } catch (e) {
+        clearTimeout(timer);
+        drawRoute(DEFAULT_COORDS, targetCoords);
+    }
 }
+
+function drawRoute(userCoords, targetCoords) {
+    try {
+        if (currentRoute) {
+            try { map.removeControl(currentRoute); } catch (_) {}
+            currentRoute = null;
+        }
+
+        if (typeof L === "undefined" || typeof L.Routing === "undefined") {
+            console.warn("Leaflet Routing Machine не загружен");
+            return;
+        }
+
+        currentRoute = L.Routing.control({
+            waypoints: [
+                L.latLng(userCoords[0], userCoords[1]),
+                L.latLng(targetCoords[0], targetCoords[1])
+            ],
+            routeWhileDragging: false,
+            show: false,
+            addWaypoints: false,
+            fitSelectedRoutes: true
+        }).addTo(map);
+    } catch (e) {
+        console.warn("Не удалось построить маршрут:", e && e.message);
+    }
+}
+
+});

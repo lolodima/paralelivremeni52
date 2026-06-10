@@ -167,22 +167,6 @@ font-weight: bolder;
   user-select: auto;
 }
 
-.modal_text::-webkit-scrollbar {
-  width: 0.6vw;
-}
-
-.modal_text::-webkit-scrollbar-thumb {
-  background: #00ffff; /* Цвет ползунка */
-  border-radius: 20px; /* Закругление */
-  border: 1px solid gray; /* Граница */
-}
-
-.modal_text::-webkit-scrollbar-track {
-  background: #3c4949;
-  border-radius: 20px;
-}
-
-
 .modal_back {
   background-size: cover;
   height: 100%;
@@ -217,13 +201,75 @@ font-weight: normal;
   font-weight: lighter;
 }
 
+/* Иконка микрофона (озвучка) — общие стили */
 .micro {
-  max-width: 3vw;
-  max-height: 10vh;
+  width: 56px;
+  height: 56px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 5.5vw;
+  max-height: 5.5vw;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 250;
+  position: absolute;
+  border: 2px solid;
+  border-radius: 50%;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, filter 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.micro:active {
+  transform: scale(0.94);
+}
 
-  margin-top: 70vh;
-  position: relative;
-  left: 80%;
+/* Микрофон: позиционирование внизу справа, поднят на ~30% (10% + 20%) */
+.micro-hero,
+.micro-past {
+  right: 24px;
+  bottom: 140px;          /* поднят ещё на 20% от предыдущего положения */
+  top: auto;
+  left: auto;
+  margin: 0;
+}
+
+/* Модалка героев будущего (кибер-стиль) — голубой/циан */
+.micro-hero {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 60, 120, 0.7));
+  border-color: #00ffff;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+}
+.micro-hero:hover {
+  transform: scale(1.2) rotate(-5deg);
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 100, 200, 0.5));
+  border-color: #66ffff;
+  filter: drop-shadow(0 0 16px rgba(0, 255, 255, 1));
+}
+
+/* Модалка прошлого (стимпанк) — бронзовый/коричневый */
+.micro-past {
+  background: linear-gradient(135deg, rgba(30, 15, 0, 0.7), rgba(110, 60, 30, 0.7));
+  border-color: #b8876e;
+  filter: drop-shadow(0 0 10px rgba(184, 135, 110, 0.8));
+}
+.micro-past:hover {
+  transform: scale(1.2) rotate(-5deg);
+  background: linear-gradient(135deg, rgba(184, 135, 110, 0.3), rgba(150, 109, 89, 0.5));
+  border-color: #d4a584;
+  filter: drop-shadow(0 0 16px rgba(184, 135, 110, 1));
+}
+
+/* Модалка настоящего (Эхо настоящего) — шалфейно-зелёный */
+.present-modal .micro-past {
+  background: linear-gradient(135deg, rgba(13, 26, 18, 0.7), rgba(159, 192, 163, 0.7));
+  border-color: #9fc0a3;
+  filter: drop-shadow(0 0 10px rgba(159, 192, 163, 0.8));
+}
+.present-modal .micro-past:hover {
+  transform: scale(1.2) rotate(-5deg);
+  background: linear-gradient(135deg, rgba(159, 192, 163, 0.3), rgba(106, 138, 110, 0.5));
+  border-color: #b8d4bc;
+  filter: drop-shadow(0 0 16px rgba(159, 192, 163, 1));
 }
 .modal_arrows_past_next{
   margin-top: 35vh;

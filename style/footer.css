@@ -38,3 +38,16 @@ footer img{
   z-index: 20;
   margin-top: -100%;
 }
+
+.footerLinks a {
+  color: #45454d;
+  text-decoration: underline;
+  text-decoration-color: #6a6a7a;
+  text-underline-offset: 2px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #a0a0b0;
+  text-decoration-color: #a0a0b0;
+}

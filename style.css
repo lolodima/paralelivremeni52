@@ -17,10 +17,26 @@
   src: local("AKONY Bold") url("./style//fonts/akony/AKONY.ttf");
 }
 
-body {
-  overflow-y: hidden;
+html, body {
+  overflow: hidden !important;
+  position: fixed;
   height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
+
+.wrapperAllDontTouch {
+  overflow: hidden !important;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
 
 .text {
   color: white;
@@ -142,4 +158,249 @@ marquee {
 }
 p>a{
   color:white;
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #13131d;;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483647;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Mobile overlay - shown on small screens to inform user that desktop version is recommended */
+#mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #13131d;
+  z-index: 2147483646;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  font-family: "Tektur", sans-serif;
+  color: #00ffff;
+}
+
+#mobile-overlay.active {
+  display: flex;
+}
+
+#mobile-overlay .mobile-overlay-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+#mobile-overlay .mobile-overlay-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+#mobile-overlay .mobile-overlay-text {
+  font-size: 16px;
+  max-width: 480px;
+  line-height: 1.5;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+#mobile-overlay .mobile-overlay-button {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-family: "Tektur", sans-serif;
+  background: #00ffff;
+  color: #13131d;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.2s ease;
+}
+
+#mobile-overlay .mobile-overlay-button:hover {
+  background: #66ffff;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #00ffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.preloader-text {
+  margin-top: 20px;
+  color: #00ffff;
+  font-family: "Tektur", sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   Custom Scrollbar Styles – only inside content sections
+   (flat colors, no gradients, no shadows)
+   ============================================================ */
+
+/* ============================================================
+   Cyber / Future – flat cyan (#00ffff)
+   ============================================================ */
+.oblast_cyber::-webkit-scrollbar,
+.cyber::-webkit-scrollbar,
+.filter::-webkit-scrollbar,
+.cyber_back_container::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar,
+.modal_text::-webkit-scrollbar {
+  width: 8px;
+}
+.oblast_cyber::-webkit-scrollbar-track,
+.cyber::-webkit-scrollbar-track,
+.filter::-webkit-scrollbar-track,
+.cyber_back_container::-webkit-scrollbar-track,
+.modal-content::-webkit-scrollbar-track,
+.modal_text::-webkit-scrollbar-track {
+  background: #0f1a2e;
+  border-radius: 10px;
+}
+.oblast_cyber::-webkit-scrollbar-thumb,
+.cyber::-webkit-scrollbar-thumb,
+.filter::-webkit-scrollbar-thumb,
+.cyber_back_container::-webkit-scrollbar-thumb,
+.modal-content::-webkit-scrollbar-thumb,
+.modal_text::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 10px;
+  border: 1px solid #008080;
+}
+.oblast_cyber::-webkit-scrollbar-thumb:hover,
+.cyber::-webkit-scrollbar-thumb:hover,
+.filter::-webkit-scrollbar-thumb:hover,
+.cyber_back_container::-webkit-scrollbar-thumb:hover,
+.modal-content::-webkit-scrollbar-thumb:hover,
+.modal_text::-webkit-scrollbar-thumb:hover {
+  background: #66ffff;
+}
+
+/* ============================================================
+   Steampunk / Past – flat brown (#966d59)
+   ============================================================ */
+.steam::-webkit-scrollbar,
+.steem::-webkit-scrollbar,
+.steam_a::-webkit-scrollbar,
+.steam_back_container::-webkit-scrollbar,
+.oblast::-webkit-scrollbar,
+.modal-content-past::-webkit-scrollbar,
+.modal_text_past::-webkit-scrollbar {
+  width: 8px;
+}
+.steam::-webkit-scrollbar-track,
+.steem::-webkit-scrollbar-track,
+.steam_a::-webkit-scrollbar-track,
+.steam_back_container::-webkit-scrollbar-track,
+.oblast::-webkit-scrollbar-track,
+.modal-content-past::-webkit-scrollbar-track,
+.modal_text_past::-webkit-scrollbar-track {
+  background: #1a1210;
+  border-radius: 10px;
+}
+.steam::-webkit-scrollbar-thumb,
+.steem::-webkit-scrollbar-thumb,
+.steam_a::-webkit-scrollbar-thumb,
+.steam_back_container::-webkit-scrollbar-thumb,
+.oblast::-webkit-scrollbar-thumb,
+.modal-content-past::-webkit-scrollbar-thumb,
+.modal_text_past::-webkit-scrollbar-thumb {
+  background: #966d59;
+  border-radius: 10px;
+  border: 1px solid #6b4a3a;
+}
+.steam::-webkit-scrollbar-thumb:hover,
+.steem::-webkit-scrollbar-thumb:hover,
+.steam_a::-webkit-scrollbar-thumb:hover,
+.steam_back_container::-webkit-scrollbar-thumb:hover,
+.oblast::-webkit-scrollbar-thumb:hover,
+.modal-content-past::-webkit-scrollbar-thumb:hover,
+.modal_text_past::-webkit-scrollbar-thumb:hover {
+  background: #b8876e;
+}
+
+/* ============================================================
+   Present / "Эхо настоящего" – sage green (#9fc0a3)
+   ============================================================ */
+.present::-webkit-scrollbar,
+.present_oblast::-webkit-scrollbar,
+.proiszvodstvaList::-webkit-scrollbar,
+.proizvostva::-webkit-scrollbar,
+.mapContainer::-webkit-scrollbar,
+.barier::-webkit-scrollbar,
+.present_pamyatniki::-webkit-scrollbar,
+.present-modal.modal-content-past::-webkit-scrollbar,
+.present-modal .modal_text_past::-webkit-scrollbar {
+  width: 8px;
+}
+.present::-webkit-scrollbar-track,
+.present_oblast::-webkit-scrollbar-track,
+.proiszvodstvaList::-webkit-scrollbar-track,
+.proizvostva::-webkit-scrollbar-track,
+.mapContainer::-webkit-scrollbar-track,
+.barier::-webkit-scrollbar-track,
+.present_pamyatniki::-webkit-scrollbar-track,
+.present-modal.modal-content-past::-webkit-scrollbar-track,
+.present-modal .modal_text_past::-webkit-scrollbar-track {
+  background: #0d1a12;
+  border-radius: 10px;
+}
+.present::-webkit-scrollbar-thumb,
+.present_oblast::-webkit-scrollbar-thumb,
+.proiszvodstvaList::-webkit-scrollbar-thumb,
+.proizvostva::-webkit-scrollbar-thumb,
+.mapContainer::-webkit-scrollbar-thumb,
+.barier::-webkit-scrollbar-thumb,
+.present_pamyatniki::-webkit-scrollbar-thumb,
+.present-modal.modal-content-past::-webkit-scrollbar-thumb,
+.present-modal .modal_text_past::-webkit-scrollbar-thumb {
+  background: #9fc0a3;
+  border-radius: 10px;
+  border: 1px solid #6a8a6e;
+}
+.present::-webkit-scrollbar-thumb:hover,
+.present_oblast::-webkit-scrollbar-thumb:hover,
+.proiszvodstvaList::-webkit-scrollbar-thumb:hover,
+.proizvostva::-webkit-scrollbar-thumb:hover,
+.mapContainer::-webkit-scrollbar-thumb:hover,
+.barier::-webkit-scrollbar-thumb:hover,
+.present_pamyatniki::-webkit-scrollbar-thumb:hover,
+.present-modal.modal-content-past::-webkit-scrollbar-thumb:hover,
+.present-modal .modal_text_past::-webkit-scrollbar-thumb:hover {
+  background: #b8d4bc;
+}
+.cyber_back_container{
+  overflow: hidden !important;
 }

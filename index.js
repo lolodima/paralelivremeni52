@@ -137,7 +137,7 @@ const HeroDate = document.querySelector("lifeTime");
 let reference = document.querySelector(".reference");
 let content;
 let contentIndex = 0;
-let isPromishlinost
+let isPromishlinost = false;
 let present_pamyatniki=document.querySelector(".present_pamyatniki")
 let present_factory=document.querySelector(".present_factory")
 function showCategory(categoryToShow, e) {
@@ -238,11 +238,15 @@ document.querySelectorAll(".showAll").forEach((button) => {
   button.addEventListener("click", (el) => showAllCategories(el));
 });
 
+// Включает/выключает «активную» иконку микрофона для текущей активной модалки
 function setActiveMicro(switch1) {
-  if (switch1) {
-    document.querySelector(".micro").src = "./img/micro_active.png";
-  } else {
-    document.querySelector(".micro").src = "./img/micro.png";
+  const src = switch1 ? "./img/micro_active.png" : "./img/micro.png";
+  // Сначала сбрасываем все микрофоны в обычное состояние
+  document.querySelectorAll(".micro").forEach(m => { m.src = "./img/micro.png"; });
+  // Затем подсвечиваем микрофон активной модалки (если она есть)
+  const srcObj = getActiveSpeechSource();
+  if (srcObj && srcObj.micro && switch1) {
+    srcObj.micro.src = src;
   }
 }
 
@@ -658,6 +662,19 @@ function toggleVisibility(elements, isVisible) {
     el.style.zIndex = isVisible ? 999 : 0;
     el.style.opacity = isVisible ? "0.8" : "0";
   });
+  // Сбрасываем present_title при скрытии present-вкладки
+  if (!isVisible) {
+    const titleEl = document.querySelector(".present_title");
+    if (titleEl) {
+      titleEl.setAttribute("style", "display: none !important; visibility: hidden !important; opacity: 0 !important;");
+    }
+  } else {
+    // При показе present-вкладки убеждаемся, что barier непрозрачный
+    const barierEl = document.querySelector(".barier");
+    if (barierEl) {
+      barierEl.style.opacity = "1";
+    }
+  }
 }
 
 // Обработчики событий
@@ -695,6 +712,62 @@ clCenter.addEventListener("click", () => {
   clPresent.style.display = "block";
   cl.click();
 });
+function saveState() {
+  let lastArea = "";
+  if (lastSteamButton) {
+    const btMap = { bt15: "bt15", bt16: "bt16", bt19: "bt19", bt20: "bt20", bt21: "bt21", bt22: "bt22" };
+    for (const [key, val] of Object.entries(btMap)) {
+      if (lastSteamButton === eval(val)) {
+        lastArea = key;
+        break;
+      }
+    }
+  }
+  localStorage.setItem("labubuState", JSON.stringify({
+    stateNumber: StateNumber,
+    langChange: langChange,
+    lastArea: lastArea,
+    presentMode: isPromishlinost
+  }));
+}
+
+function restoreState() {
+    const saved = localStorage.getItem("labubuState");
+  if (saved) {
+    try {
+      const data = JSON.parse(saved);
+      StateNumber = data.stateNumber;
+      langChange = data.langChange || false;
+      if (data.presentMode !== undefined) {
+        isPromishlinost = data.presentMode;
+      }
+      if (langChange) {
+        lang.innerHTML = 'BY <img class="" src="./img/globus.png"/>';
+        ggmk.src = "./img/ggmk_bel.png";
+      }
+      switch (StateNumber) {
+        case 1:
+          clSteam.click();
+          break;
+        case 2:
+          clCyber.click();
+          break;
+        case 3:
+          setCenter();
+          break;
+        case 4:
+          clPresent.click();
+          break;
+      }
+      if (data.lastArea) {
+        const btn = eval(data.lastArea);
+        if (btn) btn.click();
+      }
+    } catch (e) {
+      console.error("Ошибка восстановления состояния:", e);
+    }
+  }
+}
 function setSteem() {
   let m = 0 + Math.random() * 110;
   let s = 0 + Math.random() * 110;
@@ -712,6 +785,7 @@ function setSteem() {
   t2.innerHTML = langChange ? "Памяць аб мінулым" : "Память о прошлом";
   text.style.display = "none";
   document.querySelector(".clock").style.marginLeft = "10%";
+  saveState();
 }
 function setCyber() {
   t1.style.display = "inline";
@@ -731,6 +805,7 @@ function setCyber() {
   t2.innerHTML = langChange ? "Погляд у будучыню" : "Взгляд в будущее";
   document.querySelector(".clock").style.marginLeft = "calc(90% - 250px)";
   text.style.display = "none";
+  saveState();
 }
 function setPresent() {
   sBackCont.style.flex = 0;
@@ -751,6 +826,8 @@ function setPresent() {
   t2.innerHTML = langChange ? "Рэха сапраўднага" : "Эхо настоящего";
 
   text.style.display = "none";
+  presentChanger(isPromishlinost);
+  saveState();
 }
 function setCenter() {
   zagolovok.style.backgroundImage = "url(style/header_image.png)";
@@ -771,6 +848,7 @@ function setCenter() {
   setTimeout(() => {
     text.style.display = "block";
   }, 10);
+  saveState();
 }
 cl.addEventListener("click", (e) => {
   let m, s;
@@ -1074,16 +1152,216 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => console.error("Ошибка загрузки JSON:", error));
 });
 
-//озвучка
+// === Озвучка (улучшенная, работает во всех модалках) ==================
+// Два микрофона: #micro-hero (модалка героев будущего) и #micro-past (модалка прошлого/настоящего)
 const modal_text_p = document.querySelector("#modal_text_p");
-const speak = document.getElementById("micro");
+const speakHero = document.getElementById("micro-hero");
+const speakPast = document.getElementById("micro-past");
+// Для обратной совместимости
+const speak = speakPast || speakHero;
 
-speak.addEventListener("click", () => {
+// Определяем, откуда брать текст и какой микрофон подсвечивать,
+// в зависимости от того, какая модалка открыта
+function getActiveSpeechSource() {
+  const heroModal = document.getElementById("myModal");
+  const pastModal = document.getElementById("myModalPast");
+  // Сначала проверяем модалку прошлого/настоящего
+  if (pastModal && pastModal.style.display === "block") {
+    const text = document.querySelector(".modal_text_past>p");
+    return { micro: speakPast, text: text ? text.innerHTML : "", key: "past" };
+  }
+  if (heroModal && heroModal.style.display !== "none" && heroModal.style.display !== "") {
+    const text = document.querySelector(".modal_text>p");
+    return { micro: speakHero, text: text ? text.innerHTML : "", key: "hero" };
+  }
+  return null;
+}
+
+// Кэш голосов: некоторые браузеры возвращают список асинхронно
+let cachedVoices = [];
+function loadVoices() {
+  if (typeof window.speechSynthesis === "undefined") return [];
+  let voices = window.speechSynthesis.getVoices();
+  if (voices && voices.length) {
+    cachedVoices = voices;
+  }
+  return cachedVoices;
+}
+if (typeof window.speechSynthesis !== "undefined") {
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+// Выбираем лучший русскоязычный голос (сначала белорусский/русский,
+// затем любой ru-* / by-*, затем дефолтный)
+function pickBestVoice(lang) {
+  const voices = cachedVoices.length ? cachedVoices : loadVoices();
+  if (!voices || !voices.length) return null;
+
+  const target = (lang || "ru").toLowerCase();
+
+  // 1) Точное совпадение языка (ru-RU, ru, by-BY, by)
+  let v = voices.find(voice => (voice.lang || "").toLowerCase() === target);
+  if (v) return v;
+
+  // 2) Совпадение по префиксу (ru-*, by-*)
+  const prefix = target.split("-")[0];
+  v = voices.find(voice => (voice.lang || "").toLowerCase().startsWith(prefix));
+  if (v) return v;
+
+  // 3) Любой русскоязычный
+  v = voices.find(voice =>
+    /ru|рус|белар|belarus|by/i.test((voice.lang || "") + " " + (voice.name || ""))
+  );
+  if (v) return v;
+
+  // 4) Дефолтный
+  return voices.find(voice => voice.default) || voices[0];
+}
+
+// Чистим HTML, оставляя только текст с предложениями
+function htmlToSpeechText(html) {
+  if (!html) return "";
+  // Удаляем все теги кроме <br>, <p>, <li>, потом превращаем их в паузы
+  const div = document.createElement("div");
+  div.innerHTML = html;
+
+  // Добавляем точки после <br>, <p>, <li> чтобы TTS делал паузы
+  div.querySelectorAll("br, p, li, h1, h2, h3, h4, h5, h6").forEach(el => {
+    el.appendChild(document.createTextNode(". "));
+  });
+
+  let text = div.textContent || div.innerText || "";
+  text = text.replace(/\s+/g, " ").trim();
+  // Сокращаем длинные строки
+  if (text.length > 5000) text = text.slice(0, 5000) + "...";
+  return text;
+}
+
+// Текущая озвучка
+let currentUtterance = null;
+let currentChunks = [];
+let currentChunkIndex = 0;
+let isSpeaking = false;
+
+function speakNextChunk() {
+  if (!isSpeaking || currentChunkIndex >= currentChunks.length) {
+    setActiveMicro(false);
+    isSpeaking = false;
+    return;
+  }
+  const chunk = currentChunks[currentChunkIndex];
+  const utterance = new SpeechSynthesisUtterance(chunk);
+  const voice = pickBestVoice(langChange ? "be" : "ru-RU");
+  if (voice) utterance.voice = voice;
+  utterance.lang = langChange ? "be-BY" : "ru-RU";
+  utterance.rate = 1.0;
+  utterance.pitch = 1.0;
+  utterance.volume = 1.0;
+
+  utterance.onend = function () {
+    if (!isSpeaking) return;
+    currentChunkIndex++;
+    speakNextChunk();
+  };
+  utterance.onerror = function (e) {
+    // Отмена (canceled) – это нормально, не логируем как ошибку
+    if (e && e.error && e.error !== "canceled" && e.error !== "interrupted") {
+      console.warn("Ошибка озвучки:", e.error);
+    }
+    setActiveMicro(false);
+    isSpeaking = false;
+  };
+
+  currentUtterance = utterance;
+  try {
+    window.speechSynthesis.speak(utterance);
+  } catch (e) {
+    console.warn("Не удалось начать озвучку:", e && e.message);
+    setActiveMicro(false);
+    isSpeaking = false;
+  }
+}
+
+// Запустить озвучку текста из активной модалки
+function startSpeech() {
+  if (typeof window.speechSynthesis === "undefined") {
+    console.warn("Браузер не поддерживает синтез речи");
+    setActiveMicro(false);
+    return;
+  }
+
+  // Прерываем предыдущую озвучку
   window.speechSynthesis.cancel();
+
+  const src = getActiveSpeechSource();
+  const rawText = htmlToSpeechText(src ? src.text : "");
+  if (!rawText) {
+    setActiveMicro(false);
+    return;
+  }
+
+  // Разбиваем на части по знакам препинания, чтобы длинные тексты
+  // корректно воспроизводились во всех браузерах
+  const sentences = rawText
+    .split(/(?<=[.!?…])\s+/)
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  // Группируем по 3-4 предложения для каждой utterance
+  currentChunks = [];
+  for (let i = 0; i < sentences.length; i += 3) {
+    currentChunks.push(sentences.slice(i, i + 3).join(" "));
+  }
+  if (!currentChunks.length) currentChunks = [rawText];
+  currentChunkIndex = 0;
+  isSpeaking = true;
   setActiveMicro(true);
-  const utterance = new SpeechSynthesisUtterance(modal_text_p.innerHTML);
-  window.speechSynthesis.speak(utterance);
+
+  // Даём браузеру время загрузить голоса при первом запуске
+  if (!cachedVoices.length) {
+    setTimeout(speakNextChunk, 100);
+  } else {
+    speakNextChunk();
+  }
+}
+
+function stopSpeech() {
+  isSpeaking = false;
+  if (typeof window.speechSynthesis !== "undefined") {
+    window.speechSynthesis.cancel();
+  }
+  currentUtterance = null;
+  currentChunks = [];
+  currentChunkIndex = 0;
+}
+
+// Обработчик клика по микрофону (общий для обоих микрофонов)
+function onMicroClick() {
+  // Если уже идёт озвучка — остановить; иначе — начать
+  if (window.speechSynthesis && window.speechSynthesis.speaking) {
+    stopSpeech();
+    setActiveMicro(false);
+  } else {
+    startSpeech();
+  }
+}
+
+[speakHero, speakPast].forEach(function (el) {
+  if (el) el.addEventListener("click", onMicroClick);
 });
+// Для обратной совместимости
+if (speak) speak.addEventListener("click", onMicroClick);
+
+// На некоторых браузерах (Chrome) озвучка останавливается при паузе в speechSynthesis.
+// Чтобы воспроизведение не «зависало», периодически пингуем движок.
+if (typeof window.speechSynthesis !== "undefined") {
+  setInterval(function () {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+      // noop, просто держим движок активным
+    }
+  }, 10000);
+}
 
 //прошлое
 const monument = document.querySelector(".monument-modal");
@@ -1097,6 +1375,7 @@ const pam = document.querySelectorAll(".pamyatnik");
 //модалка для прошлого
 function setPastModal(text, label, data, p) {
   mcp.style.backgroundImage="url('./style/img/past_modal.png')"
+  mcp.classList.remove("present-modal");
   if (isPrompt == false) {
     content = data.content;
     console.log(content);
@@ -1183,6 +1462,7 @@ fetch("monuments.json")
   .catch((error) => console.error("Ошибка загрузки JSON:", error));
   function setPresentModal(text, label, data, p) {
     mcp.style.backgroundImage="url('./style/img/present_modal.png')"
+    mcp.classList.add("present-modal");
     if (isPrompt == false) {
       content = data.content;
       console.log(content);
@@ -1253,14 +1533,17 @@ setPresentModal(text,name,factoryData[i],i)
   }
 }
 function  presentChanger(isProisvodstva){
-
+  isPromishlinost = isProisvodstva;
+  const btnMonuments = document.querySelector(".present_pamyatniki");
+  const btnFactory = document.querySelector(".present_factory");
   if(isProisvodstva){
     document.querySelector(".prezent_pamyatniki").style.display="none"
     document.querySelector(".mapContainer").style.display="none"
     document.querySelector(".proiszvodstvaList").style.display="flex"
     document.querySelector(".proizvostva").style.display="block"
     barier.style.display="none"
-  
+    btnMonuments.classList.remove("active");
+    btnFactory.classList.add("active");
   }
   else{
     document.querySelector(".prezent_pamyatniki").style.display="block"
@@ -1268,6 +1551,72 @@ function  presentChanger(isProisvodstva){
     document.querySelector(".proiszvodstvaList").style.display="none"
     document.querySelector(".proizvostva").style.display="none"
     barier.style.display="block"
+    btnMonuments.classList.add("active");
+    btnFactory.classList.remove("active");
+  }
+  saveState();
+}
+
+// Preloader: hide after 2 seconds when page is fully loaded
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("preloader").classList.add("hidden");
+  }, 2000);
+  restoreState();
+});
+
+// Mobile detection: BLOCK the website completely on phones/tablets (no dismiss option)
+(function checkMobile() {
+  function isMobileDevice() {
+    // Check screen width
+    if (window.innerWidth < 1024) return true;
+
+    // Check user agent for mobile devices
+    const ua = navigator.userAgent.toLowerCase();
+    const mobileKeywords = [
+      "android", "iphone", "ipod", "ipad", "blackberry",
+      "windows phone", "opera mini", "iemobile", "mobile"
+    ];
+    for (const keyword of mobileKeywords) {
+      if (ua.indexOf(keyword) !== -1) return true;
+    }
+
+    // Check for touch support as additional indicator
+    if ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) {
+      // Only consider it mobile if touch AND small screen or mobile-like aspect
+      if (window.innerWidth < 1200) return true;
+    }
+
+    return false;
   }
 
-}
+  const overlay = document.getElementById("mobile-overlay");
+  const wrapper = document.querySelector(".wrapperAllDontTouch");
+  const footer = document.querySelector(".o_nas");
+  const preloader = document.getElementById("preloader");
+
+  if (isMobileDevice()) {
+    // Show blocking overlay
+    if (overlay) overlay.classList.add("active");
+    // Hide all site content completely
+    if (wrapper) wrapper.style.display = "none";
+    if (footer) footer.style.display = "none";
+    if (preloader) preloader.style.display = "none";
+    // Block scrolling and any further interaction
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    return; // Stop initialization on mobile
+  }
+
+  // Force all dynamically created or existing links to open in a new window/tab
+  // (defensive measure on top of the <base target="_blank"> tag)
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest && e.target.closest("a[href]");
+    if (!link) return;
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+    if (link.target && link.target !== "_self") return;
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
+  }, true);
+})();

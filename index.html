@@ -12,6 +12,9 @@
         <meta name="viewport" content="width=1200, user-scalable=yes" />
     <title>Наследие</title>
 
+    <!-- Base target makes all links open in a new window/tab -->
+    <base target="_blank" rel="noopener noreferrer" />
+
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./style/steam.css" />
     <link rel="stylesheet" href="./style/cyber.css" />
@@ -27,6 +30,18 @@
       type="text/javascript"></script>
   </head>
   <body>
+
+    <div id="preloader">
+      <div class="preloader-spinner"></div>
+      <div class="preloader-text">Идет загрузка...</div>
+    </div>
+    <div id="mobile-overlay">
+      <div class="mobile-overlay-icon">💻</div>
+      <div class="mobile-overlay-title">Настольная версия</div>
+      <div class="mobile-overlay-text">
+        Ошибка, веб-сайт поддерживает только версию для настольных компьютеров. Пожалуйста, откройте сайт на устройстве с большим экраном (компьютер, ноутбук).
+      </div>
+    </div>
     <div class="wrapperAllDontTouch">
       <header class="zagolovok">
         <!-- <img src="img/gerb.png" alt="герб" class="gerb">-->
@@ -55,11 +70,11 @@
               onclick="changeHeroImage()"
               alt=""
               class="modal_arrows" />
-            <img src="./img/micro.png" class="micro" id="micro" />
             <a class="reference" target="_blank">
               <img src="./img/yt.png" class="youtubemodal" />
             </a>
           </div>
+          <img src="./img/micro.png" class="micro micro-hero" id="micro-hero" data-target="hero" alt="Озвучить текст" title="Озвучить текст" />
           <span class="cClose">&times;</span>
           <h2 class="nameHero"></h2>
           <h2 class="lifeTime">dfsfshd</h2>
@@ -91,12 +106,12 @@
               allowfullscreen></iframe>
 
             <img src="" alt="" class="monument-modal" />
-
-            <img src="" class="micro" />
           </div>
+          <img src="./img/micro.png" class="micro micro-past" id="micro-past" data-target="past" alt="Озвучить текст" title="Озвучить текст" />
 
           <span class="pClose">&times;</span>
           <h2 class="nameMonument"></h2>
+          <div class="present-address"></div>
           <div class="modal_text_past">
             <p id="modal_text_p"></p>
           </div>
@@ -363,7 +378,7 @@
 
       <div class="present present_oblast">
         <div class="prezent_pamyatniki">
-        <div class="prezent_pamyatnik pp1 tooltip-container" title="Памятник  «100 лет белорусской милиции»">
+        <div class="prezent_pamyatnik pp1 tooltip-container" title="Памятник  «100 лет белорусской милиции»" data-address="г. Минск, ул. Городской Вал, 4">
           <img
             src="./img/настоящее/100 лет милици.jfif"
             alt=""
@@ -371,76 +386,76 @@
         </div>
         <div
           class="prezent_pamyatnik pp2 tooltip-container"
-          title="Памятник посвященный Марку Шагалу">
+          title="Памятник посвященный Марку Шагалу" data-address="г. Витебск, ул. Покровская, 5">
           <img src="./img/настоящее/шагал.jpg" alt="" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp3 tooltip-container"
-          title="Памятник посвященный Сынам">
+          title="Памятник посвященный Сынам" data-address="г. Минск, пр-т Победителей, 7">
           <img src="./img/настоящее/сынам.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp4 tooltip-container"
-          title="Памятник посвященный Лодочник">
+          title="Памятник посвященный Лодочник" data-address="г. Гомель, ул. Советская, 1">
           <img src="./img/настоящее/лодочник.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp5 tooltip-container"
-          title="Мемориал ''Три штыка''">
+          title="Мемориал ''Три штыка''" data-address="г. Минск, пр-т Победителей, 8">
           <img src="./img/настоящее/три штыка.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp6 tooltip-container"
-          title="Памятник посвященный Немиге">
+          title="Памятник посвященный Немиге" data-address="г. Минск, ул. Немига, 2">
           <img src="./img/настоящее/нимига.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp7 tooltip-container"
-          title="Памятник посвященный Чернобльской трагедии">
+          title="Памятник посвященный Чернобльской трагедии" data-address="г. Минск, пр-т Победителей, 10">
           <img src="./img/настоящее/чернобль.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp8 tooltip-container tooltip-top"
-          title="Памятник посвященный Максиму Богдановичу">
+          title="Памятник посвященный Максиму Богдановичу" data-address="г. Минск, ул. М. Богдановича, 7">
           <img src="./img/богданович.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp9 tooltip-container"
-          title="Памятник посвященный Якубу Коласу">
+          title="Памятник посвященный Якубу Коласу" data-address="г. Минск, пр-т Независимости, 50">
           <img src="./img/настоящее/коласу.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp10 tooltip-container"
-          title="Памятник посвященный Язэпа">
+          title="Памятник посвященный Язэпа" data-address="г. Минск, ул. Я. Коласа, 25">
           <img src="./img/настоящее/язэпя.jfif" class="demo-box" />
         </div>
         <div
-          class="prezent_pamyatnik pp11 tooltip-container">
+          class="prezent_pamyatnik pp11 tooltip-container" data-address="г. Гомель, ул. Сухого, 1">
           <img src="./img/настоящее/сухому.jfif" class="demo-box" title="Памятник посвященный Сухому" />
         </div>
         <div
           class="prezent_pamyatnik pp12 tooltip-container"
-          title="Памятник посвященный Франциску Скарыне">
+          title="Памятник посвященный Франциску Скарыне" data-address="г. Минск, пр-т Независимости, 26">
           <img src="./img/настоящее/скарына.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp13 tooltip-container"
-          title="Памятник посвященный Богдану Хмельницкому">
+          title="Памятник посвященный Богдану Хмельницкому" data-address="г. Гомель, ул. Б. Хмельницкого, 2">
           <img src="./img/настоящее/хмель.jfif" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp14 tooltip-container"
-          title="Памятник Курган бессмертия">
+          title="Памятник Курган бессмертия" data-address="г. Полоцк, ул. Курган Бессмертия">
           <img src="./img/настоящее/курган бессмертия.jpg" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp15 tooltip-container"
-          title="Памятник посвященный Жану Эммануэлю Жилиберу">
+          title="Памятник посвященный Жану Эммануэлю Жилиберу" data-address="г. Гродно, ул. Э. Ожешко, 2">
           <img src="./img/настоящее/жилибер.jpg" class="demo-box" />
         </div>
         <div
           class="prezent_pamyatnik pp16 tooltip-container"
-          title="Памятник посвященный милиции">
+          title="Памятник посвященный милиции" data-address="г. Минск, ул. К. Маркса, 19">
           <img src="./img/настоящее/полиция.jpg" class="demo-box" />
         </div>
       </div>
@@ -475,7 +490,7 @@
            <img  class="prom prom18" src="./img/логотипы/Гомельский_химзавод.jpg"/>
      
            <img  class="prom prom19" src="./img/логотипы/спартак.png"/>
-         
+          
               
                   <img  class="prom prom20" src="./img/логотипы/комунарка.jfif"/>
          <!-- <img  src="./img/логотипы/савушкин продукт.jfif"/>
@@ -489,7 +504,7 @@
       <span class="title3">
         Производства Беларуси
       </span>  
- 
+
                <div class="proizvodstvoLi"  onclick="setPersonalPresentModal(18)"> ОАО «Гомельский химический завод»</div>
                <div class="proizvodstvoLi" onclick="setPersonalPresentModal(9)">ЗАО «АТЛАНТ»</div>
                <div class="proizvodstvoLi" onclick="setPersonalPresentModal(19)">СП ОАО «СПАРТАК»</div>
@@ -501,11 +516,11 @@
                <div class="proizvodstvoLi">ОАО «Нафтан» </div> -->
                <div class="proizvodstvoLi" onclick="setPersonalPresentModal(4)">ПО «Белоруснефть»(Гефест) </div>
                <div class="proizvodstvoLi" onclick="setPersonalPresentModal(17)">ОАО "БЕЛАРУСЬКАЛИЙ" </div>
-      
+       
                <div class="proizvodstvoLi" onclick="setPersonalPresentModal(1)">ОАО «БЕЛАЗ» </div>
                <div class="proizvodstvoLi" onclick="setPersonalPresentModal(8)">ОАО «Милкавита»</div>
                <div class="proizvodstvoLi"  onclick="setPersonalPresentModal(11)">Холдинг «ГОМСЕЛЬМАШ»;</div>
-       
+        
                <div class="proizvodstvoLi"  onclick="setPersonalPresentModal(16)">ОАО «Минский автомобильный завод» (МАЗ) </div>
                <div class="proizvodstvoLi"  onclick="setPersonalPresentModal(15)">ОАО «Минский тракторный завод»; </div>
                <div class="proizvodstvoLi"  onclick="setPersonalPresentModal(14)">Белорусский металлургический завод (БМЗ) </div>
@@ -520,10 +535,9 @@
 
           </div>
           <div class="mapContainer">
+            <div class="present present_title"></div>
             <div id="map" class="present kard"></div>
             <div class="barier present">
-            <div class="present present_title"></div>
-    
               .
             </div>
           </div>
@@ -570,7 +584,7 @@
     <footer class="o_nas">
       <h2 class="h_footer">Как связаться с нами?</h2>
       <div class="footerLinks">
-        <p class="li1">Email: gmt@mail.gomel.by</p>
+        <p class="li1">Email:<a href="https://mail.google.com/mail/u/0/#search/gmt%40mail.gomel.by">gmt@mail.gomel.by</a> </p>
         <p class="li2">Адрес: г.Гомель, ул.Объездная, 2</p>
         <p class="li3">Номер телефона: 8 (0232) 50-12-73</p>
       </div>
