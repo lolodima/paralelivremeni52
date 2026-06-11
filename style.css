@@ -56,7 +56,7 @@ html, body {
 
 
 .animated1{
-  animation: typing 2s steps(30, end) forwards;
+  animation: typing 2s steps(37, end) forwards;
 }
 
 
@@ -66,7 +66,7 @@ html, body {
     border-right: 2px solid white;
   }
   to {
-    width: 28ch;
+    width: 35ch;
     border-right: 0px solid white;
   }
 }

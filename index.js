@@ -208,6 +208,8 @@ document.querySelector(".pClose").addEventListener("click", () => {
   monumentVidio.style.display = "none";
   isVidio = false;
   monument.style.display = "block";
+  window.speechSynthesis.cancel();
+  setActiveMicro(false);
 });
 document.querySelectorAll(".scienceb").forEach((button) => {
   button.addEventListener("click", (e) => showCategory("science", e));
@@ -395,6 +397,8 @@ huian.addEventListener("click", () => {
   monument.style.display = "block";
   isRealHero = false;
   modal_arrows.style.transform = "rotate(0deg)";
+  window.speechSynthesis.cancel();
+  setActiveMicro(false);
 });
 
 cHuian.addEventListener("click", () => {
@@ -404,6 +408,7 @@ cHuian.addEventListener("click", () => {
   monumentVidio.style.display = "none";
   monument.style.display = "block";
   window.speechSynthesis.cancel();
+  setActiveMicro(false);
 });
 
 window.onclick = function (event) {
