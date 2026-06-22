@@ -56,17 +56,22 @@ html, body {
 
 
 .animated1{
-  animation: typing 2s steps(37, end) forwards;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  border-right: 2px solid white;
+  animation: typing 2s steps(30, end) forwards;
 }
 
-
+/* Ключевые кадры анимации печатания */
 @keyframes typing { 
   from {
-    width: 0ch;
+    max-width: 0;
     border-right: 2px solid white;
   }
   to {
-    width: 35ch;
+    max-width: 100%;
     border-right: 0px solid white;
   }
 }
