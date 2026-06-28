@@ -790,7 +790,7 @@ function setSteem() {
   toggleVisibility(present, false);
   sBack.src = "img/sBack.png";
   zagolovok.style.backgroundImage = "url(./style/szagolovok.png)";
-  footerr.style.backgroundImage = "url(./style/sfoot.png)";
+  footerr.style.backgroundImage = "url(./style/sfoot.png)"; 
   t2.innerHTML = langChange ? "Памяць аб мінулым" : "Память о прошлом";
   text.style.display = "none";
   document.querySelector(".clock").style.marginLeft = "10%";
