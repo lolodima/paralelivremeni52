@@ -1,4 +1,6 @@
 "use strict";
+// Глобальная переменная для языка (используется в map.js)
+window.langChange = false;
 
 const sc = document.querySelector("#sc");
 const mn = document.querySelector("#mn");
@@ -63,6 +65,7 @@ const pamyatnik21s = document.querySelector(".pamyatnik21>span");
 const pamyatnik22s = document.querySelector(".pamyatnik22>span");
 const pamyatnik23s = document.querySelector(".pamyatnik23>span");
 const pamyatnik24s = document.querySelector(".pamyatnik24>span");
+const pamyatnik28s = document.querySelector(".pamyatnik28>span");
 const pamyatnik1 = document.querySelector(".pamyatnik1");
 const youtubemodal = document.querySelector(".youtubemodal");
 const pamyatnik2 = document.querySelector(".pamyatnik2");
@@ -481,6 +484,12 @@ lang.addEventListener("click", () => {
   }
   ggmk.src = "./img/ggmk.png";
   langChange = !langChange;
+  
+  // Синхронизация языка с картой
+  window.langChange = langChange;
+  if (window.updatePresentTitles) {
+    window.updatePresentTitles(langChange);
+  }
 
   if (!langChange) {
     for (let i of vern) {
@@ -526,6 +535,7 @@ lang.addEventListener("click", () => {
       "Памятник Учителям и Ученикам - <br />Погибшим В Годы Великой Отечественной Войны";
     pamyatnik23s.innerHTML = "Братская могила советских ...";
     // pamyatnik24s.innerHTML = "комплекс <br />холокоста";
+      pamyatnik28s.innerHTML= "Брестская крепость"
     if (StateNumber == 1) {
       t2.innerHTML = "Память о прошлом";
     } else if (StateNumber == 0 || StateNumber == 3) {
@@ -647,7 +657,7 @@ if (items.length > 0) {
         if (StateNumber == 4){
              t2.innerHTML = "Рэха сапраўднага";
         }
-
+    pamyatnik28s.innerHTML= "Брэсцкая крэпасць"
     document.querySelector(".scienceb").innerHTML = "НАВУКА";
     document.querySelector(".medb").innerHTML = "МЕДЫЦЫНА";
     document.querySelector(".warb").innerHTML = "АРМІЯ";
@@ -728,16 +738,10 @@ function saveState() {
       }
     }
   }
-  localStorage.setItem("labubuState", JSON.stringify({
-    stateNumber: StateNumber,
-    langChange: langChange,
-    lastArea: lastArea,
-    presentMode: isPromishlinost
-  }));
+
 }
 
 function restoreState() {
-    const saved = localStorage.getItem("labubuState");
   if (saved) {
     try {
       const data = JSON.parse(saved);
@@ -792,6 +796,9 @@ function setSteem() {
   document.querySelector(".clock").style.marginLeft = "10%";
   saveState();
 }
+ggmk.addEventListener("click",()=>{
+  setCenter()
+})
 function setCyber() {
   t1.style.display = "inline";
   sBackCont.style.flex = 0;
@@ -832,6 +839,12 @@ function setPresent() {
 
   text.style.display = "none";
   presentChanger(isPromishlinost);
+  
+  // Обновляем заголовок при переключении на вкладку настоящего
+  if (window.updatePresentTitles) {
+    window.updatePresentTitles(langChange);
+  }
+  
   saveState();
 }
 function setCenter() {
@@ -1456,7 +1469,7 @@ fetch("monuments.json")
       });
     });
   })
-  .catch((error) => console.error("Ошибка загрузки JSON:", error));4
+  .catch((error) => console.error("Ошибка загрузки JSON:", error));
   fetch("factory.json")
   .then((response) => response.json())
   .then((data) => {

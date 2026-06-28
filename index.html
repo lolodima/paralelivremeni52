@@ -14,7 +14,6 @@
 
     <!-- Base target makes all links open in a new window/tab -->
     <base target="_blank" rel="noopener noreferrer" />
-
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./style/steam.css" />
     <link rel="stylesheet" href="./style/cyber.css" />
@@ -54,9 +53,12 @@
       <!-- Модальный -->
       <div id="myModal" class="modal">
         <div class="slider">
-          <img src="./img/cyber_prompt.jpg" />
           <img src="./img/center_prompt.jpg" />
-          <img src="./img/past_promp.jpg" />
+          <img src="./img/cyber_prompt.png" />
+
+          <img src="./img/past_promp.png" />
+          <img src="./img/present_prompt1.png" />
+          <img src="./img/present_prompt2.png" />
           <img src="./img/prompt_key.png" />
           <span class="close">&times;</span>
           <button class="prev"><</button>
@@ -378,87 +380,102 @@
 
       <div class="present present_oblast">
         <div class="prezent_pamyatniki">
-        <div class="prezent_pamyatnik pp1 tooltip-container" title="Памятник  «100 лет белорусской милиции»" data-address="г. Минск, ул. Городской Вал, 4">
-          <img
-            src="./img/настоящее/100 лет милици.jfif"
-            alt=""
-            class="demo-box" />
+          <div class="prezent_pamyatnik pp1 tooltip-container" 
+               title="Памятник  «100 лет белорусской милиции»" 
+               data-address="г. Минск, ул. Городской Вал, 4"
+               data-name="Памятник 100-летию милиции">
+            <img src="./img/настоящее/100 лет милици.jfif" alt="" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp2 tooltip-container"
+               title="Памятник посвященный Марку Шагалу" 
+               data-address="г. Витебск, ул. Покровская, 5"
+               data-name="Памятник Марку Шагалу">
+            <img src="./img/настоящее/шагал.jpg" alt="" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp3 tooltip-container"
+               title="Памятник посвященный Сынам" 
+               data-address="г. Минск, пр-т Победителей, 7"
+               data-name="Мемориал Сынам Отечества">
+            <img src="./img/настоящее/сынам.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp4 tooltip-container"
+               title="Памятник посвященный Лодочник" 
+               data-address="г. Гомель, ул. Советская, 1"
+               data-name="Лодочник — первопоселенец и рысь">
+            <img src="./img/настоящее/лодочник.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp5 tooltip-container"
+               title="Мемориал ''Три штыка''" 
+               data-address="г. Минск, пр-т Победителей, 8"
+               data-name="Три штыка">
+            <img src="./img/настоящее/три штыка.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp6 tooltip-container"
+               title="Памятник посвященный Немиге" 
+               data-address="г. Минск, ул. Немига, 2"
+               data-name="Мемориал Сынам Отечества (дубль)">
+            <img src="./img/настоящее/нимига.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp7 tooltip-container"
+               title="Памятник посвященный Чернобльской трагедии" 
+               data-address="г. Минск, пр-т Победителей, 10"
+               data-name="Памятник жертвам чернобыля">
+            <img src="./img/настоящее/чернобль.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp8 tooltip-container tooltip-top"
+               title="Памятник посвященный Максиму Богдановичу" 
+               data-address="г. Минск, ул. М. Богдановича, 7"
+               data-name="Памятник Богдану Хмельницкому">
+            <img src="./img/богданович.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp9 tooltip-container"
+               title="Памятник посвященный Якубу Коласу" 
+               data-address="г. Минск, пр-т Независимости, 50"
+               data-name="Памятник Якубу Коласу">
+            <img src="./img/настоящее/коласу.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp10 tooltip-container"
+               title="Памятник посвященный Язэпа" 
+               data-address="г. Минск, ул. Я. Коласа, 25"
+               data-name="Памятник Язэпу Дроздовичу">
+            <img src="./img/настоящее/язэпя.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp11 tooltip-container" 
+               data-address="г. Гомель, ул. Сухого, 1"
+               data-name="Памятник Павлу Сухому">
+            <img src="./img/настоящее/сухому.jfif" class="demo-box" title="Памятник посвященный Сухому" />
+          </div>
+          <div class="prezent_pamyatnik pp12 tooltip-container"
+               title="Памятник посвященный Франциску Скарыне" 
+               data-address="г. Минск, пр-т Независимости, 26"
+               data-name="Памятник Франциску Скарыне">
+            <img src="./img/настоящее/скарына.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp13 tooltip-container"
+               title="Памятник посвященный Богдану Хмельницкому" 
+               data-address="г. Гомель, ул. Б. Хмельницкого, 2"
+               data-name="Памятник Богдану Хмельницкому (дубль)">
+            <img src="./img/настоящее/хмель.jfif" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp14 tooltip-container"
+               title="Памятник Курган бессмертия" 
+               data-address="г. Полоцк, ул. Курган Бессмертия"
+               data-name="Курган бессмертия">
+            <img src="./img/настоящее/курган бессмертия.jpg" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp15 tooltip-container"
+               title="Памятник посвященный Жану Эммануэлю Жилиберу" 
+               data-address="г. Гродно, ул. Э. Ожешко, 2"
+               data-name="Вечный огонь в гродненском парке жилибера">
+            <img src="./img/настоящее/жилибер.jpg" class="demo-box" />
+          </div>
+          <div class="prezent_pamyatnik pp16 tooltip-container"
+               title="Памятник посвященный милиции" 
+               data-address="г. Минск, ул. К. Маркса, 19"
+               data-name="Памятник Милицонерам Погибшим При Исполнении Служебных Обязанностей">
+            <img src="./img/настоящее/полиция.jpg" class="demo-box" />
+          </div>
         </div>
-        <div
-          class="prezent_pamyatnik pp2 tooltip-container"
-          title="Памятник посвященный Марку Шагалу" data-address="г. Витебск, ул. Покровская, 5">
-          <img src="./img/настоящее/шагал.jpg" alt="" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp3 tooltip-container"
-          title="Памятник посвященный Сынам" data-address="г. Минск, пр-т Победителей, 7">
-          <img src="./img/настоящее/сынам.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp4 tooltip-container"
-          title="Памятник посвященный Лодочник" data-address="г. Гомель, ул. Советская, 1">
-          <img src="./img/настоящее/лодочник.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp5 tooltip-container"
-          title="Мемориал ''Три штыка''" data-address="г. Минск, пр-т Победителей, 8">
-          <img src="./img/настоящее/три штыка.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp6 tooltip-container"
-          title="Памятник посвященный Немиге" data-address="г. Минск, ул. Немига, 2">
-          <img src="./img/настоящее/нимига.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp7 tooltip-container"
-          title="Памятник посвященный Чернобльской трагедии" data-address="г. Минск, пр-т Победителей, 10">
-          <img src="./img/настоящее/чернобль.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp8 tooltip-container tooltip-top"
-          title="Памятник посвященный Максиму Богдановичу" data-address="г. Минск, ул. М. Богдановича, 7">
-          <img src="./img/богданович.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp9 tooltip-container"
-          title="Памятник посвященный Якубу Коласу" data-address="г. Минск, пр-т Независимости, 50">
-          <img src="./img/настоящее/коласу.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp10 tooltip-container"
-          title="Памятник посвященный Язэпа" data-address="г. Минск, ул. Я. Коласа, 25">
-          <img src="./img/настоящее/язэпя.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp11 tooltip-container" data-address="г. Гомель, ул. Сухого, 1">
-          <img src="./img/настоящее/сухому.jfif" class="demo-box" title="Памятник посвященный Сухому" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp12 tooltip-container"
-          title="Памятник посвященный Франциску Скарыне" data-address="г. Минск, пр-т Независимости, 26">
-          <img src="./img/настоящее/скарына.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp13 tooltip-container"
-          title="Памятник посвященный Богдану Хмельницкому" data-address="г. Гомель, ул. Б. Хмельницкого, 2">
-          <img src="./img/настоящее/хмель.jfif" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp14 tooltip-container"
-          title="Памятник Курган бессмертия" data-address="г. Полоцк, ул. Курган Бессмертия">
-          <img src="./img/настоящее/курган бессмертия.jpg" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp15 tooltip-container"
-          title="Памятник посвященный Жану Эммануэлю Жилиберу" data-address="г. Гродно, ул. Э. Ожешко, 2">
-          <img src="./img/настоящее/жилибер.jpg" class="demo-box" />
-        </div>
-        <div
-          class="prezent_pamyatnik pp16 tooltip-container"
-          title="Памятник посвященный милиции" data-address="г. Минск, ул. К. Маркса, 19">
-          <img src="./img/настоящее/полиция.jpg" class="demo-box" />
-        </div>
-      </div>
       
 
         <img

@@ -111,23 +111,23 @@
   top: 100%;
 }
 .pp12 {
-  left: 60%;
-  top: 120%;
+  left: 28%;
+  top: 95%;
 }
 .pp13 {
   left: 50%;
   top: 120%;
 }
 .pp14 {
-  left: 10%;
-  top: 80%;
+  left: 35%;
+  top: 18%;
 }
 .pp15 {
   left: 20%;
   top: 70%;
 }
 .pp16 {
-  left: 25%;
+  left: 28%;
   top: 50%;
 }
 .pp17 {
@@ -182,7 +182,7 @@
     justify-content: center;
     text-align: center;
     width: 22.5vw;
-    margin-top: -20%;
+    margin-top: -16%;
     margin-left: 3%;
 }
 .presentChanger{
@@ -318,7 +318,7 @@ font-family: "Russo One", sans-serif;
   box-shadow: 0 0 15px rgba(255,255,255,0.5);
   }
 .title3{
-  padding-top:1000px;
+  padding-top:800px;
 }
 .prom1{
 position: absolute;

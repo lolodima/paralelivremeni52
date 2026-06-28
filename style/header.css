@@ -41,6 +41,7 @@
   max-width: 25%;
   min-height: 25%;
   margin: 0.5%;
+  cursor: pointer;
   position: absolute;
   z-index: 999;
 }
